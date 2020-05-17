@@ -13,6 +13,7 @@ import { FoodsComponent } from './foods/foods.component';
 import { FoodListComponent } from './foods/food-list/food-list.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     FoodListComponent,
     FoodDetailComponent,
     FoodItemComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
