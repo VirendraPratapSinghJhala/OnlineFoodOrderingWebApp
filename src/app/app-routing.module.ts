@@ -8,9 +8,9 @@ import { FoodsComponent } from './foods/foods.component';
 
 const routes: Routes = [
   
-  {path:'admin-home',component:AdminHomeComponent,
-   children:[{path:'about',component:AboutComponent}]},
-  {path:'foods',component:FoodsComponent},
+  {path:'admin-home',component:AdminHomeComponent},
+  {path:'foodsmenu',component:FoodsComponent},
+  {path:'about',component:AboutComponent},
   {path:'',redirectTo:'admin-home',pathMatch:'full'}
 
 ];

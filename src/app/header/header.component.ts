@@ -16,7 +16,7 @@ export class HeaderComponent{
     }
 
     onMenuClick(){
-      this.router.navigate(['foods',{relativeTo:this.route}]);
+      this.router.navigate(['/foodsmenu']);
 
     }
   
