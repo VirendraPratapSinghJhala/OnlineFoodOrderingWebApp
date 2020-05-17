@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { FoodsComponent } from './foods/foods.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'login', component:LoginFormComponent},
   {path:'register', component:RegisterFormComponent},
+  {path:'updateuser', component:UpdateProfileComponent},
   {path:'',redirectTo:'admin-home',pathMatch:'full'}
 
 ];

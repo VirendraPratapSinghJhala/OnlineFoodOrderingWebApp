@@ -14,6 +14,7 @@ import { FoodListComponent } from './foods/food-list/food-list.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     FoodDetailComponent,
     FoodItemComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
