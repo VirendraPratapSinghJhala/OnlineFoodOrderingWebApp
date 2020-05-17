@@ -1,0 +1,18 @@
+
+
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-outline-success">Add New Food Item </button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+    
+            <app-food-item [item]="foodItem" *ngFor="let foodItem of foodItems"></app-food-item>
+        
+        </div>
+    </div>
+</div>

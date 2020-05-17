@@ -1,0 +1,42 @@
+<div class="container my-lg-5">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="foodItem.imagePath" alt="{{foodItem.name}}" class="img-responsive">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{foodItem.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button type="button" class="btn btn-primary dropdown-toggle" >Manage Food Item<span
+                        class="caret"></span></button>
+                <ul class="dropdown-menu ">
+                    <li><a (click)="onAddToCart()" style="cursor: pointer;">Add To Cart</a></li>
+                    <li><a href="#">Edit Food Item</a></li>
+                    <li><a href="#">Delete Food Item</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            FOOD TYPE : {{foodItem.type}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    PRICE : {{foodItem.price}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
