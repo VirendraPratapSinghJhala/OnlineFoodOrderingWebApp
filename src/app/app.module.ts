@@ -12,6 +12,7 @@ import { FoodItemComponent } from './foods/food-list/food-item/food-item.compone
 import { FoodsComponent } from './foods/foods.component';
 import { FoodListComponent } from './foods/food-list/food-list.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
     FoodsComponent,
     FoodListComponent,
     FoodDetailComponent,
-    FoodItemComponent
+    FoodItemComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
