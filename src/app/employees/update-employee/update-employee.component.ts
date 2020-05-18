@@ -20,11 +20,13 @@ export class UpdateEmployeeComponent implements OnInit {
   ngOnInit(): void {
 
     this.updateForm=new FormGroup({
-
-      'foodName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'foodPrice': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'imagePath': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'employeeId': new FormControl(null,[Validators.required]),
+      'employeeName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'city':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'employeeAge': new FormControl(null,[Validators.required,Validators.min(1)]),
+      'password':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'mobileNumber': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
     }
     );
   }
@@ -35,7 +37,7 @@ export class UpdateEmployeeComponent implements OnInit {
 
    this.employee=this.updateForm.value;
 
-   this.employee=new Employee(this.updateForm.value.name,this.updateForm.value.city,this.updateForm.value.age,this.updateForm.value.imagePath,this.updateForm.value.mobileNumber);
+   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.name,this.updateForm.value.city,this.updateForm.value.age,this.updateForm.value.imagePath,this.updateForm.value.mobileNumber);
 
   
 

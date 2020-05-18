@@ -13,7 +13,7 @@ export class AddEmployeeComponent implements OnInit {
 
   isFormSubmitted=false;
 
-  employee=null;
+  employee:Employee=null;
 
   constructor() { }
 
@@ -37,7 +37,7 @@ export class AddEmployeeComponent implements OnInit {
 
    this.employee=this.addForm.value;
 
-   this.employee=new Employee(this.addForm.value.name,this.addForm.value.city,this.addForm.value.age,this.addForm.value.imagePath,this.addForm.value.mobileNumber);
+   this.employee=new Employee(null, this.addForm.value.name,this.addForm.value.city,this.addForm.value.age,this.addForm.value.imagePath,this.addForm.value.mobileNumber);
 
   
 
