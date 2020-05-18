@@ -15,12 +15,14 @@ import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
-import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
+import { AddFoodStoreComponent } from './food-stores/add-food-store/add-food-store.component';
 import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
 import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
-import { UpdateFoodStoreComponent } from './update-food-store/update-food-store.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
-import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { UpdateFoodStoreComponent } from './food-stores/update-food-store/update-food-store.component';
+import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './employees/update-employee/update-employee.component';
+import { FoodStoreComponent } from './food-stores/food-store.component';
+import { EmployeeComponent } from './employees/employee.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     UpdateFoodItemComponent,
     UpdateFoodStoreComponent,
     AddEmployeeComponent,
-    UpdateEmployeeComponent
+    UpdateEmployeeComponent,
+    FoodStoreComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
