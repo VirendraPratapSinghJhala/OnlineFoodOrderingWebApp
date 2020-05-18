@@ -23,6 +23,7 @@ import { AddEmployeeComponent } from './employees/add-employee/add-employee.comp
 import { UpdateEmployeeComponent } from './employees/update-employee/update-employee.component';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EmployeeComponent } from './employees/employee.component';
     AddEmployeeComponent,
     UpdateEmployeeComponent,
     FoodStoreComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

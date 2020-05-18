@@ -15,6 +15,7 @@ import { AddEmployeeComponent } from './employees/add-employee/add-employee.comp
 import { UpdateEmployeeComponent } from './employees/update-employee/update-employee.component';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'updateuser', component:UpdateProfileComponent},
   {path:'addfooditem', component:AddFoodItemComponent},
   {path:'updatefooditem', component:UpdateFoodItemComponent},
+  {path:'cart', component:CartComponent},
   {path:'foodstore', component:FoodStoreComponent,
       children:[{path: 'add', component:AddFoodStoreComponent}, {path: 'update', component:UpdateFoodStoreComponent}]},
   {path:'employee', component:EmployeeComponent,
