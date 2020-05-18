@@ -13,6 +13,15 @@ import { FoodsComponent } from './foods/foods.component';
 import { FoodListComponent } from './foods/food-list/food-list.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
 import { FoodsStartComponent } from './foods/foods-start/foods-start.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
+import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
+import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
+import { UpdateFoodStoreComponent } from './update-food-store/update-food-store.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +34,16 @@ import { FoodsStartComponent } from './foods/foods-start/foods-start.component';
     FoodListComponent,
     FoodDetailComponent,
     FoodItemComponent,
-    FoodsStartComponent
+    FoodsStartComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    UpdateProfileComponent,
+    AddFoodStoreComponent,
+    AddFoodItemComponent,
+    UpdateFoodItemComponent,
+    UpdateFoodStoreComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,
