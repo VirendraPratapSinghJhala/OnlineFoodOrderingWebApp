@@ -16,7 +16,6 @@ export class FoodListComponent implements OnInit {
 
   ngOnInit(){
 
-   this.foodItems= this.foodsService.getFoodItems();
 
   }
 

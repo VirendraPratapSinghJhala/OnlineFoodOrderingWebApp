@@ -38,7 +38,7 @@ export class AddFoodItemComponent implements OnInit {
 
    this.foodItem=new Food_Item(this.addForm.value.foodName,this.addForm.value.foodType,this.addForm.value.foodPrice,this.addForm.value.imagePath);
 
-  this.foodsService.addFoodItem(this.foodItem);
+  this.foodsService.postFoodItem(this.foodItem);
 
   alert('Food Item has been added');
    this.addForm.reset();
