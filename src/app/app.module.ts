@@ -18,6 +18,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
 import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
 import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
+import { UpdateFoodStoreComponent } from './update-food-store/update-food-store.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-it
     UpdateProfileComponent,
     AddFoodStoreComponent,
     AddFoodItemComponent,
-    UpdateFoodItemComponent
+    UpdateFoodItemComponent,
+    UpdateFoodStoreComponent,
+    AddEmployeeComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
 import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
 import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
+import { UpdateFoodStoreComponent } from './update-food-store/update-food-store.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 
 const routes: Routes = [
@@ -23,6 +26,9 @@ const routes: Routes = [
   {path:'addfooditem', component:AddFoodItemComponent},
   {path:'updatefooditem', component:UpdateFoodItemComponent},
   {path:'addfoodstore', component:AddFoodStoreComponent},
+  {path:'updatefoodstore', component:UpdateFoodStoreComponent},
+  {path:'addemployee', component:AddEmployeeComponent},
+  {path:'updateemployee', component:UpdateEmployeeComponent},
   {path:'',redirectTo:'admin-home',pathMatch:'full'}
 
 ];
