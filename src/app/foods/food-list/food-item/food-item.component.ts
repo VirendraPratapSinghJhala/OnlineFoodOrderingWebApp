@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Food_Item } from '../../food-item.model';
-import { FoodsService } from '../../foods.service';
-
 
 
 @Component({
@@ -14,15 +12,13 @@ import { FoodsService } from '../../foods.service';
     @Input()
     item:Food_Item=null;
   
-    constructor(private foodsService:FoodsService) { }
+    @Input()
+    index:number;
+    
   
     ngOnInit(): void {
     }
   
-    onFoodItemSelect(){
-  
-      this.foodsService.foodItemSelected.next(this.item);
-  
-    }
+   
   }
   

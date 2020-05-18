@@ -12,6 +12,7 @@ import { FoodItemComponent } from './foods/food-list/food-item/food-item.compone
 import { FoodsComponent } from './foods/foods.component';
 import { FoodListComponent } from './foods/food-list/food-list.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
+import { FoodsStartComponent } from './foods/foods-start/foods-start.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
@@ -36,6 +37,7 @@ import { CartComponent } from './cart/cart.component';
     FoodListComponent,
     FoodDetailComponent,
     FoodItemComponent,
+    FoodsStartComponent,
     LoginFormComponent,
     RegisterFormComponent,
     UpdateProfileComponent,

@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AboutComponent } from './about/about.component';
 import { FoodsComponent } from './foods/foods.component';
+import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
+import { FoodsStartComponent } from './foods/foods-start/foods-start.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
@@ -21,7 +23,9 @@ import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
   
   {path:'admin-home',component:AdminHomeComponent},
-  {path:'foodsmenu',component:FoodsComponent},
+  {path:'foodsmenu',component:FoodsComponent,
+  children:[{path:'',component:FoodsStartComponent},
+  {path:':id',component:FoodDetailComponent}]},
   {path:'about',component:AboutComponent},
   {path:'login', component:LoginFormComponent},
   {path:'register', component:RegisterFormComponent},
