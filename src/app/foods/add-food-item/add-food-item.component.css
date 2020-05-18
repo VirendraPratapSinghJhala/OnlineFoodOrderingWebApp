@@ -829,3 +829,19 @@ ol, ul {
 	overflow:hidden;
 	font-size: 13px;
 }
+
+input.ng-invalid.ng-touched.ng-pristine{
+	 
+border:1px solid red;
+
+}
+
+input.ng-invalid.ng-touched.ng-dirty{
+
+	border:1px solid red;
+
+}
+
+.help-block{
+	color:red;
+}
