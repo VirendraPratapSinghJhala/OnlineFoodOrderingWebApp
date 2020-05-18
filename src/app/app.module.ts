@@ -15,6 +15,9 @@ import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
+import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
+import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     FoodItemComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    AddFoodStoreComponent,
+    AddFoodItemComponent,
+    UpdateFoodItemComponent
   ],
   imports: [
     BrowserModule,

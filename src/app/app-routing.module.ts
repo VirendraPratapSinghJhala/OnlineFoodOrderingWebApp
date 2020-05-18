@@ -7,6 +7,9 @@ import { FoodsComponent } from './foods/foods.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { AddFoodItemComponent } from './foods/add-food-item/add-food-item.component';
+import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-item.component';
+import { AddFoodStoreComponent } from './add-food-store/add-food-store.component';
 
 
 const routes: Routes = [
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path:'login', component:LoginFormComponent},
   {path:'register', component:RegisterFormComponent},
   {path:'updateuser', component:UpdateProfileComponent},
+  {path:'addfooditem', component:AddFoodItemComponent},
+  {path:'updatefooditem', component:UpdateFoodItemComponent},
+  {path:'addfoodstore', component:AddFoodStoreComponent},
   {path:'',redirectTo:'admin-home',pathMatch:'full'}
 
 ];
