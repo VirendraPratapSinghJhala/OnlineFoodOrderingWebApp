@@ -23,10 +23,10 @@ export class FoodsService{
                                 //because we dont want that someone from outside directly changes our array
     }
 
-    // addIngredientsToShoppingList(ingredients:Ingredient[])
-    // {
-    //     this.slService.addIngredients(ingredients);
 
-    // }
+    getFoodItemById(index:number)
+    {
+        return this.food_Items[index];
+    }
 
 }
