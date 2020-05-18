@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <h2><a class="navbar-brand" href="#">Food OnWay</a></h2>
+  <h2><a class="navbar-brand" href="">Food OnWay</a></h2>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,40 +7,42 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item "routerLinkActive="active" routerLinkActiveOptions="{exact:true}">
-        <a class="nav-link" routerLink="/admin-home" >Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item " routerLinkActive="active" routerLinkActiveOptions="{exact:true}">
+        <a class="nav-link" routerLink="/admin-home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/about">About</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="">Contact Us</a>
       </li>
       <li class="nav-item dropdown" routerLinkActive="active">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           Activities
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Trending Food Items</a>
-          <a class="dropdown-item" href="#">Most popular dishes</a>
+          <a class="dropdown-item" href="">Trending Food Items</a>
+          <a class="dropdown-item" href="">Most popular dishes</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Support</a>
+          <a class="dropdown-item" href="">Support</a>
         </div>
       </li>
 
     </ul>
     <ul>
-      <li class="btn-group my-3 dropdown"  >
-        <button type="button " class="btn btn-outline-danger dropdown-toggle">Search Food<span class="caret"></span></button>
-        <ul class="dropdown-menu" appDropdown >
-          <li>Categories</li>
-          <li class="dropdown-divider"></li>
-          <li><a style="cursor: pointer;" href="#">By Food Name</a></li>
-          <li><a style="cursor: pointer;" href="#">By Food Type</a></li>
-          <li><a style="cursor: pointer;" href="#">By Price Range</a></li>
-
-        </ul>
+      <li class="btn-group my-3 dropdown">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="">Action</a>
+            <a class="dropdown-item" href="">Another action</a>
+            <a class="dropdown-item" href="">Something else here</a>
+          </div>
+        </div>
       </li>
     </ul>
     <ul>
@@ -48,6 +50,6 @@
         <button type="button" class="btn btn-outline-success" (click)="onMenuClick()">MENU</button>
       </li>
     </ul>
-   
+
   </div>
 </nav>

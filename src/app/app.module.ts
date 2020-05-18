@@ -28,6 +28,8 @@ import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,9 +61,10 @@ import { OrderListComponent } from './order-list/order-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [FoodsService],
+  providers: [FoodsService,  {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
