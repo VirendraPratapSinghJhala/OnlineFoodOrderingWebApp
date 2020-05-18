@@ -26,6 +26,7 @@ import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [FoodsService],
   bootstrap: [AppComponent]
