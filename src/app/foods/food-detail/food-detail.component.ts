@@ -1,9 +1,10 @@
 
 
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-food-detail',
@@ -12,12 +13,19 @@ import { FoodsService } from '../foods.service';
 })
 export class FoodDetailComponent implements OnInit {
 
-  @Input()
-  foodItem:Food_Item;
   
-  constructor(private foodsService:FoodsService) { }
+  foodItem:Food_Item;
+  id:number;
+  
+  constructor(private foodsService:FoodsService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.params.subscribe(
+      (params:Params)=>{this.id= +params['id'], this.foodItem=this.foodsService.getFoodItemById(this.id);}
+      
+    );
+   
   }
 
  onAddToCart(){
