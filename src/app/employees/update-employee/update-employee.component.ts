@@ -37,7 +37,7 @@ export class UpdateEmployeeComponent implements OnInit {
 
    this.employee=this.updateForm.value;
 
-   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.name,this.updateForm.value.city,this.updateForm.value.age,this.updateForm.value.imagePath,this.updateForm.value.mobileNumber);
+   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.name,this.updateForm.value.city,this.updateForm.value.age,this.updateForm.value.mobileNumber);
 
   
 
