@@ -24,6 +24,9 @@ export class FoodsService{
     }
 
 
+    addFoodItem(foodItem:Food_Item){
+        this.food_Items.push(foodItem);
+    }
     getFoodItemById(index:number)
     {
         return this.food_Items[index];
