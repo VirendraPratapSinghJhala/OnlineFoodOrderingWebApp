@@ -26,6 +26,8 @@ import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     UpdateEmployeeComponent,
     FoodStoreComponent,
     EmployeeComponent,
-    CartComponent
+    CartComponent,
+    OrderDetailComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
