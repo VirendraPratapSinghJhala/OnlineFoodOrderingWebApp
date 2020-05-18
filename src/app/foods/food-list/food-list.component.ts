@@ -16,7 +16,7 @@ export class FoodListComponent implements OnInit {
 
   ngOnInit(){
 
-   this.foodItems= this.foodsService.getFoodItems();
+    this.foodsService.getFoodItems().subscribe();
 
   }
 
