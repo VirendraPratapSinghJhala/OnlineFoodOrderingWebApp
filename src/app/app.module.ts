@@ -37,6 +37,7 @@ import { SearchFoodComponent } from './search-food/search-food.component';
 import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
 import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
+import { FoodsStoreService } from './food-stores/food-store.service';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,7 @@ import { SearchFoodPriceComponent } from './search-food/search-food-price/search
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodStore } from '../food-store.model';
-import { FoodsStoreService } from '../foodstore.service';
+import { FoodsStoreService } from '../food-store.service';
 
 @Component({
   selector: 'app-add-food-store',

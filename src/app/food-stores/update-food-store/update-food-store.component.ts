@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodStore } from '../food-store.model';
+import { FoodsStoreService } from '../food-store.service';
 
 @Component({
   selector: 'app-update-food-store',
@@ -15,7 +16,7 @@ export class UpdateFoodStoreComponent implements OnInit {
 
   foodStore:FoodStore=null;
 
-  constructor() { }
+  constructor(private foodStoreService: FoodsStoreService) { }
 
   ngOnInit(): void {
 
@@ -38,6 +39,7 @@ export class UpdateFoodStoreComponent implements OnInit {
 
    this.foodStore=new FoodStore(this.updateForm.value.foodStoreId,this.updateForm.value.foodStoreName,this.updateForm.value.location,this.updateForm.value.mobileno,this.updateForm.value.email,this.updateForm.value.rating);
 
+   this.foodStoreService.putFoodStore(this.foodStore);
   
 
   alert('Food Item has been added');
