@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../employee.model';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-update-employee',
@@ -11,11 +12,12 @@ export class UpdateEmployeeComponent implements OnInit {
 
   updateForm:FormGroup;
 
+  isEmployeeUpdated:boolean=false;
   isFormSubmitted=false;
 
   employee:Employee=null;
 
-  constructor() { }
+  constructor(private employeesService:EmployeesService) { }
 
   ngOnInit(): void {
 
@@ -37,13 +39,20 @@ export class UpdateEmployeeComponent implements OnInit {
 
    this.employee=this.updateForm.value;
 
-   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.name,this.updateForm.value.city,this.updateForm.value.age,this.updateForm.value.mobileNumber);
+   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.employeeName,this.updateForm.value.employeeAge,null,this.updateForm.value.password,this.updateForm.value.mobileNumber,this.updateForm.value.email,this.updateForm.value.city);
 
-  
+   this.employeesService.putEmployee(this.employee).subscribe(
+    (response:boolean)=>{this.isEmployeeUpdated=response;
+    if(this.isEmployeeUpdated)
+    {alert('Employee Updated')}
+    else{alert('Employee Not Updated') };
+  },
 
-  alert('Food Item has been added');
+  (error)=>{alert(error);
+  console.log(error);}
+  );
+
    this.updateForm.reset();
-
   }
 
 
