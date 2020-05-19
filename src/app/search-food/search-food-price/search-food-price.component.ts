@@ -38,8 +38,11 @@ export class SearchFoodPriceComponent implements OnInit {
    this.minFoodPrice=this.searchByPriceRangeForm.value.minPrice;
    this.maxFoodPrice=this.searchByPriceRangeForm.value.maxPrice;
 
+   //indicate FoodListComponent to load data according to Food price range
+   this.foodsService.serviceMethodToBeCalled.next('call getFoodItemsByPriceRange'); 
+
    //call service
-   this.foodsService.getFoodItemByPriceRange(this.minFoodPrice,this.maxFoodPrice).
+   this.foodsService.getFoodItemsByPriceRange(this.minFoodPrice,this.maxFoodPrice).
    subscribe((response:Food_Item[])=>{this.foodItems=response;
                                       if(this.foodItems==null)
                                       {alert('There are no food Items currently available between price range '+this.minFoodPrice+' and '+this.maxFoodPrice);}

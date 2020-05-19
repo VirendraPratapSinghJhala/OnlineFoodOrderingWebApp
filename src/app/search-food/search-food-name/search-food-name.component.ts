@@ -34,9 +34,11 @@ export class SearchFoodNameComponent implements OnInit {
 
    this.foodName=this.searchByNameForm.value.foodName;
 
+    //indicate FoodListComponent to load data according to foodname
+    this.foodsService.serviceMethodToBeCalled.next('getFoodItemsByName'); 
 
    //call service 
-   this.foodsService.getFoodItemByName(this.foodName).subscribe(
+   this.foodsService.getFoodItemsByName(this.foodName).subscribe(
      (response:Food_Item[])=>{if(response!=null)
                                  {this.foodItems=response;
                                   console.log(this.foodItems);}
