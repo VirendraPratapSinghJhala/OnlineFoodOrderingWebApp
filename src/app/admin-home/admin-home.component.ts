@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -9,5 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AdminHomeComponent{
 
-   
+   constructor(private route:ActivatedRoute,private router:Router){
+       
+   }
+
+   ngOnInit(){
+       
+   }
+
+   onSelectManageFoodItems(){
+       this.router.navigate(['foodsmenu']);
+   }
 }

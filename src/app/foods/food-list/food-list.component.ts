@@ -35,7 +35,7 @@ export class FoodListComponent implements OnInit {
       //     alert(error);}
       // );
 
-      this.foodItems= this.foodsService.get();
+     
 
     }
 
@@ -63,6 +63,7 @@ export class FoodListComponent implements OnInit {
         //   (error)=>{console.log(error);
         //             alert(error);}
         // );
+        this.foodItems= this.foodsService.get();
 
       }
 
