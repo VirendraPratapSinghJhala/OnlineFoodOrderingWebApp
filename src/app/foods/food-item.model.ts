@@ -1,7 +1,9 @@
 
 
 
+
 export class Food_Item{
+    public foodId:number;
     public name:string;
     public type:string;
     public imagePath:string;

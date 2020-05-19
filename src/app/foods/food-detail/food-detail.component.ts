@@ -22,8 +22,12 @@ export class FoodDetailComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe(
-      (params:Params)=>{this.id= +params['id']}
+      (params:Params)=>{this.id= +params['id'];}
       
+    );
+
+    this.foodsService.getFoodItemById(this.id).subscribe(
+      (response:Food_Item)=>{this.foodItem=response;}
     );
    
   }

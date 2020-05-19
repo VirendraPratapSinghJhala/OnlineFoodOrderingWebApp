@@ -29,41 +29,40 @@ export class FoodListComponent implements OnInit {
 
     if(this.serviceMethodName=='getFoodItemsByName')
     {
-      // this.foodsService.getFoodItemsByName(this.parameter).subscribe(
-      //   (response:Food_Item[])=>{this.foodItems=response;},
-      //   (error)=>{console.log(error);
-      //     alert(error);}
-      // );
+      this.foodsService.getFoodItemsByName(this.parameter).subscribe(
+        (response:Food_Item[])=>{this.foodItems=response;},
+        (error)=>{console.log(error);
+          alert(error);}
+      );
 
      
 
     }
 
-    // else if(this.serviceMethodName=='getFoodItemsByType')
-    // {
-    //   this.foodsService.getFoodItemsByType(this.parameter).subscribe(
-    //     (response:Food_Item[])=>{this.foodItems=response},
-    //     (error)=>{console.log(error);
-    //       alert(error);}
-    //   );
-    // }
+    else if(this.serviceMethodName=='getFoodItemsByType')
+    {
+      this.foodsService.getFoodItemsByType(this.parameter).subscribe(
+        (response:Food_Item[])=>{this.foodItems=response},
+        (error)=>{console.log(error);
+          alert(error);}
+      );
+    }
 
-    //  else if(this.serviceMethodName=='getFoodItemsByPriceRange')
-    //   {
-    //     this.foodsService.getFoodItemsByPriceRange(this.parameter1,this.parameter2).subscribe(
-    //       (response:Food_Item[])=>{this.foodItems=response},
-    //       (error)=>{console.log(error);
-    //         alert(error);}
-    //     );
-    //   }
+     else if(this.serviceMethodName=='getFoodItemsByPriceRange')
+      {
+        this.foodsService.getFoodItemsByPriceRange(this.parameter1,this.parameter2).subscribe(
+          (response:Food_Item[])=>{this.foodItems=response},
+          (error)=>{console.log(error);
+            alert(error);}
+        );
+      }
 
       else{
-        // this.foodsService.getFoodItems().subscribe(
-        //   (response:Food_Item[])=>{this.foodItems=response;},
-        //   (error)=>{console.log(error);
-        //             alert(error);}
-        // );
-        this.foodItems= this.foodsService.get();
+        this.foodsService.getFoodItems().subscribe(
+          (response:Food_Item[])=>{this.foodItems=response;},
+          (error)=>{console.log(error);
+                    alert(error);}
+        );
 
       }
 

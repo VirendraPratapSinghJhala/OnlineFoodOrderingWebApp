@@ -18,14 +18,10 @@ export class FoodsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.foodItemSubscription= this.foodsService.foodItemSelected.subscribe(
-      (foodItem:Food_Item)=>{this.selectedFoodItem=foodItem}
-    );
+  
   }
 
-  ngOnDestroy(){
-    this.foodItemSubscription.unsubscribe();
-  }
+  
 
 
 }

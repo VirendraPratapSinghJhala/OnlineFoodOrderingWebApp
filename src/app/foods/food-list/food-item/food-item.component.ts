@@ -11,10 +11,7 @@ import { Food_Item } from '../../food-item.model';
   
     @Input()
     item:Food_Item=null;
-  
-    @Input()
-    index:number;
-    
+   
   
     ngOnInit(): void {
     }
