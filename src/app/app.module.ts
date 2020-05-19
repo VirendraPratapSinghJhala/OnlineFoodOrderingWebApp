@@ -33,6 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { WebApiService } from './shared/webapi.service';
+import { SearchFoodComponent } from './search-food/search-food.component';
+import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
+import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
+import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { WebApiService } from './shared/webapi.service';
     CartComponent,
     OrderDetailComponent,
     OrderListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchFoodComponent,
+    SearchFoodNameComponent,
+    SearchFoodTypeComponent,
+    SearchFoodPriceComponent
   ],
   imports: [
     BrowserModule,

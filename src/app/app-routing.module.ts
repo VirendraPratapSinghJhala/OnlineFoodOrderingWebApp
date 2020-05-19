@@ -38,9 +38,12 @@ const routes: Routes = [
   {path:'orderdetail/:id', component:OrderDetailComponent},
   {path:'orderlist', component:OrderListComponent},
   {path:'foodstore', component:FoodStoreComponent,
-      children:[{path: 'add', component:AddFoodStoreComponent}, {path: 'update', component:UpdateFoodStoreComponent}]},
+      children:[{path: 'add', component:AddFoodStoreComponent},
+       {path: 'update', component:UpdateFoodStoreComponent}]},
   {path:'employee', component:EmployeeComponent,
-      children:[{path:'add', component:AddEmployeeComponent}, {path:'update', component:UpdateEmployeeComponent}]},
+      children:[{path:'add', component:AddEmployeeComponent}, 
+      {path:'update', component:UpdateEmployeeComponent}]},
+  
   {path:'',redirectTo:'admin-home',pathMatch:'full'},
   {path:'notfound', component:NotFoundComponent},
   {path:'**', redirectTo:'notfound'}
