@@ -30,17 +30,17 @@
                                 <span> <input type="text" name="employee_id" class="form-control" formControlName="employeeId" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeId').touched && 
-                                   addForm.get('employeeId').dirty &&  addForm.get('employeeId').invalid"  >
+                                   <span class="help-block" *ngIf="updateForm.get('employeeId').touched && 
+                                   updateForm.get('employeeId').dirty &&  updateForm.get('employeeId').invalid"  >
                                    Employee Id is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeId').touched && 
-                                   addForm.get('employeeId').pristine &&  addForm.get('employeeId').invalid ">
+                                   <span class="help-block" *ngIf="updateForm.get('employeeId').touched && 
+                                   updateForm.get('employeeId').pristine &&  updateForm.get('employeeId').invalid ">
                                    Employee Id is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeId').touched && 
-                                   addForm.get('employeeId').dirty && addForm.get('employeeId').invalid && 
-                                   addForm.get('employeeId').errors['min']">
+                                   <span class="help-block" *ngIf="updateForm.get('employeeId').touched && 
+                                   updateForm.get('employeeId').dirty && updateForm.get('employeeId').invalid && 
+                                   updateForm.get('employeeId').errors['min']">
                                    Employee Id can not be negative or zero</span>
                             </div>
                         </li>
@@ -53,12 +53,12 @@
                                       /></span> 
                         
                                 
-                                <span class="help-block" *ngIf="addForm.get('employeeName').touched && 
-                                addForm.get('employeeName').dirty && addForm.get('employeeName').invalid">
+                                <span class="help-block" *ngIf="updateForm.get('employeeName').touched && 
+                                updateForm.get('employeeName').dirty && updateForm.get('employeeName').invalid">
                                 Employee name can not be left blank</span>
 
-                                <span class="help-block" *ngIf="addForm.get('employeeName').touched && 
-                                addForm.get('employeeName').pristine && addForm.get('employeeName').errors['required']">
+                                <span class="help-block" *ngIf="updateForm.get('employeeName').touched && 
+                                updateForm.get('employeeName').pristine && updateForm.get('employeeName').errors['required']">
                                 Employee name is required</span>
                             </div>
                         </li>
@@ -71,17 +71,17 @@
                                 <span> <input type="text" name="age" class="form-control" formControlName="employeeAge" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
-                                   addForm.get('employeeAge').dirty &&  addForm.get('employeeAge').invalid"  >
+                                   <span class="help-block" *ngIf="updateForm.get('employeeAge').touched && 
+                                   updateForm.get('employeeAge').dirty &&  updateForm.get('employeeAge').invalid"  >
                                    Age is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
-                                   addForm.get('employeeAge').pristine &&  addForm.get('employeeAge').invalid ">
+                                   <span class="help-block" *ngIf="updateForm.get('employeeAge').touched && 
+                                   updateForm.get('employeeAge').pristine &&  updateForm.get('employeeAge').invalid ">
                                    Age is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
-                                   addForm.get('employeeAge').dirty && addForm.get('employeeAge').invalid && 
-                                   addForm.get('employeeAge').errors['min']">
+                                   <span class="help-block" *ngIf="updateForm.get('employeeAge').touched && 
+                                   updateForm.get('employeeAge').dirty && updateForm.get('employeeAge').invalid && 
+                                   updateForm.get('employeeAge').errors['min']">
                                    Age can not be negative or zero</span>
                             </div>
                         </li>
@@ -92,12 +92,12 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="pass" class="form-control" formControlName="password"
                                     /></span>
-                                    <span class="help-block" *ngIf="addForm.get('password').touched && 
-                                    addForm.get('password').dirty && addForm.get('password').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('password').touched && 
+                                    updateForm.get('password').dirty && updateForm.get('password').invalid">
                                     Password is required</span>
 
-                                    <span class="help-block" *ngIf="addForm.get('password').touched && 
-                                    addForm.get('password').pristine && addForm.get('password').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('password').touched && 
+                                    updateForm.get('password').pristine && updateForm.get('password').invalid">
                                     Password is required</span>
                          
                             </div>
@@ -110,17 +110,17 @@
                                 <span> <input type="text" name="mobile_number" class="form-control" formControlName="mobileNumber" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
-                                   addForm.get('mobileNumber').dirty &&  addForm.get('mobileNumber').invalid" >
+                                   <span class="help-block" *ngIf="updateForm.get('mobileNumber').touched && 
+                                   updateForm.get('mobileNumber').dirty &&  updateForm.get('mobileNumber').invalid" >
                                    Mobile Number is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
-                                   addForm.get('mobileNumber').pristine &&  addForm.get('mobileNumber').invalid ">
+                                   <span class="help-block" *ngIf="updateForm.get('mobileNumber').touched && 
+                                   updateForm.get('mobileNumber').pristine &&  updateForm.get('mobileNumber').invalid ">
                                    Mobile Number is required</span>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
-                                   addForm.get('mobileNumber').dirty && addForm.get('mobileNumber').invalid && 
-                                   addForm.get('mobileNumber').errors['min']">
+                                   <span class="help-block" *ngIf="updateForm.get('mobileNumber').touched && 
+                                   updateForm.get('mobileNumber').dirty && updateForm.get('mobileNumber').invalid && 
+                                   updateForm.get('mobileNumber').errors['min']">
                                    Mobile Number can not be negative or zero</span>
                             </div>
                         </li>
@@ -131,12 +131,12 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="email1" class="form-control" formControlName="email"
                                     /></span>
-                                    <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                    addForm.get('email').dirty && addForm.get('email').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('email').touched && 
+                                    updateForm.get('email').dirty && updateForm.get('email').invalid">
                                     Email is required</span>
 
-                                    <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                    addForm.get('email').pristine && addForm.get('email').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('email').touched && 
+                                    updateForm.get('email').pristine && updateForm.get('email').invalid">
                                     Email is required</span>
                          
                             </div>
@@ -148,12 +148,12 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="city1" class="form-control" formControlName="city"
                                     /></span>
-                                    <span class="help-block" *ngIf="addForm.get('city').touched && 
-                                    addForm.get('city').dirty && addForm.get('city').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('city').touched && 
+                                    updateForm.get('city').dirty && updateForm.get('city').invalid">
                                     City is required</span>
 
-                                    <span class="help-block" *ngIf="addForm.get('city').touched && 
-                                    addForm.get('city').pristine && addForm.get('city').invalid">
+                                    <span class="help-block" *ngIf="updateForm.get('city').touched && 
+                                    updateForm.get('city').pristine && updateForm.get('city').invalid">
                                     City is required</span>
                          
                             </div>
