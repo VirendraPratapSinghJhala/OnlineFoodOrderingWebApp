@@ -36,7 +36,7 @@ export class SearchFoodTypeComponent implements OnInit {
    this.foodType=this.searchByTypeForm.value.foodType;
 
    //indicate FoodListComponent to load data according to food type
-   this.foodsService.serviceMethodToBeCalled.next('getFoodItemsByType'); 
+   this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByType',parameter:this.foodType,parameter1:0,parameter2:0}); 
 
 //call service
    //call service 

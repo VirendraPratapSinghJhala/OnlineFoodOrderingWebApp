@@ -30,24 +30,27 @@ export class SearchFoodNameComponent implements OnInit {
 
   onSubmit(){
 
+   
+
    this.isFormSubmitted=true;
 
    this.foodName=this.searchByNameForm.value.foodName;
 
     //indicate FoodListComponent to load data according to foodname
-    this.foodsService.serviceMethodToBeCalled.next('getFoodItemsByName'); 
+    this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByName',parameter:this.foodName,
+    parameter1:0,parameter2:0}); 
 
-   //call service 
-   this.foodsService.getFoodItemsByName(this.foodName).subscribe(
-     (response:Food_Item[])=>{if(response!=null)
-                                 {this.foodItems=response;
-                                  console.log(this.foodItems);}
-                              else
-                              {alert('There are no food Items available at the moment with name '+this.foodName);}
-    },
-    (error)=>{console.log(error);
-     alert(error);}
-   );
+  //  //call service 
+  //  this.foodsService.getFoodItemsByName(this.foodName).subscribe(
+  //    (response:Food_Item[])=>{if(response!=null)
+  //                                {this.foodItems=response;
+  //                                 console.log(this.foodItems);}
+  //                             else
+  //                             {alert('There are no food Items available at the moment with name '+this.foodName);}
+  //   },
+  //   (error)=>{console.log(error);
+  //    alert(error);}
+  //  );
 
    this.searchByNameForm.reset();
 

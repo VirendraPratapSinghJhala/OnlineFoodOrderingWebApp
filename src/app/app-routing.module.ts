@@ -20,13 +20,17 @@ import { CartComponent } from './cart/cart.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchFoodComponent } from './search-food/search-food.component';
+import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
+import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
+import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 
 
 const routes: Routes = [
   
   {path:'admin-home',component:AdminHomeComponent},
   {path:'foodsmenu',component:FoodsComponent,
-  children:[{path:'',component:FoodsStartComponent},
+  children:[{path:'',component:FoodsStartComponent,pathMatch:'full'},
   {path:':id',component:FoodDetailComponent}]},
   {path:'about',component:AboutComponent},
   {path:'login', component:LoginFormComponent},
@@ -40,6 +44,9 @@ const routes: Routes = [
   {path:'foodstore', component:FoodStoreComponent,
       children:[{path: 'add', component:AddFoodStoreComponent},
        {path: 'update', component:UpdateFoodStoreComponent}]},
+  {path:'searchbyfoodname',component:SearchFoodComponent},
+  {path:'searchbyfoodtype',component:SearchFoodComponent},
+   {path:'searchbyfoodpricerange',component:SearchFoodComponent},
   {path:'employee', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]},
