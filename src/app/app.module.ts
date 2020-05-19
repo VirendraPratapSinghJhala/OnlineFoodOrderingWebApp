@@ -22,6 +22,7 @@ import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-it
 import { UpdateFoodStoreComponent } from './food-stores/update-food-store/update-food-store.component';
 import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './employees/update-employee/update-employee.component';
+import { EmployeesService } from './employees/employees.service';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
@@ -32,6 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { WebApiService } from './shared/webapi.service';
+import { SearchFoodComponent } from './search-food/search-food.component';
+import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
+import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
+import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,11 @@ import { WebApiService } from './shared/webapi.service';
     CartComponent,
     OrderDetailComponent,
     OrderListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchFoodComponent,
+    SearchFoodNameComponent,
+    SearchFoodTypeComponent,
+    SearchFoodPriceComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,7 @@ import { WebApiService } from './shared/webapi.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsService, WebApiService ,{provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
