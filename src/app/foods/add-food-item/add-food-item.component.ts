@@ -12,6 +12,8 @@ export class AddFoodItemComponent implements OnInit {
 
   addForm:FormGroup=null;
 
+  foodItemId:number=null;
+
   isFormSubmitted=false;
 
   foodItem:Food_Item=null;
@@ -37,10 +39,20 @@ export class AddFoodItemComponent implements OnInit {
    this.foodItem=this.addForm.value;
 
    this.foodItem=new Food_Item(this.addForm.value.foodName,this.addForm.value.foodType,this.addForm.value.foodPrice,this.addForm.value.imagePath);
+ 
+   this.foodsService.postFoodItem(this.foodItem).subscribe(
+     (response:number)=>{this.foodItemId=response;
+    console.log('Added Food Item id :' +this.foodItemId);
+    if(this.foodItemId!=null)
+    {alert('Food Item successfully added, Added food Item id : '+this.foodItemId);}
+    else{alert('Food Item Not added successfully');}
+    },
+     (error)=>{
+         console.log(error);
+         alert(error);
+     }
+   );
 
-  
-
-  alert('Food Item has been added');
    this.addForm.reset();
 
   }

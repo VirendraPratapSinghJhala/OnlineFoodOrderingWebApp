@@ -12,6 +12,7 @@ export class UpdateFoodItemComponent implements OnInit {
 
   updateForm:FormGroup;
 
+  isFoodItemUpdated:boolean=false;
   isFormSubmitted=false;
 
   foodItem:Food_Item=null;
@@ -38,9 +39,17 @@ export class UpdateFoodItemComponent implements OnInit {
 
    this.foodItem=new Food_Item(this.updateForm.value.foodName,this.updateForm.value.foodType,this.updateForm.value.foodPrice,this.updateForm.value.imagePath);
 
-  
+  this.foodsService.putFoodItem(this.foodItem).subscribe(
+    (response:boolean)=>{this.isFoodItemUpdated=response;
+    if(this.isFoodItemUpdated)
+    {alert('Food Item Updated')}
+    else{alert('Food Item Not Updated') };
+  },
 
-  alert('Food Item has been added');
+  (error)=>{alert(error);
+  console.log(error);}
+  );
+
    this.updateForm.reset();
 
   }

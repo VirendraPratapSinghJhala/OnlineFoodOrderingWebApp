@@ -31,6 +31,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { WebApiService } from './shared/webapi.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsService,  {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [FoodsService, WebApiService ,{provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

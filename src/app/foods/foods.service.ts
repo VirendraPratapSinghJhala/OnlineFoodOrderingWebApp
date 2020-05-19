@@ -34,9 +34,9 @@ export class FoodsService implements OnInit{
     }
 
 
-    postFoodItem(foodItem:Food_Item){
+    postFoodItem(foodItem:Food_Item):Observable<number>{
 
-        return this.httpClient.post<Food_Item>(this.apiPrefix +"/api/food",foodItem);
+        return this.httpClient.post<number>(this.apiPrefix +"/api/food",foodItem);
     }
 
 
@@ -45,9 +45,9 @@ export class FoodsService implements OnInit{
         return this.httpClient.get<Food_Item>(this.apiPrefix +"/api/food?Food_Item_Id="+foodId);
     }
 
-    putFoodItem(foodItem:Food_Item){
+    putFoodItem(foodItem:Food_Item):Observable<boolean>{
 
-        return this.httpClient.put<Food_Item>(this.apiPrefix +"/api/food",foodItem);
+        return this.httpClient.put<boolean>(this.apiPrefix +"/api/food",foodItem);
 
     }
 
