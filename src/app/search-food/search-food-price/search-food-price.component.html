@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Food Item by Price Range</title>
+</head>
+
+<body class="zf-backgroundBg">
+    <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+    <div class="zf-templateWidth">
+        <form [formGroup]="searchByPriceRangeForm" (ngSubmit)="onSubmit()" accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
+
+            <div class="zf-templateWrapper">
+                <!---------template Header Starts Here---------->
+                <ul class="zf-tempHeadBdr">
+                    <li class="zf-tempHeadContBdr">
+                        <h2 class="zf-frmTitle"><em>Search Food Item by Price Range</em></h2>
+                        <p class="zf-frmDesc"></p>
+                        <div class="zf-clearBoth"></div>
+                    </li>
+                </ul>
+              
+                <div class="zf-subContWrap zf-topAlign">
+                    <ul>
+                       
+                       
+                        <!---------Single Line Ends Here---------->
+                        <!---------Decimal Starts Here---------->
+                        <li class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName">Minimum Price</label>
+                            <div class="zf-tempContDiv">
+                                <span> <input type="text" name="price" class="form-control" formControlName="minPrice" 
+                                   /></span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('minPrice').touched && 
+                                   searchByPriceRangeForm.get('minPrice').dirty &&  searchByPriceRangeForm.get('minPrice').invalid" >
+                                   Food Price is required</span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('minPrice').touched && 
+                                   searchByPriceRangeForm.get('minPrice').pristine &&  searchByPriceRangeForm.get('minPrice').invalid ">
+                                   Food Price is required</span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('minPrice').touched && 
+                                   searchByPriceRangeForm.get('minPrice').dirty && searchByPriceRangeForm.get('minPrice').invalid && 
+                                   searchByPriceRangeForm.get('minPrice').errors['min']">
+                                 Price can not be negative or zero</span>
+                            </div>
+                        </li>
+
+                        <li class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName">Maximum Price</label>
+                            <div class="zf-tempContDiv">
+                                <span> <input type="text" name="price" class="form-control" formControlName="maxPrice" 
+                                   /></span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('maxPrice').touched && 
+                                   searchByPriceRangeForm.get('maxPrice').dirty &&  searchByPriceRangeForm.get('maxPrice').invalid" >
+                                    Price is required</span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('maxPrice').touched && 
+                                   searchByPriceRangeForm.get('maxPrice').pristine &&  searchByPriceRangeForm.get('maxPrice').invalid ">
+                                    Price is required</span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('maxPrice').touched && 
+                                   searchByPriceRangeForm.get('maxPrice').dirty && searchByPriceRangeForm.get('maxPrice').invalid && 
+                                   searchByPriceRangeForm.get('maxPrice').errors['min']">
+                                   Food Price can not be negative or zero</span>
+                            </div>
+                        </li>
+
+                       
+                        <!---------Decimal Ends Here---------->
+                    </ul>
+                </div>
+                <!---------template Container Starts Here---------->
+                <ul>
+                    <li class="zf-fmFooter"><button type="submit" [disabled]="searchByPriceRangeForm.invalid" class="btn btn-success btn-lg" >ADD</button></li>
+                </ul>
+            </div><!-- 'zf-templateWrapper' ends -->
+        </form>
+    </div><!-- 'zf-templateWidth' ends -->
+    
+</body>
+
+</html>

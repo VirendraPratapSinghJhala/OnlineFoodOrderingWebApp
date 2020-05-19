@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Food Item by Type</title>
+</head>
+
+<body class="zf-backgroundBg">
+    <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+    <div class="zf-templateWidth">
+        <form [formGroup]="searchByTypeForm" (ngSubmit)="onSubmit()" accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
+
+            <div class="zf-templateWrapper">
+                <!---------template Header Starts Here---------->
+                <ul class="zf-tempHeadBdr">
+                    <li class="zf-tempHeadContBdr">
+                        <h2 class="zf-frmTitle"><em>Search Food Item by Type</em></h2>
+                        <p class="zf-frmDesc"></p>
+                        <div class="zf-clearBoth"></div>
+                    </li>
+                </ul>
+                <!---------template Header Ends Here---------->
+                <!---------template Container Starts Here---------->
+                <div class="zf-subContWrap zf-topAlign">
+                    <ul>
+                        <!---------Single Line Starts Here---------->
+                        <li class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName">Food Type</label>
+                            <div class="zf-tempContDiv">
+                                <span><input type="text" name="type" class="form-control" formControlName="foodType" 
+                                      /></span> 
+                        
+                                
+                                <span class="help-block" *ngIf="searchByTypeForm.get('foodType').touched && 
+                                searchByTypeForm.get('foodType').dirty && searchByTypeForm.get('foodType').invalid">
+                                Food name is required</span>
+
+                                <span class="help-block" *ngIf="searchByTypeForm.get('foodType').touched && 
+                                searchByTypeForm.get('foodType').pristine && searchByTypeForm.get('foodType').errors['required']">
+                                Food name is required</span>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <!---------template Container Starts Here---------->
+                <ul>
+                    <li class="zf-fmFooter"><button type="submit" [disabled]="searchByTypeForm.invalid" class="btn btn-success btn-lg" >Search</button></li>
+                </ul>
+            </div><!-- 'zf-templateWrapper' ends -->
+        </form>
+    </div><!-- 'zf-templateWidth' ends -->
+    
+</body>
+
+</html>
