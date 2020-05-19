@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Customer } from '../customer/customer.model';
+import { CustomerService } from '../customer/customer.service';
 
 @Component({
   selector: 'app-register-form',
@@ -13,9 +14,9 @@ export class RegisterFormComponent implements OnInit {
 
   isFormSubmitted=false;
 
-  employee:Customer=null;
+  customer:Customer=null;
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
 
@@ -34,11 +35,11 @@ export class RegisterFormComponent implements OnInit {
 
    this.isFormSubmitted=true;
 
-   this.employee=this.addForm.value;
+   this.customer=this.addForm.value;
 
-   this.employee=new Customer(null,this.addForm.value.customerName,this.addForm.value.city,this.addForm.value.age,this.addForm.value.email,this.addForm.value.mobileNo,this.addForm.value.password);
+   this.customer=new Customer(null,this.addForm.value.customerName,this.addForm.value.city,this.addForm.value.age,this.addForm.value.email,this.addForm.value.mobileNo,this.addForm.value.password);
 
-  
+   this.customerService.postCustomer(this.customer);
 
   alert('Food Item has been added');
    this.addForm.reset();
