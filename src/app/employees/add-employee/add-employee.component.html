@@ -8,7 +8,7 @@
 <body class="zf-backgroundBg">
     <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
     <div class="zf-templateWidth">
-        <form [formGroup]="addForm"  accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
 
             <div class="zf-templateWrapper">
                 <!---------template Header Starts Here---------->
@@ -31,76 +31,90 @@
                                       /></span> 
                         
                                 
-                                <span class="help-block" >
+                                <span class="help-block" *ngIf="addForm.get('employeeName').touched && 
+                                addForm.get('employeeName').dirty && addForm.get('employeeName').invalid">
                                 Employee name can not be left blank</span>
 
-                                <span class="help-block" >
+                                <span class="help-block" *ngIf="addForm.get('employeeName').touched && 
+                                addForm.get('employeeName').pristine && addForm.get('employeeName').errors['required']">
                                 Employee name is required</span>
                             </div>
                         </li>
                         <span ></span>
                         <!---------Single Line Ends Here---------->
-			<!---------Number Starts Here---------->
+			            <!---------Number Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Age</label>
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="age" class="form-control" formControlName="employeeAge" 
                                    /></span>
 
-                                   <span class="help-block"  >
+                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
+                                   addForm.get('employeeAge').dirty &&  addForm.get('employeeAge').invalid"  >
                                    Age is required</span>
 
-                                   <span class="help-block" >
+                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
+                                   addForm.get('employeeAge').pristine &&  addForm.get('employeeAge').invalid ">
                                    Age is required</span>
 
-                                   <span class="help-block" >
+                                   <span class="help-block" *ngIf="addForm.get('employeeAge').touched && 
+                                   addForm.get('employeeAge').dirty && addForm.get('employeeAge').invalid && 
+                                   addForm.get('employeeAge').errors['min']">
                                    Age can not be negative or zero</span>
                             </div>
                         </li>
-			<!---------Number Ends Here---------->
+			            <!---------Number Ends Here---------->
                         <!---------Single Line Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Password</label>
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="pass" class="form-control" formControlName="password"
                                     /></span>
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('password').touched && 
+                                    addForm.get('password').dirty && addForm.get('password').invalid">
                                     Password is required</span>
 
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('password').touched && 
+                                    addForm.get('password').pristine && addForm.get('password').invalid">
                                     Password is required</span>
                          
                             </div>
                         </li>
                         <!---------Single Line Ends Here---------->
-			<!---------Number Starts Here---------->
+			            <!---------Number Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Mobile Number</label>
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="mobile_number" class="form-control" formControlName="mobileNumber" 
                                    /></span>
 
-                                   <span class="help-block"  >
+                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
+                                   addForm.get('mobileNumber').dirty &&  addForm.get('mobileNumber').invalid" >
                                    Mobile Number is required</span>
 
-                                   <span class="help-block" >
+                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
+                                   addForm.get('mobileNumber').pristine &&  addForm.get('mobileNumber').invalid ">
                                    Mobile Number is required</span>
 
-                                   <span class="help-block" >
+                                   <span class="help-block" *ngIf="addForm.get('mobileNumber').touched && 
+                                   addForm.get('mobileNumber').dirty && addForm.get('mobileNumber').invalid && 
+                                   addForm.get('mobileNumber').errors['min']">
                                    Mobile Number can not be negative or zero</span>
                             </div>
                         </li>
-			<!---------Number Ends Here---------->
+			            <!---------Number Ends Here---------->
                         <!---------Single Line Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Email</label>
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="email1" class="form-control" formControlName="email"
                                     /></span>
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('email').touched && 
+                                    addForm.get('email').dirty && addForm.get('email').invalid">
                                     Email is required</span>
 
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('email').touched && 
+                                    addForm.get('email').pristine && addForm.get('email').invalid">
                                     Email is required</span>
                          
                             </div>
@@ -112,10 +126,12 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="city1" class="form-control" formControlName="city"
                                     /></span>
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('city').touched && 
+                                    addForm.get('city').dirty && addForm.get('city').invalid">
                                     City is required</span>
 
-                                    <span class="help-block" >
+                                    <span class="help-block" *ngIf="addForm.get('city').touched && 
+                                    addForm.get('city').pristine && addForm.get('city').invalid">
                                     City is required</span>
                          
                             </div>
