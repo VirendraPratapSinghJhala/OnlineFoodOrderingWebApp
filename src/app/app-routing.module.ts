@@ -19,6 +19,7 @@ import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -40,7 +41,9 @@ const routes: Routes = [
       children:[{path: 'add', component:AddFoodStoreComponent}, {path: 'update', component:UpdateFoodStoreComponent}]},
   {path:'employee', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, {path:'update', component:UpdateEmployeeComponent}]},
-  {path:'',redirectTo:'admin-home',pathMatch:'full'}
+  {path:'',redirectTo:'admin-home',pathMatch:'full'},
+  {path:'notfound', component:NotFoundComponent},
+  {path:'**', redirectTo:'notfound'}
 
 ];
 

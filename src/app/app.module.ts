@@ -30,6 +30,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     EmployeeComponent,
     CartComponent,
     OrderDetailComponent,
-    OrderListComponent
+    OrderListComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
