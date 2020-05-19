@@ -12,7 +12,7 @@ import { FoodsService } from 'src/app/foods/foods.service';
 export class SearchFoodNameComponent implements OnInit {
 
   searchByNameForm:FormGroup;
-
+  foodItems:Food_Item[]=null;
   isFormSubmitted=false;
 
   foodName:string=null;
@@ -23,10 +23,7 @@ export class SearchFoodNameComponent implements OnInit {
 
     this.searchByNameForm=new FormGroup({
 
-      'foodName':new FormControl(null,[Validators.required,Validators.maxLength(255)])
-      // 'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      // 'foodPrice': new FormControl(null,[Validators.required,Validators.min(1)]),
-      // 'imagePath': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'foodName':new FormControl('',[Validators.required,Validators.maxLength(255)])
     }
     );
   }
@@ -37,9 +34,18 @@ export class SearchFoodNameComponent implements OnInit {
 
    this.foodName=this.searchByNameForm.value.foodName;
 
-   //this.foodName=new Food_Item(this.searchByNameForm.value.foodName,this.searchByNameForm.value.foodType,this.searchByNameForm.value.foodPrice,this.searchByNameForm.value.imagePath);
 
-//call service
+   //call service 
+   this.foodsService.getFoodItemByName(this.foodName).subscribe(
+     (response:Food_Item[])=>{if(response!=null)
+                                 {this.foodItems=response;
+                                  console.log(this.foodItems);}
+                              else
+                              {alert('There are no food Items available at the moment with name '+this.foodName);}
+    },
+    (error)=>{console.log(error);
+     alert(error);}
+   );
 
    this.searchByNameForm.reset();
 

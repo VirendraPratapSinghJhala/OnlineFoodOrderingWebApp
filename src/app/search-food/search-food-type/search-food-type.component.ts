@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodsService } from 'src/app/foods/foods.service';
+import { Food_Item } from 'src/app/foods/food-item.model';
 
 @Component({
   selector: 'app-search-food-type',
@@ -15,6 +16,7 @@ export class SearchFoodTypeComponent implements OnInit {
   isFormSubmitted=false;
 
   foodType:string=null;
+  foodItems:Food_Item[]=null;
 
   constructor(private foodsService:FoodsService) { }
 
@@ -22,10 +24,7 @@ export class SearchFoodTypeComponent implements OnInit {
 
     this.searchByTypeForm=new FormGroup({
 
-      //'foodName':new FormControl(null,[Validators.required,Validators.maxLength(255)])
        'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255)])
-      // 'foodPrice': new FormControl(null,[Validators.required,Validators.min(1)]),
-      // 'imagePath': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
     }
     );
   }
@@ -36,9 +35,19 @@ export class SearchFoodTypeComponent implements OnInit {
 
    this.foodType=this.searchByTypeForm.value.foodType;
 
-   //this.foodName=new Food_Item(this.searchByTypeForm.value.foodName,this.searchByTypeForm.value.foodType,this.searchByTypeForm.value.foodPrice,this.searchByTypeForm.value.imagePath);
 
 //call service
+   //call service 
+   this.foodsService.getFoodItemByType(this.foodType).subscribe(
+    (response:Food_Item[])=>{if(response!=null)
+                                {this.foodItems=response;
+                                console.log(this.foodItems);}
+                             else
+                             {alert('There are no food Items available at the moment with name '+this.foodType);}
+   },
+   (error)=>{console.log(error);
+    alert(error);}
+  );
 
    this.searchByTypeForm.reset();
 
