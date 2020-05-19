@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../employee.model';
+import { EmployeesService } from '../employees.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -15,7 +16,7 @@ export class AddEmployeeComponent implements OnInit {
 
   employee:Employee=null;
 
-  constructor() { }
+  constructor(private employeesService:EmployeesService) { }
 
   ngOnInit(): void {
 
@@ -37,11 +38,20 @@ export class AddEmployeeComponent implements OnInit {
 
    this.employee=this.addForm.value;
 
-   this.employee=new Employee(null, this.addForm.value.name,this.addForm.value.city,this.addForm.value.age,this.addForm.value.mobileNumber);
-
+   this.employee=new Employee(null, this.addForm.value.employeeName,this.addForm.value.employeeAge,null,this.addForm.value.password,this.addForm.value.mobileNumber,this.addForm.value.email,this.addForm.value.city);
   
+   this.employeesService.postEmployee(this.employee).subscribe(
+    (response:boolean)=>{
+   if(response = true)
+   {alert('Employee successfully added');}
+   else{alert('Employee Not added successfully');}
+   },
+    (error)=>{
+        console.log(error);
+        alert(error);
+    }
+  );
 
-  alert('Food Item has been added');
    this.addForm.reset();
 
   }

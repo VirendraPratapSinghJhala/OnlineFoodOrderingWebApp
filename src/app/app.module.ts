@@ -22,6 +22,7 @@ import { UpdateFoodItemComponent } from './foods/update-food-item/update-food-it
 import { UpdateFoodStoreComponent } from './food-stores/update-food-store/update-food-store.component';
 import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './employees/update-employee/update-employee.component';
+import { EmployeesService } from './employees/employees.service';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
@@ -67,7 +68,7 @@ import { WebApiService } from './shared/webapi.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsService, WebApiService ,{provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
