@@ -26,7 +26,11 @@ import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderListComponent } from './order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { HttpClientModule } from '@angular/common/http';
     UpdateEmployeeComponent,
     FoodStoreComponent,
     EmployeeComponent,
-    CartComponent
+    CartComponent,
+    OrderDetailComponent,
+    OrderListComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsService],
+  providers: [FoodsService,  {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

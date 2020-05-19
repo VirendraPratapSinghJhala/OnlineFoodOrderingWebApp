@@ -1,3 +1,8 @@
+.carousel {
+    height:360px;
+    overflow: hidden;
+  }
 
-
-
+  .carousel-inner > .item {
+    height: 400px;
+ }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AboutComponent } from './about/about.component';
 import { FoodsComponent } from './foods/foods.component';
@@ -18,6 +17,9 @@ import { UpdateEmployeeComponent } from './employees/update-employee/update-empl
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -33,11 +35,15 @@ const routes: Routes = [
   {path:'addfooditem', component:AddFoodItemComponent},
   {path:'updatefooditem', component:UpdateFoodItemComponent},
   {path:'cart', component:CartComponent},
+  {path:'orderdetail/:id', component:OrderDetailComponent},
+  {path:'orderlist', component:OrderListComponent},
   {path:'foodstore', component:FoodStoreComponent,
       children:[{path: 'add', component:AddFoodStoreComponent}, {path: 'update', component:UpdateFoodStoreComponent}]},
   {path:'employee', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, {path:'update', component:UpdateEmployeeComponent}]},
-  {path:'',redirectTo:'admin-home',pathMatch:'full'}
+  {path:'',redirectTo:'admin-home',pathMatch:'full'},
+  {path:'notfound', component:NotFoundComponent},
+  {path:'**', redirectTo:'notfound'}
 
 ];
 
