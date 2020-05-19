@@ -22,11 +22,25 @@ export class FoodListComponent implements OnInit {
 
     if(this.serviceMethodName=='getFoodItemsByName')
     {
-      this.foodsService.getFoodItems().subscribe(
-        (response:Food_Item[])=>{this.foodItems=response}
-      );
+      // this.foodsService.getFoodItemsByName().subscribe(
+      //   (response:Food_Item[])=>{this.foodItems=response}
+      // );
 
     }
+
+    else if(this.serviceMethodName=='getFoodItemsByType')
+    {
+      // this.foodsService.getFoodItemsByType().subscribe(
+      //   (response:Food_Item[])=>{this.foodItems=response}
+      // );
+    }
+
+     else if(this.serviceMethodName=='getFoodItemsByPriceRange')
+      {
+        // this.foodsService.getFoodItemsByPriceRange().subscribe(
+        //   (response:Food_Item[])=>{this.foodItems=response}
+        // );
+      }
 
   }
 

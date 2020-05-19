@@ -39,7 +39,7 @@ export class SearchFoodPriceComponent implements OnInit {
    this.maxFoodPrice=this.searchByPriceRangeForm.value.maxPrice;
 
    //indicate FoodListComponent to load data according to Food price range
-   this.foodsService.serviceMethodToBeCalled.next('call getFoodItemsByPriceRange'); 
+   this.foodsService.serviceMethodToBeCalled.next(' getFoodItemsByPriceRange'); 
 
    //call service
    this.foodsService.getFoodItemsByPriceRange(this.minFoodPrice,this.maxFoodPrice).
