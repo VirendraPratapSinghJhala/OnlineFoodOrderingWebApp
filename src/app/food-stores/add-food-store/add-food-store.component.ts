@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodStore } from '../food-store.model';
+import { FoodsStoreService } from '../foodstore.service';
 
 @Component({
   selector: 'app-add-food-store',
@@ -11,21 +12,24 @@ export class AddFoodStoreComponent implements OnInit {
 
   addForm:FormGroup=null;
 
+  foodStoreId:number=null;
+
   isFormSubmitted=false;
 
   foodStore:FoodStore=null;
 
-  constructor() { }
+  constructor(private foodsStoreService:FoodsStoreService) { }
 
   ngOnInit(): void {
 
     this.addForm=new FormGroup({
 
       'foodStoreName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
       'location':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'rating': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'mobileno': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'mobileno':new FormControl(null,[Validators.required,Validators.maxLength(13)]),
+      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'rating': new FormControl(null,[Validators.required,Validators.maxLength(5)]),
+     
     }
     );
   }
@@ -37,10 +41,20 @@ export class AddFoodStoreComponent implements OnInit {
    this.foodStore=this.addForm.value;
 
    this.foodStore=new FoodStore(null,this.addForm.value.foodStoreName,this.addForm.value.location,this.addForm.value.mobileno,this.addForm.value.email,this.addForm.value.rating);
+ 
+   this.foodsStoreService.postFoodStore(this.foodStore).subscribe(
+     (response:number)=>{this.foodStoreId=response;
+    console.log('Added Food Store id :' +this.foodStoreId);
+    if(this.foodStoreId!=null)
+    {alert('Food Store successfully added, Added food Store id : '+this.foodStoreId);}
+    else{alert('Food Store Not added successfully');}
+    },
+     (error)=>{
+         console.log(error);
+         alert(error);
+     }
+   );
 
-  
-
-  alert('Food Item has been added');
    this.addForm.reset();
 
   }
