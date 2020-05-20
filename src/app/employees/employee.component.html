@@ -1,6 +1,24 @@
 <div *ngIf="currentPath=='/employee'" class="my-3 mx-3">
-    <h1>Employee Management</h1>
-    <a routerLink="add" class="btn btn-primary mx-5">Add</a>
-    <a routerLink="update" class="btn btn-primary">Update</a>
-</div>
-<router-outlet></router-outlet>
+    <div *ngIf="this.router.url=='/employee'" class="my-3 mx-3">
+        <h1>Employee Management</h1>
+        <a routerLink="add" class="btn btn-primary mx-5">Add</a>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card " *ngFor="let employee of employees">
+                        <div class="card-body">
+                            <h5 class="card-title">{{employee.name}}</h5>
+                            <p class="card-text">Employee Detail 1: {{employee.id}}</p>
+                            <p class="card-text">sdf</p>
+                            <p class="card-text">sfsdf</p>
+                            <p class="card-text">sdfdsf</p>
+                            <p class="card-text">sdfdf</p>
+                            <a routerLink="update" class="btn btn-primary">Update</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
