@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col" *ngIf="foodItems==null">
-       <h1>There are no food items available at the moment </h1>>
+       <h1>There are no food items available at the moment </h1>
     </div>
     <div class="col" *ngIf="foodItems!=null">
         <app-food-menu-item  *ngFor="let item of foodItems" [foodItem]="item"></app-food-menu-item >

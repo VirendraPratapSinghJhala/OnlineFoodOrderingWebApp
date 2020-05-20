@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../shared/global.service';
 
 @Component({
   selector: 'app-user-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private globalService:GlobalService) { }
+  shouldShowAdmin:boolean = false;
   ngOnInit(): void {
+    this.shouldShowAdmin = this.globalService.getLoginRole() == "admin" ? true : false;
   }
 
 }

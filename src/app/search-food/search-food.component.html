@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col" *ngIf="foodItems==null">
-           <h1>There are no food items available at the moment related to your search </h1>>
+           <h1>There are no food items available at the moment related to your search </h1>
         </div>
         <div class="col" *ngIf="foodItems!=null">
             <app-search-result  *ngFor="let item of foodItems" [foodItem]="item"></app-search-result>

@@ -50,7 +50,7 @@ export class SearchFoodTypeComponent implements OnInit {
     this.searchByTypeForm=new FormGroup({
 
             //apply all the required validations on all the input controls
-       'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z]*[a-zA-Z0-9]$")])
+       'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z]*[a-zA-Z0-9]*$")])
     }
     );
   }
@@ -64,16 +64,16 @@ export class SearchFoodTypeComponent implements OnInit {
       //assign the input food type to the declared property 
    this.foodType=this.searchByTypeForm.value.foodType;
 
-  //  this.foodsService.getFoodItemsByType(this.foodType).subscribe(
+   this.foodsService.getFoodItemsByType(this.foodType).subscribe(
 
-  //   //handle response
-  //    (response:Food_Item[])=>{this.foodItems=response;},
+    //handle response
+     (response:Food_Item[])=>{this.foodItems=response;},
 
-  //    //handle errors
-  //    (error)=>{console.log(error);
-  //        alert(error);}
-  //  ); 
-  this.foodItems= this.foodsService.getByType(this.foodType);
+     //handle errors
+     (error)=>{console.log(error);
+         alert(error);}
+   ); 
+ // this.foodItems= this.foodsService.getByType(this.foodType);
 
     //reset the form
    this.searchByTypeForm.reset();

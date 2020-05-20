@@ -45,10 +45,10 @@ import { AfterCheckoutComponent } from './after-checkout/after-checkout.componen
 //defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
   
-  {path:'admin-home',component:AdminHomeComponent},
   {path:'foodsmenu',component:FoodsComponent,
-  children:[{path:'',component:FoodsStartComponent,pathMatch:'full'},
-  {path:':id',component:FoodDetailComponent}]},
+    children:[{path:'',component:FoodsStartComponent,pathMatch:'full'},
+    {path:':id',component:FoodDetailComponent}]
+  },
   {path:'about',component:AboutComponent},
   {path:'login', component:LoginFormComponent},
   {path:'register', component:RegisterFormComponent},
@@ -62,13 +62,15 @@ const routes: Routes = [
   {path:'customers', component:CustomerComponent},
   {path:'foodstores', component:FoodStoreComponent,
       children:[{path: 'add', component:AddFoodStoreComponent},
-       {path: 'update', component:UpdateFoodStoreComponent}]},
+      {path: 'update', component:UpdateFoodStoreComponent}]
+  },
   {path:'searchbyfoodname',component:SearchFoodComponent},
   {path:'searchbyfoodtype',component:SearchFoodComponent},
-   {path:'searchbyfoodpricerange',component:SearchFoodComponent},
+  {path:'searchbyfoodpricerange',component:SearchFoodComponent},
   {path:'employees', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, 
-      {path:'update', component:UpdateEmployeeComponent}]},
+      {path:'update', component:UpdateEmployeeComponent}]
+  },
   {path:'contactus', component:ContactusComponent},
   {path:'home',redirectTo:''},
   {path:'', component:UserHomeComponent, pathMatch:'full'},
