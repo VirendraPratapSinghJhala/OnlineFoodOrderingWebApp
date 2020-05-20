@@ -42,7 +42,7 @@ export class FoodsService implements OnInit{
 // get all the food items by calling GetAllFoodItems() in web api controller
     getFoodItems():Observable<Food_Item[]>{
 
-        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food");
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food/getallfooditems");
     }
 
 // add the food item by calling AddFoodItem() in web api controller and return integer value indicating id of added food item
