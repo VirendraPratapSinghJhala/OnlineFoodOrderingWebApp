@@ -30,6 +30,15 @@ export class CustomerService implements OnInit{
             "Jaipur",
             "9887515652",
             "m@123"
+        ),
+        new Customer(
+            2,
+            "Prateek",
+            "prateek@gmail.com",
+            22,
+            "Jaipur",
+            "8696038381",
+            "p@123"
         )
     ];
 
@@ -46,6 +55,10 @@ export class CustomerService implements OnInit{
     //initialise properties of class in ngOnInit()
     ngOnInit(){
         this.apiPrefix=this.webapiService.urlPrefix;
+    }
+
+    getSampleAllCustomers(){
+        return(this.customer);
     }
 
     getSampleCustomer(){
