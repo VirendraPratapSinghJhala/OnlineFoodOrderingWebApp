@@ -1,0 +1,25 @@
+<div *ngIf="currentPath=='/customer'" class="my-3 mx-3">
+    <div *ngIf="this.router.url=='/customer'" class="my-3 mx-3">
+        <h1>Employee Management</h1>
+        <a routerLink="add" class="btn btn-primary mx-5">Add</a>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card " *ngFor="let customer of customer">
+                        <div class="card-body">
+                            <h5 class="card-title">{{customer.name}}</h5>
+                            <p class="card-text">Customer Detail:{{customer.id}}</p>
+                            <p class="card-text">{{customer.city}}</p>
+                            <p class="card-text">{{customer.age}}</p>
+                            <p class="card-text">{{customer.email}}</p>
+                            <p class="card-text">{{customer.mobileNo}}</p>
+                            <p class="card-text">{{customer.password}}</p>
+                            <a routerLink="update" class="btn btn-primary">Update</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
