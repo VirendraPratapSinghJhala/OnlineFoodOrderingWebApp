@@ -74,6 +74,7 @@
                                       updateForm.get('customerName').hasError('pattern')">
                                       <span style= "color:red;">Only alphabets allowed.</span>
                                       </div>
+                                </div>
                         </li>
                         <span ></span>
                         <!---------Single Line Ends Here---------->
@@ -128,7 +129,6 @@
                                    <span style= "color:red;">Password must have 6-15 characters,
                                     one uppercase, one lowercase and one digit must be present.</span>
                                    </div>
-        
                             </div>
                         </li>
 						<!---------Single Line Ends Here---------->
@@ -199,7 +199,7 @@
                                 <span> <input type="text" name="city" class="form-control" formControlName="city" 
                                    /></span>
 
-                                   <div *ngIf="updateForm.get('city').touched && 
+                                <div *ngIf="updateForm.get('city').touched && 
                                 updateForm.get('city').invalid &&
                                 updateForm.get('city').hasError('required')">
                                 <span style= "color:red;">City is required.</span>
