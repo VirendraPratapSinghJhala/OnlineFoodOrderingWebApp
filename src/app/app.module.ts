@@ -52,6 +52,8 @@ import { FoodsStoreService } from './food-stores/food-store.service';
 import { OrderService } from './order/order.service';
 import { CartService } from './cart/cart.service';
 import { SearchResultComponent } from './search-food/search-result/search-result.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { FooterComponent } from './footer/footer.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
 import { UserHomeComponent } from './user-home/user-home.component';
@@ -93,6 +95,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
     SearchFoodTypeComponent,
     SearchFoodPriceComponent,
     SearchResultComponent,
+    ContactusComponent,
+    FooterComponent,
     FoodMenuComponent,
     FoodMenuItemComponent,
     UserHomeComponent
