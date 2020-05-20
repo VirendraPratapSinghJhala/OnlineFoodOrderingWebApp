@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FoodStore } from './food-store.model';
+import { FoodsStoreService } from './food-store.service';
 /*
 =======================================================================================================
     Developer: Kritika Arora
@@ -17,11 +19,17 @@ import { Router } from '@angular/router';
 })
 //Component that handles all the tasks in correspondance to the html template
 export class FoodStoreComponent implements OnInit {
+  foodstores:FoodStore[]=null;
+
+
+
+
     //constructor used for injecting dependency
-  constructor(private route: Router) { }
+  constructor(private route: Router ,private foodStoreService:FoodsStoreService) { }
   router: Router;
    //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
+    this.foodstores = this.foodStoreService.getSammpleAllFoodStore();
     this.router = this.route;
   }
 }

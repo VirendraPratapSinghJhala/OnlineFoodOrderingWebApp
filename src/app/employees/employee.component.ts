@@ -3,7 +3,7 @@
   =======================================================================================================
     Developer: Subin Sunu Jacob
     Creation Date: 18th May,2020
-    Description: This is a base component s
+    Description: This is a base component which shows the list of employees and shows add and update feature.
   ==========================================================================================================
 */
 

@@ -1,6 +1,23 @@
 <div class="my-3 mx-3">
     <h1>Food Store Management</h1>
     <a routerLink="add" class="btn btn-primary mx-5">Add</a>
-    <a routerLink="update" class="btn btn-primary">Update</a>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card " *ngFor="let foodstore of foodstores">
+                    <div class="card-body">
+                        <h5 class="card-title">{{foodstore.foodStoreName}}</h5>
+                        <p class="card-text">Food Store Detail 1: {{foodstore.foodStoreId}}</p>
+                        <p class="card-text">{{foodstore.location}}</p>
+                        <p class="card-text">{{foodstore.mobileno}}</p>
+                        <p class="card-text">{{foodstore.email}}</p>
+                        <p class="card-text">{{foodstore.rating}}</p>
+                        <a routerLink="update" class="btn btn-primary">Update</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 </div>
 <router-outlet></router-outlet>
