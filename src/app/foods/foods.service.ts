@@ -26,10 +26,6 @@ export class FoodsService implements OnInit{
     apiPrefix:string;
     
 
-
-    serviceMethodToBeCalled=new Subject<{methodName:string,parameter:string,parameter1:number,parameter2:number}>();
-    
-
     //constructor for injecting dependencies
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
