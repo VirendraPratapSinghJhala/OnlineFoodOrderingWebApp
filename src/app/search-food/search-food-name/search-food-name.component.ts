@@ -12,7 +12,7 @@
 
 
 //import all the required entities from their respective packages
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from 'src/app/foods/food-item.model';
 import { FoodsService } from 'src/app/foods/foods.service';
@@ -27,6 +27,11 @@ import { FoodsService } from 'src/app/foods/foods.service';
 
 //Component that handles all the handling of the reactive form in correspondance to the html template
 export class SearchFoodNameComponent implements OnInit {
+
+  foodItems:Food_Item[]=null;
+
+  @Output()
+  foodArray=new EventEmitter<Food_Item[]>();
 
    //declare reactive form of type FormGroup
   searchByNameForm:FormGroup;
@@ -61,12 +66,20 @@ export class SearchFoodNameComponent implements OnInit {
    //assign the input food name to the declared property 
    this.foodName=this.searchByNameForm.value.foodName;
 
-    //indicate FoodListComponent to load data according to foodname
-    this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByName',parameter:this.foodName,
-    parameter1:0,parameter2:0}); 
+   this.foodsService.getFoodItemsByName(this.foodName).subscribe(
+
+    //handle response
+     (response:Food_Item[])=>{this.foodItems=response;},
+
+     //handle errors
+     (error)=>{console.log(error);
+         alert(error);}
+   );
 
     //reset the form
    this.searchByNameForm.reset();
+
+   this.foodArray.emit(this.foodItems);
 
   }
 

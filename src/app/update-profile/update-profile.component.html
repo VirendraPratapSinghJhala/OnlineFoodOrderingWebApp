@@ -24,19 +24,10 @@
                     <ul>
                         <!---------Single Line Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
-                            <label class="zf-labelName">Customer Name</label>
+                            <label class="zf-labelName">Customer Id</label>
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="id" class="form-control" formControlName="customerId" 
                                       /></span> 
-                        
-                                
-                                <span class="help-block" *ngIf="updateForm.get('customerId').touched && 
-                                updateForm.get('customerId').dirty && updateForm.get('customerId').invalid">
-                                Customer ID can not be left blank</span>
-
-                                <span class="help-block" *ngIf="updateForm.get('customerId').touched && 
-                                updateForm.get('customerId').pristine && updateForm.get('customerId').errors['required']">
-                                Customer ID is required</span>
                             </div>
                         </li>
                         <span ></span>

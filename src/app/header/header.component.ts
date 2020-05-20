@@ -33,12 +33,6 @@ export class HeaderComponent{
 
     }
 
-    //action to be performed when user clicks on the Menu button
-    onMenuClick(){
-
-          //go to Component whose router path is 'foodsmenu'
-      this.router.navigate(['foodsmenu']);
-
-    }
+   
   
 }

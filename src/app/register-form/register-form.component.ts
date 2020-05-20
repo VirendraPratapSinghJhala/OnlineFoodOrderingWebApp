@@ -64,10 +64,22 @@ export class RegisterFormComponent implements OnInit {
    this.customer=new Customer(null,this.addForm.value.customerName,this.addForm.value.city,this.addForm.value.age,this.addForm.value.email,this.addForm.value.mobileNo,this.addForm.value.password);
 
    //call the CustomerService's postCustomer method to post the received object to the web api and subscribe to it
-   this.customerService.postCustomer(this.customer);
+   this.customerService.postCustomer(this.customer).subscribe(
 
-  alert('Food Item has been added');
-  
+    //handle the respoonse
+     (response:number)=>{this.customerId=response;
+    console.log('Added customer id :' +this.customerId);
+    if(this.customerId!=null)
+    {alert('Customer successfully added, Added customer id : '+this.customerId);}
+    else{alert('Customer Not added successfully');}
+    },
+    //handle the error
+     (error)=>{
+         console.log(error);
+         alert(error);
+     }
+   );
+
   //reset the form
   this.addForm.reset();
 

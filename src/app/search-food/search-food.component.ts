@@ -13,6 +13,7 @@
 //import all the required entities from their respective packages
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Route } from '@angular/router';
+import { Food_Item } from '../foods/food-item.model';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -27,6 +28,9 @@ export class SearchFoodComponent implements OnInit{
     //stroes current path of the Component
     currentRoute:string=null;
 
+
+    foodItems:Food_Item[]=null;
+
       //constructor used for injecting dependency
  constructor(private router:Router){
 
@@ -36,5 +40,11 @@ ngOnInit(){
 
     //assign current path of the component to the declared property to be used by template
      this.currentRoute=this.router.url;
+}
+
+onGetFoodArray(foodArray:Food_Item[]){
+     
+  this.foodItems=foodArray;
+
 }
 }

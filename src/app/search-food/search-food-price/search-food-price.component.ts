@@ -10,7 +10,7 @@
 
 
 //import all the required entities from their respective packages
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodsService } from 'src/app/foods/foods.service';
 import { Food_Item } from 'src/app/foods/food-item.model';
@@ -25,6 +25,9 @@ import { Food_Item } from 'src/app/foods/food-item.model';
 //Component that handles all the handling of the reactive form in correspondance to the html template
 export class SearchFoodPriceComponent implements OnInit {
 
+  @Output()
+  foodArray=new EventEmitter<Food_Item[]>();
+
   //declare reactive form of type FormGroup
   searchByPriceRangeForm:FormGroup=null;
 
@@ -34,6 +37,8 @@ export class SearchFoodPriceComponent implements OnInit {
   //declare minFoodPrice to store minimum price of food
   minFoodPrice:number=null;
 
+
+  foodItems:Food_Item[]=null;
   //declare maxFoodPrice to store maximum price of food
   maxFoodPrice:number=null;
 
@@ -63,12 +68,21 @@ export class SearchFoodPriceComponent implements OnInit {
    this.minFoodPrice=this.searchByPriceRangeForm.value.minPrice;
    this.maxFoodPrice=this.searchByPriceRangeForm.value.maxPrice;
 
-   //indicate FoodListComponent to load data according to Food price range
-   this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByPriceRange',parameter:null,
-   parameter1:this.minFoodPrice,parameter2:this.maxFoodPrice}); 
+   this.foodsService.getFoodItemsByPriceRange(this.minFoodPrice,this.maxFoodPrice).subscribe(
+
+    //handle response
+     (response:Food_Item[])=>{this.foodItems=response;
+                              },
+
+     //handle errors
+     (error)=>{console.log(error);
+         alert(error);}
+   );
 
    //reset form
    this.searchByPriceRangeForm.reset();
+
+   this.foodArray.emit(this.foodItems);
 
   }
 

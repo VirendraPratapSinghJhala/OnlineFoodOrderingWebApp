@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Food_Item } from 'src/app/foods/food-item.model';
 import { FoodsService } from 'src/app/foods/foods.service';
 
@@ -12,19 +12,14 @@ import { FoodsService } from 'src/app/foods/foods.service';
 })
 export class SearchResultComponent{
 
-    foodItems:Food_Item[]=[];
+    @Input()
+    foodItem:Food_Item=null;
 
     constructor(private foodsService:FoodsService){
 
     }
 
     ngOnInit(){
-       this.foodsService.getFoodItems().subscribe(
-           //handle response
-           (response:Food_Item[])=>{this.foodItems=response;},
-
-           //handle error
-           (error)=>{console.log(error);}
-       );
+      
     }
 }

@@ -9,11 +9,13 @@
                     <div class="card " *ngFor="let employee of employees">
                         <div class="card-body">
                             <h5 class="card-title">{{employee.name}}</h5>
-                            <p class="card-text">Employee Detail 1: {{employee.id}}</p>
-                            <p class="card-text">sdf</p>
-                            <p class="card-text">sfsdf</p>
-                            <p class="card-text">sdfdsf</p>
-                            <p class="card-text">sdfdf</p>
+                            <p class="card-text">Id : {{employee.id}}</p>
+                            <p class="card-text">Age : {{employee.age}}</p>
+                            <p class="card-text">Mobile Number : {{employee.mobileNumber}}</p>
+                            <p class="card-text">Email : {{employee.email}}</p>
+                            <p class="card-text">Password : {{employee.password}}</p>
+                            <p class="card-text">City : {{employee.city}}</p>
+                            <p class="card-text">Store Id : {{employee.storeId}}</p>
                             <a routerLink="update" class="btn btn-primary">Update</a>
                         </div>
                     </div>
@@ -21,4 +23,5 @@
             </div>
         </div>
     </div>
-    <router-outlet></router-outlet>
+</div>
+<router-outlet></router-outlet>
