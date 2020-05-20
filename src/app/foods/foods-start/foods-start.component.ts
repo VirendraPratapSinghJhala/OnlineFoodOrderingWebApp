@@ -2,9 +2,9 @@
 /*  
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
-    Creation Date: 17th May,2020
-    Description: This is a reactive form to take user input as food name for searching for ood items having 
-                  entered name 
+    Creation Date: 18th May,2020
+    Description: This component is used to print some instructions that should appear by default when the FoodsComponent 
+                 loads first
   ==========================================================================================================
 */
 
@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
     styleUrls:['./foods-start.component.css']
 })
 
-//Component that handles all the handling of the reactive form in correspondance to the html template
+//Component that handles all the tasks in correspondance to the html template
 export class FoodsStartComponent
 {
 

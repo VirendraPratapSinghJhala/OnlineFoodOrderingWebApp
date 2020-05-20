@@ -1,3 +1,16 @@
+
+
+/*  
+  =======================================================================================================
+    Developer: Virendra Pratap Singh Jhala,Prateek Joshi,Kritika Arora,Mehul Jain,Subin Sunu Jacob
+    Creation Date: 16th May- 20th May,2020
+    Description: This is the main module of the application which holds the imports of all the defined services in
+                 the applications in providers, Components, Directives in declarations
+  ==========================================================================================================
+*/
+
+
+//import all the required entities from their respective packages
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -39,7 +52,11 @@ import { SearchFoodTypeComponent } from './search-food/search-food-type/search-f
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 import { FoodsStoreService } from './food-stores/food-store.service';
 
+
+//decorator that holds the metadata of the whole module
 @NgModule({
+
+  //includes all the defined Components and directives in the application
   declarations: [
     AppComponent,
     AdminHomeComponent,
@@ -71,13 +88,21 @@ import { FoodsStoreService } from './food-stores/food-store.service';
     SearchFoodTypeComponent,
     SearchFoodPriceComponent
   ],
+
+  //includes all the other necessary modules required for the smooth execution of the application
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
+
+  //includes all the services defined in the application to be used application wide
   providers: [FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+ 
+  //includes the Component from which the angular starts the execution 
   bootstrap: [AppComponent]
 })
+
+//typescript class to be used outside whereever needed 
 export class AppModule { }
