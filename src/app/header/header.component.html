@@ -28,6 +28,9 @@
       <li *ngIf="authRole=='none'" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
+      <li *ngIf="authRole!='none'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/logout">Logout</a>
+      </li>
     </ul>
     <ul>
       <li *ngIf="authRole!='admin'" class="btn-group my-3 dropdown">

@@ -1,12 +1,7 @@
 
 export class GlobalService{
 
-    private static loggedInRole:string;
-
-    constructor(){
-        GlobalService.loggedInRole = "none";
-        console.log("Global constructor called. loggedInRole = " + GlobalService.loggedInRole);
-    }
+    private static loggedInRole:string="none";
 
     setLoginRole(role:string){
         GlobalService.loggedInRole = role;

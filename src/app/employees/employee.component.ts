@@ -35,6 +35,7 @@ export class EmployeeComponent implements OnInit {
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+    console.log(this.shoudDisplayList);
     this.shoudDisplayList = this.router.url == '/employees' ? true : false;
     this.employees = this.employeeService.getSampleAllEmployees();
     this.currentPath= this.router.url;

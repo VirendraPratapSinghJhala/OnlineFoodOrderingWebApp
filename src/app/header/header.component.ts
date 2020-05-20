@@ -14,6 +14,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../shared/global.service';
+import { Location } from '@angular/common';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -30,13 +31,12 @@ export class HeaderComponent implements OnInit{
     collapsed = true;
     authRole:string = "none";
     //constructor used for injecting dependency
-    constructor(private router:Router,private route:ActivatedRoute, public globalService:GlobalService){
-
-    }
+    constructor(private router:Router, public globalService:GlobalService){}
 
     ngOnInit(){
       this.authRole = this.globalService.getLoginRole();
+      console.log("Login role" + this.authRole);
+      this.router.events.subscribe(val => {this.authRole = this.globalService.getLoginRole();});
     }
-   
   
 }
