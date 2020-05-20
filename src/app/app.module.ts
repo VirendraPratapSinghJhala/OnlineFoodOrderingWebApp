@@ -52,6 +52,8 @@ import { FoodsStoreService } from './food-stores/food-store.service';
 import { OrderService } from './order/order.service';
 import { CartService } from './cart/cart.service';
 import { SearchResultComponent } from './search-food/search-result/search-result.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 //decorator that holds the metadata of the whole module
@@ -88,7 +90,9 @@ import { SearchResultComponent } from './search-food/search-result/search-result
     SearchFoodNameComponent,
     SearchFoodTypeComponent,
     SearchFoodPriceComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ContactusComponent,
+    FooterComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application

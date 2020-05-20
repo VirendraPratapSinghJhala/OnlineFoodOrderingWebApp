@@ -36,6 +36,7 @@ import { SearchFoodComponent } from './search-food/search-food.component';
 import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
 import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 //defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
@@ -62,7 +63,7 @@ const routes: Routes = [
   {path:'employee', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]},
-  
+  {path:'contactus', component:ContactusComponent},
   {path:'',redirectTo:'admin-home',pathMatch:'full'},
   {path:'notfound', component:NotFoundComponent},
   {path:'**', redirectTo:'notfound'}
