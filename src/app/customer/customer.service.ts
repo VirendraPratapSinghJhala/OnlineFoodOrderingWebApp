@@ -72,9 +72,9 @@ export class CustomerService implements OnInit{
     }
 
     // add the customer by calling AddCustomer() in web api controller and return integer value indicating id of added customer
-    postCustomer(customer:Customer):Observable<number>{
+    postCustomer(customer:Customer):Observable<boolean>{
 
-        return this.httpClient.post<number>(this.apiPrefix +"/api/customer",customer);
+        return this.httpClient.post<boolean>(this.apiPrefix +"/api/customer",customer);
     }
 
     //it returns zero or one customer corresponding to the passed id
