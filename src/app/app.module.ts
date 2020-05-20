@@ -11,7 +11,7 @@
 //import all the required entities from their respective packages
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -100,12 +100,14 @@ import { CustomerService } from './customer/customer.service';
     FooterComponent,
     FoodMenuComponent,
     FoodMenuItemComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    CustomerComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
