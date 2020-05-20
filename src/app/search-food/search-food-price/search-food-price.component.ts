@@ -68,18 +68,18 @@ export class SearchFoodPriceComponent implements OnInit {
    this.minFoodPrice=this.searchByPriceRangeForm.value.minPrice;
    this.maxFoodPrice=this.searchByPriceRangeForm.value.maxPrice;
 
-  //  this.foodsService.getFoodItemsByPriceRange(this.minFoodPrice,this.maxFoodPrice).subscribe(
+   this.foodsService.getFoodItemsByPriceRange(this.minFoodPrice,this.maxFoodPrice).subscribe(
 
-  //   //handle response
-  //    (response:Food_Item[])=>{this.foodItems=response;
-  //                             },
+    //handle response
+     (response:Food_Item[])=>{this.foodItems=response;
+                              },
 
-  //    //handle errors
-  //    (error)=>{console.log(error);
-  //        alert(error);}
-  //  );
+     //handle errors
+     (error)=>{console.log(error);
+         alert(error);}
+   );
 
-  this.foodItems= this.foodsService.getByPrice(this.minFoodPrice,this.maxFoodPrice);
+ // this.foodItems= this.foodsService.getByPrice(this.minFoodPrice,this.maxFoodPrice);
 
 
    //reset form

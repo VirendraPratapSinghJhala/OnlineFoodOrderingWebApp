@@ -30,16 +30,16 @@ export class FoodMenuComponent implements OnInit {
   //ngOnInit used for initialising properties of the class
   ngOnInit() {
 
-    //  this.foodsService.getFoodItems().subscribe(
+     this.foodsService.getFoodItems().subscribe(
 
-    //    //handle response
-    //   (response:Food_Item[])=>{this.foodItems=response},
+       //handle response
+      (response:Food_Item[])=>{this.foodItems=response},
 
 
-    //   //handle errors
-    //   (error)=>{alert(error);} );
+      //handle errors
+      (error)=>{alert(error);} );
 
-    this.foodItems= this.foodsService.getFoods();
+   // this.foodItems= this.foodsService.getFoods();
  
 
 }
