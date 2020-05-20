@@ -59,6 +59,7 @@ import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-men
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CustomerService } from './customer/customer.service';
 import { CustomerComponent } from './customer/customer.component';
+import { AfterCheckoutComponent } from './after-checkout/after-checkout.component';
 
 
 
@@ -102,7 +103,8 @@ import { CustomerComponent } from './customer/customer.component';
     FoodMenuComponent,
     FoodMenuItemComponent,
     UserHomeComponent,
-    CustomerComponent
+    CustomerComponent,
+    AfterCheckoutComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
