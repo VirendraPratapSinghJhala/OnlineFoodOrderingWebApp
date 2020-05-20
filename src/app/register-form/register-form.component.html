@@ -28,15 +28,23 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="name" class="form-control" formControlName="customerName" 
                                       /></span> 
-                        
-                                
-                                <span class="help-block" *ngIf="addForm.get('customerName').touched && 
-                                addForm.get('customerName').dirty && addForm.get('customerName').invalid">
-                                Customer name can not be left blank</span>
+                                <div *ngIf="addForm.get('customerName').touched && 
+                                addForm.get('customerName').invalid &&
+                                addForm.get('customerName').hasError('required')">
+                                <span style= "color:red;">Name is required.</span>
+                                </div>
 
-                                <span class="help-block" *ngIf="addForm.get('customerName').touched && 
-                                addForm.get('customerName').pristine && addForm.get('customerName').errors['required']">
-                                Customer name is required</span>
+                                <div *ngIf="addForm.get('customerName').touched && 
+                                addForm.get('customerName').invalid &&
+                                addForm.get('customerName').hasError('maxlength')">
+                                <span style= "color:red;">Max 50 characters allowed.</span>
+                                </div>
+
+                                <div *ngIf="addForm.get('customerName').touched && 
+                                addForm.get('customerName').invalid &&
+                                addForm.get('customerName').hasError('pattern')">
+                                <span style= "color:red;">Only alphabets allowed.</span>
+                                </div>
                             </div>
                         </li>
                         <span ></span>
@@ -47,18 +55,30 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="number" name="age" class="form-control" formControlName="age"
                                     /></span>
-                                    <span class="help-block" *ngIf="addForm.get('age').touched && 
-                                    addForm.get('age').dirty && addForm.get('age').invalid">
-                                    Age is required</span>
-
-                                    <span class="help-block" *ngIf="addForm.get('age').touched && 
-                                    addForm.get('age').pristine && addForm.get('age').invalid">
-                                    Age is required</span>
-									
-									<span class="help-block" *ngIf="addForm.get('age').touched && 
-                                   addForm.get('age').dirty && addForm.get('age').invalid && 
-                                   addForm.get('age').errors['min']">
-                                   Age can not be negative or zero</span>
+                                    
+                                    <div *ngIf="addForm.get('age').touched && 
+                                    addForm.get('age').invalid &&
+                                    addForm.get('age').hasError('required')">
+                                    <span style= "color:red;">Age is required.</span>
+                                    </div>
+    
+                                    <div *ngIf="addForm.get('age').touched && 
+                                    addForm.get('age').invalid &&
+                                    addForm.get('age').hasError('min')">
+                                    <span style= "color:red;">Minimum age should be 15.</span>
+                                    </div>
+    
+                                    <div *ngIf="addForm.get('age').touched && 
+                                    addForm.get('age').invalid &&
+                                    addForm.get('age').hasError('max')">
+                                    <span style= "color:red;">Maximum age should be 65.</span>
+                                    </div>
+                                    
+                                    <div *ngIf="addForm.get('age').touched && 
+                                    addForm.get('age').invalid &&
+                                    addForm.get('age').hasError('pattern')">
+                                    <span style= "color:red;">Only Numeric values allowed.</span>
+                                    </div>
                          
                             </div>
                         </li>
@@ -70,14 +90,19 @@
                                 <span> <input type="text" name="password" class="form-control" formControlName="password" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('password').touched && 
-                                   addForm.get('password').dirty &&  addForm.get('password').invalid" >
-                                   Password is required</span>
+                                   <div *ngIf="addForm.get('password').touched && 
+                                   addForm.get('password').invalid &&
+                                   addForm.get('password').hasError('required')">
+                                   <span style= "color:red;">Password is required.</span>
+                                   </div>
 
-                                   <span class="help-block" *ngIf="addForm.get('password').touched && 
-                                   addForm.get('password').pristine &&  addForm.get('password').invalid ">
-                                   Password is required</span>
-                                  
+                                   <div *ngIf="addForm.get('password').touched && 
+                                   addForm.get('password').invalid &&
+                                   addForm.get('password').hasError('pattern')">
+                                   <span style= "color:red;">Password must have 6-15 characters,
+                                    one uppercase, one lowercase and one digit must be present.</span>
+                                   </div>
+
                             </div>
                         </li>
 						<!---------Single Line Ends Here---------->
@@ -89,13 +114,18 @@
                                 <span> <input type="text" name="mobileNo" class="form-control" formControlName="mobileNo" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileNo').touched && 
-                                   addForm.get('mobileNo').dirty &&  addForm.get('mobileNo').invalid" >
-                                   Mobile Number is required</span>
-
-                                   <span class="help-block" *ngIf="addForm.get('mobileNo').touched && 
-                                   addForm.get('mobileNo').pristine &&  addForm.get('mobileNo').invalid ">
-                                   Mobile Number is required</span>
+                                   <div *ngIf="addForm.get('mobileNo').touched && 
+                                   addForm.get('mobileNo').invalid &&
+                                   addForm.get('mobileNo').hasError('required')">
+                                   <span style= "color:red;">Mobile number is required.</span>
+                                   </div>
+                                   
+                                   <div *ngIf="addForm.get('mobileNo').touched && 
+                                   addForm.get('mobileNo').invalid &&
+                                   addForm.get('mobileNo').hasError('pattern')">
+                                   <span style= "color:red;">Please enter a valid 10 digit mobile number.</span>
+                                   </div>
+                                
                                   
                             </div>
                         </li>
@@ -108,14 +138,30 @@
                                 <span> <input type="text" name="email" class="form-control" formControlName="email" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                   addForm.get('email').dirty &&  addForm.get('email').invalid" >
-                                   Email is required</span>
+                                <div *ngIf="addForm.get('email').touched && 
+                                addForm.get('email').invalid &&
+                                addForm.get('email').hasError('required')">
+                                <span style= "color:red;">Email is required.</span>
+                                </div>
 
-                                   <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                   addForm.get('email').pristine &&  addForm.get('email').invalid ">
-                                   Email is required</span>
-                                  
+                                <div *ngIf="addForm.get('email').touched && 
+                                addForm.get('email').invalid &&
+                                addForm.get('email').hasError('minlength')">
+                                <span style= "color:red;">Mininmum 5 characters required.</span>
+                                </div>
+
+                                <div *ngIf="addForm.get('email').touched && 
+                                addForm.get('email').invalid &&
+                                addForm.get('email').hasError('maxlength')">
+                                <span style= "color:red;">Maximum 50 characters allowed.</span>
+                                </div>
+
+                                <div *ngIf="addForm.get('email').touched && 
+                                addForm.get('email').invalid &&
+                                addForm.get('email').hasError('pattern')">
+                                <span style= "color:red;">Please enter a valid email id.</span>
+                                </div>
+                                
                             </div>
                         </li>
 						
@@ -128,14 +174,24 @@
                                 <span> <input type="text" name="city" class="form-control" formControlName="city" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('city').touched && 
-                                   addForm.get('city').dirty &&  addForm.get('city').invalid" >
-                                   City is required</span>
+                                <div *ngIf="addForm.get('city').touched && 
+                                addForm.get('city').invalid &&
+                                addForm.get('city').hasError('required')">
+                                <span style= "color:red;">City is required.</span>
+                                </div>
 
-                                   <span class="help-block" *ngIf="addForm.get('city').touched && 
-                                   addForm.get('city').pristine &&  addForm.get('city').invalid ">
-                                   City is required</span>
-                                  
+                                <div *ngIf="addForm.get('city').touched && 
+                                addForm.get('city').invalid &&
+                                addForm.get('city').hasError('maxlength')">
+                                <span style= "color:red;">Maximum 50 characters allowed.</span>
+                                </div>
+
+                                <div *ngIf="addForm.get('city').touched && 
+                                addForm.get('city').invalid &&
+                                addForm.get('city').hasError('pattern')">
+                                <span style= "color:red;">Special Characters are not allowed.</span>
+                                </div>
+
                             </div>
                         </li>
 

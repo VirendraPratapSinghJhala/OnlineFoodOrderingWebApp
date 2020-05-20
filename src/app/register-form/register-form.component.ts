@@ -45,12 +45,16 @@ export class RegisterFormComponent implements OnInit {
 
     //initialise addForm
     this.addForm=new FormGroup({
-      'customerName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'city':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'age': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'password':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'mobileNo': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'customerName':new FormControl(null,[Validators.required,Validators.maxLength(50),Validators.pattern('^[a-zA-Z]*$')]),
+      'email':new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(50),
+                                    Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'city':new FormControl(null,[Validators.required,Validators.maxLength(50),
+                                    Validators.pattern("^[a-zA-Z0-9]*$")]),
+      'age': new FormControl(null,[Validators.required,Validators.min(15),Validators.max(65),
+                                    Validators.pattern('^[0-9]*$')]),
+      'password':new FormControl(null,[Validators.required,
+                                    Validators.pattern('((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6-15})')]),
+      'mobileNo': new FormControl(null,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
     }
     );
   }
