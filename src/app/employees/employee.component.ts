@@ -23,12 +23,15 @@ import { Router } from '@angular/router';
 //Component that handles all the tasks in correspondance to the html template
 export class EmployeeComponent implements OnInit {
 
+  currentPath:string=null;
+
     //constructor used for injecting dependency
-  constructor(private route: Router) { }
+  constructor(private router: Router) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+    this.currentPath= this.router.url;
   }
 
 }
