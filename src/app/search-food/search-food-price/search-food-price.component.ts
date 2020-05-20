@@ -52,8 +52,8 @@ export class SearchFoodPriceComponent implements OnInit {
     this.searchByPriceRangeForm=new FormGroup({
 
             //apply all the required validations on all the input controls
-      'minPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]$")]),
-      'maxPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]$")]),
+      'minPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]*")]),
+      'maxPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]*$")]),
     }
     );
   }

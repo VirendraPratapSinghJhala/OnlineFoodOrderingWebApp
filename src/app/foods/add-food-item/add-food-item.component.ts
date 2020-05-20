@@ -49,7 +49,7 @@ export class AddFoodItemComponent implements OnInit {
       //apply all the required validations on all the input controls
       'foodName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
       'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'foodPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]$")]),
+      'foodPrice': new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern("^[0-9]*$")]),
       'imagePath': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
     }
     );
