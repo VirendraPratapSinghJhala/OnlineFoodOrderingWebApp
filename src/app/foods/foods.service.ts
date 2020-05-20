@@ -25,11 +25,11 @@ export class FoodsService implements OnInit{
 //property will hold prefix of the url present in request to web api
     apiPrefix:string;
     
-
+foods:Food_Item[]=[];
     //constructor for injecting dependencies
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
-
+      this.foods.push();
     }
 
 
@@ -39,6 +39,7 @@ export class FoodsService implements OnInit{
     }
 
    
+    
 // get all the food items by calling GetAllFoodItems() in web api controller
     getFoodItems():Observable<Food_Item[]>{
 
