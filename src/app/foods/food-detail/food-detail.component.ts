@@ -46,12 +46,12 @@ export class FoodDetailComponent implements OnInit {
       
     );
 
-    // //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
-    // this.foodsService.getFoodItemById(this.id).subscribe(
-    //   (response:Food_Item)=>{this.foodItem=response;}
-    // );
+    //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
+    this.foodsService.getFoodItemById(this.id).subscribe(
+      (response:Food_Item)=>{this.foodItem=response;}
+    );
 
-    this.foodItem=this.foodsService.getById(this.id);
+    //his.foodItem=this.foodsService.getById(this.id);
    
   }
 
@@ -68,7 +68,12 @@ onDeleteFoodItem(){
     
     //handle response
     (response:boolean)=>{if(response==true)
-    {}},
+    {console.log('Food item deleted successfully');
+     alert('Food item deleted successfully');}
+     else{
+        console.log('food item not deleted successfully');
+        alert('food item not deleted successfully');
+     }},
 
     //handle errors
     (error)=>{console.log(error);}
