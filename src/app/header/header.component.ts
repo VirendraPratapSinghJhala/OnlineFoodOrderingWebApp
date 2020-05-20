@@ -38,4 +38,8 @@ export class HeaderComponent implements OnInit{
       this.router.events.subscribe(val => {this.authRole = this.globalService.getLoginRole();});
     }
   
+    onLogoutClick(){
+      this.globalService.setLoginRole("none");
+      this.authRole = this.globalService.getLoginRole();
+    }
 }
