@@ -57,6 +57,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { CustomerService } from './customer/customer.service';
 
 
 
@@ -110,7 +111,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
     HttpClientModule
   ],
   //includes all the services defined in the application to be used application wide
-  providers: [CartService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [CartService, CustomerService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
 
   //includes the Component from which the angular starts the execution 
   bootstrap: [AppComponent]
