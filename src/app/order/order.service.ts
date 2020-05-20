@@ -23,6 +23,7 @@ export class OrderService implements OnInit{
 
     private order:Order = new Order(1 ,100, '27-9-18', 4, 50, 200, 300,[this.orderItem1, this.orderItem2, this.orderItem3]);
 
+    private orderList:Order[] = [this.order];
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
     }
@@ -32,6 +33,21 @@ export class OrderService implements OnInit{
     }
 
     apiPrefix:string;
+
+    sampleGetOrder():Order[]{
+        return this.orderList;
+    }
+
+    sampleGetOrderDetail(orderId):Order{
+        let order = null;
+        for(let i = 0; i < this.orderList.length; i ++){
+            console.log("iteration:" + this.orderList[i].orderId + "," + orderId);
+            if(this.orderList[i].orderId == orderId){
+                console.log("found");
+                return this.orderList[i];
+            }
+        }
+    }
 
     getOrders():Observable<Order[]>{
 
