@@ -41,12 +41,17 @@ export class AddEmployeeComponent implements OnInit {
     this.addForm=new FormGroup({
 
       //apply all the required validations on all the input controls
-      'employeeName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'city':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'employeeAge': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'password':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'mobileNumber': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'employeeName':new FormControl(null,[Validators.required,Validators.maxLength(40), 
+                                    Validators.pattern('^[a-zA-Z ]*$')]),
+      'email':new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(40),  
+                                  Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'city':new FormControl(null,[Validators.required,Validators.maxLength(40),  
+                                  Validators.pattern('^[a-zA-Z0-9]*$')]),
+      'employeeAge': new FormControl(null,[Validators.required,Validators.min(18),
+                                  Validators.max(60),Validators.pattern('^[0-9]*$')]),
+      'password':new FormControl(null,[Validators.required,
+                                  Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,15})')]),
+      'mobileNumber': new FormControl(null,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
     }
     );
   }

@@ -44,13 +44,19 @@ export class UpdateEmployeeComponent implements OnInit {
     //initialise updateForm
     this.updateForm=new FormGroup({
       //apply all the required validations on all the input controls
-      'employeeId': new FormControl(this.employee.id,[Validators.required]),
-      'employeeName':new FormControl(this.employee.name,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(this.employee.email,[Validators.required,Validators.maxLength(255)]),
-      'city':new FormControl(this.employee.city,[Validators.required,Validators.maxLength(255)]),
-      'employeeAge': new FormControl(this.employee.age,[Validators.required,Validators.min(1)]),
-      'password':new FormControl(this.employee.password,[Validators.required,Validators.maxLength(255)]),
-      'mobileNumber': new FormControl(this.employee.mobileNumber,[Validators.required,Validators.maxLength(2000)])
+      'employeeId': new FormControl(this.employee.id,[Validators.required,Validators.min(1),
+                                    Validators.pattern('^[0-9]*$')]),
+      'employeeName':new FormControl(this.employee.name,[Validators.required,Validators.maxLength(40), 
+                                    Validators.pattern('^[a-zA-Z ]*$')]),
+      'email':new FormControl(this.employee.email,[Validators.required,Validators.minLength(5),Validators.maxLength(40),  
+                                    Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'city':new FormControl(this.employee.city,[Validators.required,Validators.maxLength(40),  
+                                  Validators.pattern('^[a-zA-Z0-9]*$')]),
+      'employeeAge': new FormControl(this.employee.age,[Validators.required,Validators.min(18),
+                                  Validators.max(60),Validators.pattern('^[0-9]*$')]),
+      'password':new FormControl(this.employee.password,[Validators.required,
+                                  Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,15})')]),
+      'mobileNumber': new FormControl(this.employee.mobileNumber,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
     }
     );
   }
