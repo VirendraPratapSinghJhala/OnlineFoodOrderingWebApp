@@ -58,6 +58,7 @@ import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { CustomerService } from './customer/customer.service';
+import { CustomerComponent } from './customer/customer.component';
 
 
 
