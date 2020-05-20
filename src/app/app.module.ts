@@ -56,6 +56,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { FooterComponent } from './footer/footer.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 
 
@@ -97,7 +98,8 @@ import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-men
     ContactusComponent,
     FooterComponent,
     FoodMenuComponent,
-    FoodMenuItemComponent
+    FoodMenuItemComponent,
+    UserHomeComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
