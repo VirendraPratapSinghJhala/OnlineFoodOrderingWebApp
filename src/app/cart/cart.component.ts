@@ -10,6 +10,7 @@ import { CartService } from './cart.service';
 import { Cart } from './cart.model';
 import { OrderItem } from '../order/order-item.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,7 @@ export class CartComponent implements OnInit {
   public cart:Cart = null;
   public productList:OrderItem[];
   updateForm:FormGroup;
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService, private router:Router) { }
 
   ngOnInit(): void {
     this.updateForm=new FormGroup({
@@ -37,6 +38,7 @@ export class CartComponent implements OnInit {
   }
   onSubmitOrder(): void{
     console.log("Order Submit Req received");
+    this.router.navigate(['/thankyou']);
   }
   onDeleteFromCart(productId: number){
     console.log("Deleteing from cart: " + productId);
