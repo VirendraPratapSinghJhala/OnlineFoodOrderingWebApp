@@ -11,8 +11,9 @@
 
 
 //import all the required entities from their respective packages
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GlobalService } from '../shared/global.service';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -23,16 +24,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 //Component that handles all the tasks in correspondance to the html template
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
 
   //property to be used in template for the navigation bar to be collapsed in small devices
     collapsed = true;
-
+    authRole:string = "none";
     //constructor used for injecting dependency
-    constructor(private router:Router,private route:ActivatedRoute){
+    constructor(private router:Router,private route:ActivatedRoute, public globalService:GlobalService){
 
     }
 
+    ngOnInit(){
+      this.authRole = this.globalService.getLoginRole();
+    }
    
   
 }

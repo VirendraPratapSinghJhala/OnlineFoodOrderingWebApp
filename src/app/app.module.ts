@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { AboutComponent } from './about/about.component';
 import { FoodsService } from './foods/foods.service';
 import { FoodItemComponent } from './foods/food-list/food-item/food-item.component';
@@ -60,6 +59,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { CustomerService } from './customer/customer.service';
 import { CustomerComponent } from './customer/customer.component';
 import { AfterCheckoutComponent } from './after-checkout/after-checkout.component';
+import { GlobalService } from './shared/global.service';
 
 
 
@@ -71,7 +71,6 @@ import { AfterCheckoutComponent } from './after-checkout/after-checkout.componen
     AppComponent,
     AdminHomeComponent,
     HeaderComponent,
-    DropdownDirective,
     AboutComponent,
     FoodsComponent,
     FoodListComponent,
@@ -116,7 +115,7 @@ import { AfterCheckoutComponent } from './after-checkout/after-checkout.componen
     HttpClientModule
   ],
   //includes all the services defined in the application to be used application wide
-  providers: [CartService, CustomerService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [GlobalService, CartService, CustomerService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
 
   //includes the Component from which the angular starts the execution 
   bootstrap: [AppComponent]

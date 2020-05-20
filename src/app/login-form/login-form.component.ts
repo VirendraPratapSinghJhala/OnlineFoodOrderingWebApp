@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CustomerService } from '../customer/customer.service';
 import { Router } from '@angular/router';
+import { GlobalService } from '../shared/global.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private loginService:CustomerService, private router:Router) { }
+  constructor(private loginService:CustomerService, private router:Router, private globalService:GlobalService) { }
 
   loginForm:FormGroup=null;
 
@@ -28,8 +29,9 @@ export class LoginFormComponent implements OnInit {
     let loggedIn = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
 
     if(loggedIn){
-      //set loggedIn globally true
-      this.router.navigate(['/home']);
+      //set loggedIn globally user
+      this.globalService.setLoginRole("user");
+      this.router.navigate(['/']);
     }else{
       alert('Email ID or Password not correct. Please register if you are a new user.');
     }
