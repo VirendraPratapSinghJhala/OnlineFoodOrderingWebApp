@@ -1,3 +1,10 @@
+/*  
+  =======================================================================================================
+    Developer: Prateek Joshi
+    Creation Date: 16th May- 20th May,2020
+    Description: This is the Order Model class
+  ==========================================================================================================
+*/
 import { OrderItem } from './order-item.model';
 
 export class Order{

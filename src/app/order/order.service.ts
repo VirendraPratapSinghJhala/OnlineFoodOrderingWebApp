@@ -1,5 +1,10 @@
-
-
+/*  
+  =======================================================================================================
+    Developer: Prateek Joshi
+    Creation Date: 16th May- 20th May,2020
+    Description: This is the typescript logic for handling orders services
+  ==========================================================================================================
+*/
 import { Injectable, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';

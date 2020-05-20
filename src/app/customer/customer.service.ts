@@ -68,7 +68,7 @@ export class CustomerService implements OnInit{
     }
 
     //returns boolean value indicating whether customer with passed customer id is deleted or not
-    deleteFoodItemBy(customerId:number):Observable<boolean>
+    deleteCustomerById(customerId:number):Observable<boolean>
     {
         return this.httpClient.delete<boolean>(this.apiPrefix +"/api/customer?customerId="+customerId);
     }

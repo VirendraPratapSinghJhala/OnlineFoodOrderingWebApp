@@ -40,17 +40,17 @@ export class UpdateEmployeeComponent implements OnInit {
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+    this.employee = this.employeesService.getSampleEmployee();
     //initialise updateForm
     this.updateForm=new FormGroup({
-
       //apply all the required validations on all the input controls
-      'employeeId': new FormControl(null,[Validators.required]),
-      'employeeName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'city':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'employeeAge': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'password':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'mobileNumber': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      'employeeId': new FormControl(this.employee.id,[Validators.required]),
+      'employeeName':new FormControl(this.employee.name,[Validators.required,Validators.maxLength(255)]),
+      'email':new FormControl(this.employee.email,[Validators.required,Validators.maxLength(255)]),
+      'city':new FormControl(this.employee.city,[Validators.required,Validators.maxLength(255)]),
+      'employeeAge': new FormControl(this.employee.age,[Validators.required,Validators.min(1)]),
+      'password':new FormControl(this.employee.password,[Validators.required,Validators.maxLength(255)]),
+      'mobileNumber': new FormControl(this.employee.mobileNumber,[Validators.required,Validators.maxLength(2000)])
     }
     );
   }
