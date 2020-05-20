@@ -10,7 +10,7 @@
 
 
 //import all the required entities from their respective packages
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FoodsService } from 'src/app/foods/foods.service';
 import { Food_Item } from 'src/app/foods/food-item.model';
@@ -25,6 +25,9 @@ import { Food_Item } from 'src/app/foods/food-item.model';
 //Component that handles all the handling of the reactive form in correspondance to the html template
 export class SearchFoodTypeComponent implements OnInit {
 
+  @Output()
+  foodArray=new EventEmitter<Food_Item[]>();
+  
      //declare reactive form of type FormGroup
   searchByTypeForm:FormGroup;
 
@@ -34,6 +37,8 @@ export class SearchFoodTypeComponent implements OnInit {
     //declare foodtype to store string type of food
   foodType:string=null;
 
+
+   foodItems:Food_Item[]=null;
 
   //constructor used for injecting dependency
   constructor(private foodsService:FoodsService) { }
@@ -59,11 +64,20 @@ export class SearchFoodTypeComponent implements OnInit {
       //assign the input food type to the declared property 
    this.foodType=this.searchByTypeForm.value.foodType;
 
-   //indicate FoodListComponent to load data according to food type
-   this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByType',parameter:this.foodType,parameter1:0,parameter2:0}); 
+   this.foodsService.getFoodItemsByType(this.foodType).subscribe(
+
+    //handle response
+     (response:Food_Item[])=>{this.foodItems=response;},
+
+     //handle errors
+     (error)=>{console.log(error);
+         alert(error);}
+   ); 
 
     //reset the form
    this.searchByTypeForm.reset();
+
+   this.foodArray.emit(this.foodItems);
 
   }
 
