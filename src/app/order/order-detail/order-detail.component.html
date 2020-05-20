@@ -12,13 +12,14 @@
             <b>Price</b>
           </span>
         </h4>
-        <p><a>Product 1</a> <span class="qty">1</span> <span class="price">$15</span></p>
-        <p><a>Product 2</a> <span class="qty">1</span> <span class="price">$5</span></p>
-        <p><a>Product 3</a> <span class="qty">1</span> <span class="price">$8</span></p>
-        <p><a>Product 4</a> <span class="qty">1</span> <span class="price">$2</span></p>
+        <div *ngFor="let item of orderItemsList">
+          <p>
+            <a>{{item.foodItemId}}</a> <span class="qty">{{item.quantity}}</span> <span class="price">{{item.price}}</span>
+          </p>
+        </div>
         <hr>
-        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        <p>Total <span class="price" style="color:black"><b>{{orderDetail.totalPrice}}</b></span></p>
       </div>
     </div>
-  
+  <a routerLink="/orderlist" class="btn btn-success">Back to Order List</a>
   </div>
