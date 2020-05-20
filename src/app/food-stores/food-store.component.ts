@@ -20,15 +20,14 @@ import { FoodsStoreService } from './food-store.service';
 //Component that handles all the tasks in correspondance to the html template
 export class FoodStoreComponent implements OnInit {
   foodstores:FoodStore[]=null;
-
-
-
+  shoudDisplayList:Boolean=true;
 
     //constructor used for injecting dependency
-  constructor(private route: Router ,private foodStoreService:FoodsStoreService) { }
-  router: Router;
+  constructor(private router:Router ,private route: Router ,private foodStoreService:FoodsStoreService) { }
    //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
+    this.router.events.subscribe(val=>{this.shoudDisplayList = this.router.url == '/foodstores' ? true : false});
+    this.shoudDisplayList = this.router.url == '/foodstores' ? true : false;
     this.foodstores = this.foodStoreService.getSammpleAllFoodStore();
     this.router = this.route;
   }
