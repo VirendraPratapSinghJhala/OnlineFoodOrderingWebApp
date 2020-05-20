@@ -54,6 +54,7 @@ import { CartService } from './cart/cart.service';
 import { SearchResultComponent } from './search-food/search-result/search-result.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 
 
@@ -93,7 +94,8 @@ import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-men
     SearchFoodPriceComponent,
     SearchResultComponent,
     FoodMenuComponent,
-    FoodMenuItemComponent
+    FoodMenuItemComponent,
+    UserHomeComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
