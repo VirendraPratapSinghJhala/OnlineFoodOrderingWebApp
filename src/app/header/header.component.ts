@@ -35,7 +35,6 @@ export class HeaderComponent implements OnInit{
 
     ngOnInit(){
       this.authRole = this.globalService.getLoginRole();
-      console.log("Login role" + this.authRole);
       this.router.events.subscribe(val => {this.authRole = this.globalService.getLoginRole();});
     }
   
