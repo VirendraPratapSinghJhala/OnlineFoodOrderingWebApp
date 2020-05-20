@@ -8,6 +8,18 @@ import { WebApiService } from '../shared/webapi.service';
 @Injectable()
 export class EmployeesService implements OnInit{
 
+    employee:Employee[] = [
+        new Employee(
+            22,
+            "Prateek",
+            22,
+            1212,
+            "something",
+            "9999999",
+            "ad@rerg.com",
+            "City")
+    ];
+
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
     }
@@ -17,6 +29,10 @@ export class EmployeesService implements OnInit{
     }
 
     apiPrefix:string;
+
+    getSampleEmployee(){
+        return(this.employee[0]);
+    }
 
     getEmployees():Observable<Employee[]>{
 
