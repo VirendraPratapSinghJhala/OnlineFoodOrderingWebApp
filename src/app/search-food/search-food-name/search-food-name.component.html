@@ -32,12 +32,26 @@
                         
                                 
                                 <span class="help-block" *ngIf="searchByNameForm.get('foodName').touched && 
-                                searchByNameForm.get('foodName').dirty && searchByNameForm.get('foodName').invalid">
+                                searchByNameForm.get('foodName').dirty && searchByNameForm.get('foodName').invalid && 
+                                searchByNameForm.get('foodName').errors['required']">
                                 Food name is required</span>
 
                                 <span class="help-block" *ngIf="searchByNameForm.get('foodName').touched && 
-                                searchByNameForm.get('foodName').pristine && searchByNameForm.get('foodName').errors['required']">
+                                searchByNameForm.get('foodName').pristine && searchByNameForm.get('foodName').invalid 
+                                 && searchByNameForm.get('foodName').errors['required']">
                                 Food name is required</span>
+
+                                <span class="help-block" *ngIf="searchByNameForm.get('foodName').touched && 
+                                searchByNameForm.get('foodName').dirty && searchByNameForm.get('foodName').invalid 
+                                 && searchByNameForm.get('foodName').errors['maxLength']">
+                                Food name can not exceed 255 characters</span>
+
+                                <span class="help-block" *ngIf="searchByNameForm.get('foodName').touched && 
+                                searchByNameForm.get('foodName').dirty && searchByNameForm.get('foodName').invalid 
+                                 && searchByNameForm.get('foodName').errors['pattern']">
+                                Food name must start with alphabet letter and can only consist of alphabetic letters and digits</span>
+
+
                             </div>
                         </li>
                        

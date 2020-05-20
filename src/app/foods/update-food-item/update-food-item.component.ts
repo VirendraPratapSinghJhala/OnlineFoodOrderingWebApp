@@ -61,7 +61,7 @@ export class UpdateFoodItemComponent implements OnInit {
       //apply all the required validations on all the input controls
       'foodName': new FormControl(this.foodItem.name , [Validators.required, Validators.maxLength(255)]),
       'foodType': new FormControl(this.foodItem.type, [Validators.required, Validators.maxLength(255)]),
-      'foodPrice': new FormControl(this.foodItem.price , [Validators.required, Validators.min(1)]),
+      'foodPrice': new FormControl(this.foodItem.price , [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]),
       'imagePath': new FormControl(this.foodItem.imagePath, [Validators.required, Validators.maxLength(2000)])
 
     }
