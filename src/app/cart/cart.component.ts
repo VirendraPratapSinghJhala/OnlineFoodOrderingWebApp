@@ -1,3 +1,10 @@
+/*  
+  =======================================================================================================
+    Developer: Prateek Joshi
+    Creation Date: 16th May- 20th May,2020
+    Description: This is the typescript logic for handling cart page
+  ==========================================================================================================
+*/
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from './cart.service';
 import { Cart } from './cart.model';
