@@ -21,6 +21,18 @@ import { WebApiService } from '../shared/webapi.service';
 //and also allows those components to send and recieve requests through HttpClient.
 export class CustomerService implements OnInit{
 
+    customer:Customer[]=[
+        new Customer(
+            1,
+            "Mehul",
+            "mehul@gmail.com",
+            22,
+            "Jaipur",
+            "9887515652",
+            "m@123"
+        )
+    ];
+
     //property will hold prefix of the url present in request to web api
     apiPrefix:string;
     
@@ -36,6 +48,10 @@ export class CustomerService implements OnInit{
         this.apiPrefix=this.webapiService.urlPrefix;
     }
 
+    getSampleCustomer(){
+        return(this.customer[0]);
+    }
+
     // get all the customers by calling GetAllCustomers() in web api controller
     getAllCustomers():Observable<Customer[]>{
 
@@ -43,9 +59,9 @@ export class CustomerService implements OnInit{
     }
 
     // add the customer by calling AddCustomer() in web api controller and return integer value indicating id of added customer
-    postCustomer(customer:Customer):Observable<boolean>{
+    postCustomer(customer:Customer):Observable<number>{
 
-        return this.httpClient.post<boolean>(this.apiPrefix +"/api/customer",customer);
+        return this.httpClient.post<number>(this.apiPrefix +"/api/customer",customer);
     }
 
     //it returns zero or one customer corresponding to the passed id
@@ -55,9 +71,9 @@ export class CustomerService implements OnInit{
     }
 
     //returns the boolean value indicating whether passed customer updated or not
-    putCustomer(customer:Customer){
+    putCustomer(customer:Customer):Observable<boolean>{
 
-        return this.httpClient.put<Customer>(this.apiPrefix +"/api/customer",customer);
+        return this.httpClient.put<boolean>(this.apiPrefix +"/api/customer",customer);
 
     }
 
