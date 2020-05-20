@@ -43,9 +43,9 @@ export class CustomerService implements OnInit{
     }
 
     // add the customer by calling AddCustomer() in web api controller and return integer value indicating id of added customer
-    postCustomer(customer:Customer){
+    postCustomer(customer:Customer):Observable<boolean>{
 
-        return this.httpClient.post<Customer>(this.apiPrefix +"/api/customer",customer);
+        return this.httpClient.post<boolean>(this.apiPrefix +"/api/customer",customer);
     }
 
     //it returns zero or one customer corresponding to the passed id
@@ -67,5 +67,10 @@ export class CustomerService implements OnInit{
         return this.httpClient.get<Customer[]>(this.apiPrefix +"/api/customer?Customer_Name="+customerName);
     }
 
+    //returns boolean value indicating whether customer with passed customer id is deleted or not
+    deleteFoodItemBy(customerId:number):Observable<boolean>
+    {
+        return this.httpClient.delete<boolean>(this.apiPrefix +"/api/customer?customerId="+customerId);
+    }
 
 }
