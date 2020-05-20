@@ -7,7 +7,7 @@
   ==========================================================================================================
 */
 
-
+                //  What IF WE RELOAD THE APPLICATION ???? Will THE LOGIN BE PERSISTENT ?????
 //import all the required entities from their respective packages
 
 import { Component, OnInit } from '@angular/core';
@@ -25,6 +25,7 @@ import { EmployeesService } from './employees.service';
 //Component that handles all the tasks in correspondance to the html template
 export class EmployeeComponent implements OnInit {
   employees:Employee[]=null;
+  shoudDisplayList:Boolean=true;
 
   currentPath:string=null;
 
@@ -34,6 +35,7 @@ export class EmployeeComponent implements OnInit {
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+    this.shoudDisplayList = this.router.url == '/employees' ? true : false;
     this.employees = this.employeeService.getSampleAllEmployees();
     this.currentPath= this.router.url;
   }
