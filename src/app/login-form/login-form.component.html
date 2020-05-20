@@ -28,13 +28,29 @@
                                 <span> <input type="text" name="email" class="form-control" formControlName="email" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="loginForm.get('email').touched && 
-                                   loginForm.get('email').dirty &&  loginForm.get('email').invalid" >
-                                   Email is required</span>
+                                <div *ngIf="loginForm.get('email').touched && 
+                                   loginForm.get('email').invalid &&
+                                   loginForm.get('email').hasError('required')">
+                                <span style= "color:red;">Email is required.</span>
+                                </div>
 
-                                   <span class="help-block" *ngIf="loginForm.get('email').touched && 
-                                   loginForm.get('email').pristine &&  loginForm.get('email').invalid ">
-                                   Email is required</span>
+                                <div *ngIf="loginForm.get('email').touched && 
+                                loginForm.get('email').invalid &&
+                                loginForm.get('email').hasError('minlength')">
+                                <span style= "color:red;">Mininmum 5 characters required.</span>
+                                </div>
+
+                                <div *ngIf="loginForm.get('email').touched && 
+                                loginForm.get('email').invalid &&
+                                loginForm.get('email').hasError('maxlength')">
+                                <span style= "color:red;">Maximum 50 characters allowed.</span>
+                                </div>
+
+                                <div *ngIf="loginForm.get('email').touched && 
+                                loginForm.get('email').invalid &&
+                                loginForm.get('email').hasError('pattern')">
+                                <span style= "color:red;">Please enter a valid email id.</span>
+                                </div>
                                   
                             </div>
                         </li>
@@ -42,17 +58,21 @@
                         <li class="zf-tempFrmWrapper zf-large">
                                 <label class="zf-labelName">Password</label>
                                 <div class="zf-tempContDiv">
-                                    <span> <input type="text" name="password" class="form-control" formControlName="password" 
+                                    <span> <input type="password" name="password" class="form-control" formControlName="password" 
                                        /></span>
     
-                                       <span class="help-block" *ngIf="loginForm.get('password').touched && 
-                                       loginForm.get('password').dirty &&  loginForm.get('password').invalid" >
-                                       Password is required</span>
-    
-                                       <span class="help-block" *ngIf="loginForm.get('password').touched && 
-                                       loginForm.get('password').pristine &&  loginForm.get('password').invalid ">
-                                       Password is required</span>
-                                      
+                                   <div *ngIf="loginForm.get('password').touched && 
+                                    loginForm.get('password').invalid &&
+                                    loginForm.get('password').hasError('required')">
+                                   <span style= "color:red;">Password is required.</span>
+                                   </div>
+
+                                   <div *ngIf="loginForm.get('password').touched && 
+                                   loginForm.get('password').invalid &&
+                                   loginForm.get('password').hasError('pattern')">
+                                   <span style= "color:red;">Password must have 6-15 characters,
+                                    one uppercase, one lowercase and one digit must be present.</span>
+                                   </div>                                     
                                 </div>
                             </li>
 

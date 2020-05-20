@@ -163,7 +163,7 @@
                                 <span> <input type="text" name="email" class="form-control" formControlName="email" 
                                    /></span>
 
-                                   <div *ngIf="updateForm.get('email').touched && 
+                                <div *ngIf="updateForm.get('email').touched && 
                                 updateForm.get('email').invalid &&
                                 updateForm.get('email').hasError('required')">
                                 <span style= "color:red;">Email is required.</span>
