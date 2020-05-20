@@ -36,7 +36,7 @@ import { EmployeesService } from './employees/employees.service';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OrderDetailComponent } from './order/order-detail/order-detail.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -111,6 +111,7 @@ import { GlobalService } from './shared/global.service';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

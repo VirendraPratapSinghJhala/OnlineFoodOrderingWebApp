@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CustomerService } from '../customer/customer.service';
 import { Router } from '@angular/router';
 import { GlobalService } from '../shared/global.service';
+import {  ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
