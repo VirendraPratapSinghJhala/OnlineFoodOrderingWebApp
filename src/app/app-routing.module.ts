@@ -68,7 +68,8 @@ const routes: Routes = [
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]},
   {path:'contactus', component:ContactusComponent},
-  {path:'',redirectTo:'admin-home',pathMatch:'full'},
+  {path:'home',redirectTo:''},
+  {path:'', component:HomeComponent, pathMatch:'full'},
   {path:'notfound', component:NotFoundComponent}
   // {path:'**', redirectTo:'notfound'}
 
