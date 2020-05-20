@@ -64,15 +64,16 @@ export class SearchFoodTypeComponent implements OnInit {
       //assign the input food type to the declared property 
    this.foodType=this.searchByTypeForm.value.foodType;
 
-   this.foodsService.getFoodItemsByType(this.foodType).subscribe(
+  //  this.foodsService.getFoodItemsByType(this.foodType).subscribe(
 
-    //handle response
-     (response:Food_Item[])=>{this.foodItems=response;},
+  //   //handle response
+  //    (response:Food_Item[])=>{this.foodItems=response;},
 
-     //handle errors
-     (error)=>{console.log(error);
-         alert(error);}
-   ); 
+  //    //handle errors
+  //    (error)=>{console.log(error);
+  //        alert(error);}
+  //  ); 
+  this.foodItems= this.foodsService.getByType(this.foodType);
 
     //reset the form
    this.searchByTypeForm.reset();

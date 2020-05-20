@@ -38,6 +38,7 @@ import { SearchFoodTypeComponent } from './search-food/search-food-type/search-f
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CustomerComponent } from './customer/customer.component';
+import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 
 //defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
   {path:'register', component:RegisterFormComponent},
   {path:'updateuser', component:UpdateProfileComponent},
   {path:'addfooditem', component:AddFoodItemComponent},
+  {path:'userfoodmenu',component:FoodMenuComponent},
   {path:'updatefooditem/:id', component:UpdateFoodItemComponent},
   {path:'cart', component:CartComponent},
   {path:'orderdetail/:id', component:OrderDetailComponent},

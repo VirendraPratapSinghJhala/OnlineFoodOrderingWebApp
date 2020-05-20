@@ -22,7 +22,10 @@ export class FoodsStoreService implements OnInit{
     foodStoreSelected=new Subject<FoodStore>();
 
    private food_Stores:FoodStore[]=[
-        new FoodStore(1,'Dominos','Jaipur','1234567890','xyz@gmail.com',5)];
+        new FoodStore(1,'Dominos','Jaipur','1234567890','xyz@gmail.com',5),
+        new FoodStore(2,'McDonalds','Jaipur','1234567890','mac@gmail.com',5)];
+
+
   //constructor for injecting dependencies
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
@@ -31,6 +34,10 @@ export class FoodsStoreService implements OnInit{
     ngOnInit(){
         this.apiPrefix=this.webapiService.urlPrefix;
     }
+    getSammpleAllFoodStore(){
+        return(this.food_Stores);
+    }
+
 
     getSammpleFoodStore(){
         return(this.food_Stores[0]);

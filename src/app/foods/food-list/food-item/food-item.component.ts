@@ -28,6 +28,8 @@ import { Food_Item } from '../../food-item.model';
     @Input()
     item:Food_Item=null;
      
+    @Input()
+    index:number=0;
     //ngOnInit used for initialising properties of the class
     ngOnInit(): void {
     }
