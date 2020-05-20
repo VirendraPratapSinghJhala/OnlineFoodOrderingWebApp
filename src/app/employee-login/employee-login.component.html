@@ -1,1 +1,72 @@
-<p>employee-login works!</p>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Login</title>
+</head>
+
+<body class="zf-backgroundBg">
+    <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+    <div class="zf-templateWidth">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
+
+            <div class="zf-templateWrapper">
+                <!---------template Header Starts Here---------->
+                <ul class="zf-tempHeadBdr">
+                    <li class="zf-tempHeadContBdr">
+                        <h2 class="zf-frmTitle"><em>Customer Login</em></h2>
+                        <p class="zf-frmDesc"></p>
+                        <div class="zf-clearBoth"></div>
+                    </li>
+                </ul>
+                <!---------template Header Ends Here---------->
+                <!---------template Container Starts Here---------->
+                <div class="zf-subContWrap zf-topAlign">
+                    <ul>
+						<li class="zf-tempFrmWrapper zf-large">
+                            <label class="zf-labelName">Email</label>
+                            <div class="zf-tempContDiv">
+                                <span> <input type="text" name="email" class="form-control" formControlName="email" 
+                                   /></span>
+
+                                   <span class="help-block" *ngIf="loginForm.get('email').touched && 
+                                   loginForm.get('email').dirty &&  loginForm.get('email').invalid" >
+                                   Email is required</span>
+
+                                   <span class="help-block" *ngIf="loginForm.get('email').touched && 
+                                   loginForm.get('email').pristine &&  loginForm.get('email').invalid ">
+                                   Email is required</span>
+                                  
+                            </div>
+                        </li>
+						
+                        <li class="zf-tempFrmWrapper zf-large">
+                                <label class="zf-labelName">Password</label>
+                                <div class="zf-tempContDiv">
+                                    <span> <input type="text" name="password" class="form-control" formControlName="password" 
+                                       /></span>
+    
+                                       <span class="help-block" *ngIf="loginForm.get('password').touched && 
+                                       loginForm.get('password').dirty &&  loginForm.get('password').invalid" >
+                                       Password is required</span>
+    
+                                       <span class="help-block" *ngIf="loginForm.get('password').touched && 
+                                       loginForm.get('password').pristine &&  loginForm.get('password').invalid ">
+                                       Password is required</span>
+                                      
+                                </div>
+                            </li>
+
+                        <!---------Decimal Ends Here---------->
+                    </ul>
+                </div>
+                <!---------template Container Starts Here---------->
+                <ul>
+                    <li class="zf-fmFooter"><button type="submit" [disabled]="loginForm.invalid" class="btn btn-success btn-lg" >Log In</button></li>
+                </ul>
+            </div><!-- 'zf-templateWrapper' ends -->
+        </form>
+    </div><!-- 'zf-templateWidth' ends -->
+    
+</body>
+
+</html>

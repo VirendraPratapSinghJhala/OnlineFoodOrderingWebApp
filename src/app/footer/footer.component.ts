@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../shared/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globalService:GlobalService, private router:Router) { }
 
+  isLoggedIn:boolean = false;
   ngOnInit(): void {
+    this.isLoggedIn = this.globalService.getLoginRole() == 'none' ? false : true
+    this.router.events.subscribe(val=>{this.isLoggedIn = this.globalService.getLoginRole() == 'none' ? false : true});
   }
-
 }
