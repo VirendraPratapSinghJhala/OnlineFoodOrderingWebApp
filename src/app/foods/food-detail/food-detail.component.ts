@@ -23,7 +23,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./food-detail.component.css']
 })
 
-//Component that handles all the handling of the reactive form in correspondance to the html template
+//Component that handles all the tasks in correspondance to the html template
 export class FoodDetailComponent implements OnInit {
 
   //stores Food_Item type object

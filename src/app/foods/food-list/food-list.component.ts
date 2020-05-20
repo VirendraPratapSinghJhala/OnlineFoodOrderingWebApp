@@ -3,9 +3,9 @@
 /*  
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
-    Creation Date: 17th May,2020
-    Description: This is a reactive form to take user's all inputs for a food item with all expected validations 
-                 and sends the input data in form of Food_Item type object to the FoodsService
+    Creation Date: 18th May,2020
+    Description: This component loads the food items array by calling the FoodsService respective observables and 
+                 uses this array to iterate over FoodItemComponent to print the list of all the food items
   ==========================================================================================================
 */
 
@@ -23,7 +23,7 @@ import { FoodsService } from '../foods.service';
 })
 
 
-//Component that handles all the handling of the reactive form in correspondance to the html template
+//Component that handles all the tasks in correspondance to the html template
 export class FoodListComponent implements OnInit {
 
  //stores array of Food_Item type objects

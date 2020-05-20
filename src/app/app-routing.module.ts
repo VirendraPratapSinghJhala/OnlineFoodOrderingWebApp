@@ -1,3 +1,15 @@
+
+
+/*  
+  =======================================================================================================
+    Developer: Virendra Pratap Singh Jhala,Prateek Joshi,Kritika Arora,Mehul Jain,Subin Sunu Jacob
+    Creation Date: 18th May- 20th May,2020
+    Description: This is the routiing module that takes care of all the routing related functionality
+  ==========================================================================================================
+*/
+
+
+//import all the required entities from their respective packages
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -25,7 +37,7 @@ import { SearchFoodNameComponent } from './search-food/search-food-name/search-f
 import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 
-
+//defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
   
   {path:'admin-home',component:AdminHomeComponent},
@@ -57,8 +69,15 @@ const routes: Routes = [
 
 ];
 
+//decorator that holds the metadata of the whole module
 @NgModule({
+
+   //includes all the other necessary modules required for the smooth execution of the application
   imports: [RouterModule.forRoot(routes,{useHash:true})],
+
+  //includes the parts of this module that should be available to those modules which import the AppRoutingModule
   exports: [RouterModule]
 })
+
+//typescript class to be used outside whereever needed 
 export class AppRoutingModule { }
