@@ -71,8 +71,8 @@ const routes: Routes = [
   {path:'contactus', component:ContactusComponent},
   {path:'home',redirectTo:''},
   {path:'', component:UserHomeComponent, pathMatch:'full'},
-  {path:'notfound', component:NotFoundComponent}
-  // {path:'**', redirectTo:'notfound'}
+  {path:'notfound', component:NotFoundComponent},
+  {path:'**', redirectTo:'notfound'}
 
 ];
 
