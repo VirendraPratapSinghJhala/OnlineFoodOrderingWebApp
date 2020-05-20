@@ -7,24 +7,33 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item " routerLinkActive="active" routerLinkActiveOptions="{exact:true}">
-        <a class="nav-link" routerLink="/admin-home">Home <span class="sr-only">(current)</span></a>
+      <li *ngIf="" class="nav-item " routerLinkActive="active" routerLinkActiveOptions="{exact:true}">
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/customer/update">Profile</a>
+      <li *ngIf="authRole=='user'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/updateuser">Profile</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/foodsmenu">FoodMenu</a>
+      <li *ngIf="authRole!='admin'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/userfoodmenu">FoodMenu</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li *ngIf="authRole=='user'" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/cart">Cart</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li *ngIf="authRole=='user'" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/orderlist">Orders</a>
+      </li>
+      <li *ngIf="authRole=='none'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/register">SignUp</a>
+      </li>
+      <li *ngIf="authRole=='none'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="authRole!='none'" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/logout">Logout</a>
       </li>
     </ul>
     <ul>
-      <li class="btn-group my-3 dropdown">
+      <li *ngIf="authRole!='admin'" class="btn-group my-3 dropdown">
         <div class="dropdown">
           <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">

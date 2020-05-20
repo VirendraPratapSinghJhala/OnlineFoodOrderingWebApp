@@ -14,7 +14,7 @@
 
         <div *ngFor="let product of productList">
           <p>
-            <a>{{product.foodItemId}}</a> <input formControlName="anyQuantity" class="qty" type="number" id="" value="{{product.quantity}}"> <span class="price">{{product.price}}</span>
+            <a>{{product.foodItemName}}</a> <input formControlName="anyQuantity" class="qty" type="number" id="" value="{{product.quantity}}"> <span class="price">{{product.price}}</span>
             <button class="btn-danger" (click)="onDeleteFromCart(product.foodItemId)">Delete</button>
           </p>
         </div>

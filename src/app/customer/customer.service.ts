@@ -25,18 +25,18 @@ export class CustomerService implements OnInit{
         new Customer(
             1,
             "Mehul",
-            "mehul@gmail.com",
+            "Jaipu",
             22,
-            "Jaipur",
+            "mehul@gmail.com",
             "9887515652",
             "m@123"
         ),
         new Customer(
             2,
             "Prateek",
-            "prateek@gmail.com",
-            22,
             "Jaipur",
+            22,
+            "prateek@gmail.com",
             "8696038381",
             "p@123"
         )
@@ -65,6 +65,16 @@ export class CustomerService implements OnInit{
         return(this.customer[0]);
     }
 
+    sampleLogin(email:string, password:string){
+        for(let i = 0; i < this.customer.length; i ++){
+            console.log(email + this.customer[i].email + "  " + password);
+            if(this.customer[i].email == email && this.customer[i].password == password){
+                return true;
+            }
+        }
+        return false;
+    }
+
     // get all the customers by calling GetAllCustomers() in web api controller
     getAllCustomers():Observable<Customer[]>{
 
@@ -72,9 +82,9 @@ export class CustomerService implements OnInit{
     }
 
     // add the customer by calling AddCustomer() in web api controller and return integer value indicating id of added customer
-    postCustomer(customer:Customer):Observable<number>{
+    postCustomer(customer:Customer):Observable<boolean>{
 
-        return this.httpClient.post<number>(this.apiPrefix +"/api/customer",customer);
+        return this.httpClient.post<boolean>(this.apiPrefix +"/api/customer",customer);
     }
 
     //it returns zero or one customer corresponding to the passed id

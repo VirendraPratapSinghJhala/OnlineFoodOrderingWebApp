@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Customer } from '../customer/customer.model';
 import { CustomerService } from '../customer/customer.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -28,7 +29,7 @@ export class RegisterFormComponent implements OnInit {
   addForm:FormGroup=null;
 
   //to store id of added form received from CustomerService
-  customerId:number=null;
+  customerAdded:boolean=false;
 
   //declare isSubmitted bit to perform operations after the form isSubmitted
   isFormSubmitted=false;
@@ -67,10 +68,10 @@ export class RegisterFormComponent implements OnInit {
    this.customerService.postCustomer(this.customer).subscribe(
 
     //handle the respoonse
-     (response:number)=>{this.customerId=response;
-    console.log('Added customer id :' +this.customerId);
-    if(this.customerId!=null)
-    {alert('Customer successfully added, Added customer id : '+this.customerId);}
+     (response:boolean)=>{this.customerAdded=response;
+    console.log('Added customer id :' +this.customerAdded);
+    if(this.customerAdded)
+    {alert('Customer successfully added');}
     else{alert('Customer Not added successfully');}
     },
     //handle the error

@@ -9,9 +9,11 @@ export class OrderItem {
     foodItemId: number;
     price: number;
     quantity: number;
-    constructor(foodItemId: number,price: number,quantity: number) {
-        this.foodItemId = foodItemId;
-        this.price = price;
-        this.quantity = quantity;
+    foodItemName: string;
+    constructor(foodItemId: number,price: number,quantity: number, foodItemName: string) {
+      this.foodItemId = foodItemId;
+      this.price = price;
+      this.quantity = quantity;
+      this.foodItemName = foodItemName;
     }
 }

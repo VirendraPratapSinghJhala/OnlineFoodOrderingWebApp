@@ -11,12 +11,11 @@
 //import all the required entities from their respective packages
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { AboutComponent } from './about/about.component';
 import { FoodsService } from './foods/foods.service';
 import { FoodItemComponent } from './foods/food-list/food-item/food-item.component';
@@ -37,7 +36,7 @@ import { EmployeesService } from './employees/employees.service';
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OrderDetailComponent } from './order/order-detail/order-detail.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -57,6 +56,11 @@ import { FooterComponent } from './footer/footer.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { FoodMenuItemComponent } from './foods/food-menu/food-menu-item/food-menu-item.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { CustomerService } from './customer/customer.service';
+import { CustomerComponent } from './customer/customer.component';
+import { AfterCheckoutComponent } from './after-checkout/after-checkout.component';
+import { GlobalService } from './shared/global.service';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 
 
 
@@ -68,7 +72,6 @@ import { UserHomeComponent } from './user-home/user-home.component';
     AppComponent,
     AdminHomeComponent,
     HeaderComponent,
-    DropdownDirective,
     AboutComponent,
     FoodsComponent,
     FoodListComponent,
@@ -99,18 +102,23 @@ import { UserHomeComponent } from './user-home/user-home.component';
     FooterComponent,
     FoodMenuComponent,
     FoodMenuItemComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    CustomerComponent,
+    AfterCheckoutComponent,
+    EmployeeLoginComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
   //includes all the services defined in the application to be used application wide
-  providers: [CartService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [GlobalService, CartService, CustomerService, OrderService, FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
 
   //includes the Component from which the angular starts the execution 
   bootstrap: [AppComponent]

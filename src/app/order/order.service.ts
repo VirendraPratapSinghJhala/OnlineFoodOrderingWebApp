@@ -17,14 +17,15 @@ export class OrderService implements OnInit{
 
     foodItemSelected=new Subject<Order>();
 
-    private orderItem1:OrderItem = new OrderItem(2000,50,1);
-    private orderItem2:OrderItem = new OrderItem(2000,50,1);
-    private orderItem3:OrderItem = new OrderItem(2000,50,3);
+    private orderItem1:OrderItem = new OrderItem(2000,50,1,"Pizza");
+    private orderItem2:OrderItem = new OrderItem(2000,50,1,"Burger");
+    private orderItem3:OrderItem = new OrderItem(2000,50,3,"Ice Cream");
 
-    private order:Order = new Order(1 ,100, '27-9-18', 4, 50, 200, 300,[this.orderItem1, this.orderItem2, this.orderItem3]);
+    private order0:Order = new Order(1 ,100, '27-9-18', 4, 50, 200, 300,[this.orderItem1, this.orderItem2, this.orderItem3]);
+    private order1:Order = new Order(22 ,100, '27-9-18', 4, 50, 200, 300,[this.orderItem1, this.orderItem2]);
 
+    private orderList:Order[] = [this.order0, this.order1];
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
-
     }
 
     ngOnInit(){
@@ -32,6 +33,19 @@ export class OrderService implements OnInit{
     }
 
     apiPrefix:string;
+
+    sampleGetOrder():Order[]{
+        return this.orderList;
+    }
+
+    sampleGetOrderDetail(orderId):Order{
+        let order = null;
+        for(let i = 0; i < this.orderList.length; i ++){
+            if(this.orderList[i].orderId == orderId){
+                return this.orderList[i];
+            }
+        }
+    }
 
     getOrders():Observable<Order[]>{
 
