@@ -1,6 +1,7 @@
 <div class="row">
 
   <div class="col-25">
+    <h1>Cart</h1>
     <div class="container">
       <h4>Product
         <b class="qty">Quantity</b>
@@ -9,13 +10,19 @@
           <b>Price</b>
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <input class="qty" type="number" id="" value="1"> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <input class="qty" type="number" id="" value="1"> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <input class="qty" type="number" id="" value="1"> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <input class="qty" type="number" id="" value="1"> <span class="price">$2</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-      <button class="btn btn-primary">Checkout</button>
+      <form [formGroup]="updateForm" action="">
+
+        <div *ngFor="let product of productList">
+          <p>
+            <a>{{product.foodItemId}}</a> <input formControlName="anyQuantity" class="qty" type="number" id="" value="{{product.quantity}}"> <span class="price">{{product.price}}</span>
+            <button class="btn-danger" (click)="onDeleteFromCart(product.foodItemId)">Delete</button>
+          </p>
+        </div>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>{{cart.totalPrice}}</b></span></p>
+        <button #saveCartButton disabled class="disabled bton" (click)="onSaveCart()">Save Cart</button>
+        <button class="col-6" (click)="onSubmitOrder()" class="bton btn-success">Checkout</button>
+      </form>
     </div>
   </div>
 

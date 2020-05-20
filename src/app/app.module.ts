@@ -27,8 +27,8 @@ import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { OrderListComponent } from './order-list/order-list.component';
+import { OrderDetailComponent } from './order/order-detail/order-detail.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -38,6 +38,8 @@ import { SearchFoodNameComponent } from './search-food/search-food-name/search-f
 import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
 import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 import { FoodsStoreService } from './food-stores/food-store.service';
+import { OrderService } from './order/order.service';
+import { CartService } from './cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,7 @@ import { FoodsStoreService } from './food-stores/food-store.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
+  providers: [CartService, OrderService , FoodsStoreService, FoodsService, WebApiService , EmployeesService, {provide: LocationStrategy, useClass: PathLocationStrategy} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

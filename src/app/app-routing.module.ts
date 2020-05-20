@@ -17,8 +17,8 @@ import { UpdateEmployeeComponent } from './employees/update-employee/update-empl
 import { FoodStoreComponent } from './food-stores/food-store.component';
 import { EmployeeComponent } from './employees/employee.component';
 import { CartComponent } from './cart/cart.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { OrderListComponent } from './order-list/order-list.component';
+import { OrderDetailComponent } from './order/order-detail/order-detail.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
