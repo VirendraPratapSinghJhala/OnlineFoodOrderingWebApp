@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Customer } from '../customer/customer.model';
 import { CustomerService } from '../customer/customer.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
