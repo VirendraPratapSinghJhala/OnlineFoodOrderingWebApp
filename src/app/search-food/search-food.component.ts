@@ -4,8 +4,8 @@
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
     Creation Date: 17th May,2020
-    Description: This is a reactive form to take user input as food name for searching for ood items having 
-                  entered name 
+    Description: This is a base component that holds three child components search-food-name,search-food-type,
+                 and search-food-price and displays one of them in router outlet
   ==========================================================================================================
 */
 

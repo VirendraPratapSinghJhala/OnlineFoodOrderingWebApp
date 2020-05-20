@@ -5,7 +5,7 @@
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
     Creation Date: 17th May,2020
-    Description: This is a reactive form to take user input as food name for searching for ood items having 
+    Description: This is a reactive form to take user input as food name for searching for food items having 
                   entered name 
   ==========================================================================================================
 */

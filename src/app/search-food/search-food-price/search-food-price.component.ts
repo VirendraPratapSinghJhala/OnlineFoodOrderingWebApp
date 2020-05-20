@@ -3,8 +3,8 @@
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
     Creation Date: 17th May,2020
-    Description: This is a reactive form to take user input as food name for searching for ood items having 
-                  entered name 
+    Description: This is a reactive form to take user input as minimum and maximum food price for searching for food items having 
+                 prices between entered inputs
   ==========================================================================================================
 */
 

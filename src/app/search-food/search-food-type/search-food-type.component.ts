@@ -3,8 +3,8 @@
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala
     Creation Date: 17th May,2020
-    Description: This is a reactive form to take user input as food name for searching for ood items having 
-                  entered name 
+    Description: This is a reactive form to take user input as food type for searching for food items having 
+                  entered food type
   ==========================================================================================================
 */
 
@@ -52,7 +52,7 @@ export class SearchFoodTypeComponent implements OnInit {
 
       //action to be performed on submitting the form
   onSubmit(){
-    
+
 //make isSubmitted bit true
    this.isFormSubmitted=true;
 
