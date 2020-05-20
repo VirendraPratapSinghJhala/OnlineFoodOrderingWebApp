@@ -24,12 +24,15 @@ export class FoodsService implements OnInit{
 
 //property will hold prefix of the url present in request to web api
     apiPrefix:string;
+
+    
     
 foods:Food_Item[]=[];
     //constructor for injecting dependencies
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
 
-      this.foods.push();
+      this.foods.push(new Food_Item('pizza','fast food','https://cdn.pixabay.com/photo/2016/06/08/00/03/pizza-1442946__340.jpg',400));
+      this.foods.push(new Food_Item('burger','fast food','https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',300));
     }
 
 
@@ -39,7 +42,28 @@ foods:Food_Item[]=[];
     }
 
    
-    
+    getFoods(){
+        return this.foods;
+    }
+
+    getByName(foodName:string):Food_Item[]
+    {
+        return this.foods;
+    }
+
+    getByType(foodType:string):Food_Item[]
+    {
+        return this.foods;
+    }
+
+    getByPrice(min:number,max:number){
+        return this.foods;
+    }
+
+    getById(id:number){
+        return this.foods[id];
+    }
+
 // get all the food items by calling GetAllFoodItems() in web api controller
     getFoodItems():Observable<Food_Item[]>{
 

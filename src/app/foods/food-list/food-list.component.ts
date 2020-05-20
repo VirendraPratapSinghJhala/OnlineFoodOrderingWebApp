@@ -36,16 +36,18 @@ export class FoodListComponent implements OnInit {
   //ngOnInit used for initialising properties of the class
   ngOnInit(){
 
-    this.foodsService.getFoodItems().subscribe(
+    // this.foodsService.getFoodItems().subscribe(
 
-      //handle response
-      (response:Food_Item[])=>{this.foodItems=response;},
+    //   //handle response
+    //   (response:Food_Item[])=>{this.foodItems=response;},
 
-     //handle error
-      (error)=>{console.log(error);
-                alert(error);}
+    //  //handle error
+    //   (error)=>{console.log(error);
+    //             alert(error);}
 
-    );
+    // );
+
+      this.foodItems= this.foodsService.getFoods();
   }
 
 }

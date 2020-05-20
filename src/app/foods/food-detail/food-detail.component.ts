@@ -46,10 +46,12 @@ export class FoodDetailComponent implements OnInit {
       
     );
 
-    //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
-    this.foodsService.getFoodItemById(this.id).subscribe(
-      (response:Food_Item)=>{this.foodItem=response;}
-    );
+    // //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
+    // this.foodsService.getFoodItemById(this.id).subscribe(
+    //   (response:Food_Item)=>{this.foodItem=response;}
+    // );
+
+    this.foodItem=this.foodsService.getById(this.id);
    
   }
 

@@ -66,16 +66,17 @@ export class SearchFoodNameComponent implements OnInit {
    //assign the input food name to the declared property 
    this.foodName=this.searchByNameForm.value.foodName;
 
-   this.foodsService.getFoodItemsByName(this.foodName).subscribe(
+  //  this.foodsService.getFoodItemsByName(this.foodName).subscribe(
 
-    //handle response
-     (response:Food_Item[])=>{this.foodItems=response;},
+  //   //handle response
+  //    (response:Food_Item[])=>{this.foodItems=response;},
 
-     //handle errors
-     (error)=>{console.log(error);
-         alert(error);}
-   );
+  //    //handle errors
+  //    (error)=>{console.log(error);
+  //        alert(error);}
+  //  );
 
+   this.foodItems= this.foodsService.getByName(this.foodName);
     //reset the form
    this.searchByNameForm.reset();
 
