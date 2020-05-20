@@ -18,8 +18,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
 
     selector:'app-header',
-    templateUrl:'./header.component.html'
-
+    templateUrl:'./header.component.html',
+    styleUrls:['./header.component.css']
 })
 
 //Component that handles all the tasks in correspondance to the html template
