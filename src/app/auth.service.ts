@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 
 export class AuthService{
     loggedIn = true;
-    isAuthenticated():Promise<{}>{
+    isAuthenticated(){
         const promise = new Promise( (resolve, reject) => {
                             setTimeout( ()=>{
                                 resolve(this.loggedIn);}, 800 );
