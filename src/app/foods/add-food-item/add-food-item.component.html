@@ -107,9 +107,9 @@
                                    addForm.get('foodPrice').errors['min']">
                                    Food Price can not be negative or zero</span>
 
-                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('foodPrice').touched && 
-                                   searchByPriceRangeForm.get('foodPrice').dirty && searchByPriceRangeForm.get('foodPrice').invalid && 
-                                   searchByPriceRangeForm.get('foodPrice').errors['pattern']">
+                                   <span class="help-block" *ngIf="addForm.get('foodPrice').touched && 
+                                   addForm.get('foodPrice').dirty && addForm.get('foodPrice').invalid && 
+                                   addForm.get('foodPrice').errors['pattern']">
                                     Food Price can only be numeric</span>
                             </div>
                         </li>
