@@ -49,10 +49,11 @@ import { WebApiService } from './shared/webapi.service';
 import { SearchFoodComponent } from './search-food/search-food.component';
 import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
 import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
-import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
+import {  SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 import { FoodsStoreService } from './food-stores/food-store.service';
 import { OrderService } from './order/order.service';
 import { CartService } from './cart/cart.service';
+import { SearchResultComponent } from './search-food/search-result/search-result.component';
 
 
 //decorator that holds the metadata of the whole module
@@ -88,7 +89,8 @@ import { CartService } from './cart/cart.service';
     SearchFoodComponent,
     SearchFoodNameComponent,
     SearchFoodTypeComponent,
-    SearchFoodPriceComponent
+    SearchFoodPriceComponent,
+    SearchResultComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application

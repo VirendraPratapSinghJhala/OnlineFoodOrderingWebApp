@@ -31,9 +31,9 @@ export class FoodDetailComponent implements OnInit {
 
   //stores id of food item in number format
   id:number;
-  
+    //constructor used for injecting dependency
 
-  //constructor used for injecting dependency
+
   constructor(private foodsService:FoodsService,private route:ActivatedRoute) { }
 
 
@@ -57,5 +57,20 @@ export class FoodDetailComponent implements OnInit {
  onAddToCart(){
      
  }
+
+
+
+onDeleteFoodItem(){
+
+  this.foodsService.deleteFoodItemById(this.id).subscribe(
+    
+    //handle response
+    (response:boolean)=>{if(response==true)
+    {}},
+
+    //handle errors
+    (error)=>{console.log(error);}
+  );
+}
 
 }

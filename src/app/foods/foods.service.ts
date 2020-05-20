@@ -87,7 +87,7 @@ getFoodItemsByType(foodType:string):Observable<Food_Item[]>
     }
 
 //returns boolean value indicating whether food item with passed food id is deleted or not
-    deleteFoodItemBy(foodId:number):Observable<boolean>
+    deleteFoodItemById(foodId:number):Observable<boolean>
     {
         return this.httpClient.delete<boolean>(this.apiPrefix +"/api/food?foodItemId="+foodId);
 

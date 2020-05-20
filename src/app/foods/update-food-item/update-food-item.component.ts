@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -38,20 +39,31 @@ export class UpdateFoodItemComponent implements OnInit {
   //to store Food_Item type object
   foodItem: Food_Item = null;
 
+  foodId:number=null;
+
   //constructor used for injecting dependency
-  constructor(private foodsService: FoodsService) { }
+  constructor(private foodsService: FoodsService,private route:ActivatedRoute) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
-    //initialise updateForm
-    this.updateForm = new FormGroup({
+    this.route.params.subscribe(
+      (param:Params)=>{this.foodId=+param['id']}
+    );
+
+    this.foodsService.getFoodItemById(this.foodId).subscribe(
+      (response:Food_Item)=>{this.foodItem=response;}
+    );
+
+     //initialise updateForm
+     this.updateForm = new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName': new FormControl(null, [Validators.required, Validators.maxLength(255)]),
-      'foodType': new FormControl(null, [Validators.required, Validators.maxLength(255)]),
-      'foodPrice': new FormControl(null, [Validators.required, Validators.min(1)]),
-      'imagePath': new FormControl(null, [Validators.required, Validators.maxLength(2000)])
+      'foodName': new FormControl(this.foodItem.name , [Validators.required, Validators.maxLength(255)]),
+      'foodType': new FormControl(this.foodItem.type, [Validators.required, Validators.maxLength(255)]),
+      'foodPrice': new FormControl(this.foodItem.price , [Validators.required, Validators.min(1)]),
+      'imagePath': new FormControl(this.foodItem.imagePath, [Validators.required, Validators.maxLength(2000)])
+
     }
     );
   }

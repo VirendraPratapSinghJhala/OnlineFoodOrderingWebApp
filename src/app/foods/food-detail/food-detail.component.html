@@ -17,8 +17,8 @@
                         class="caret"></span></button>
                 <ul class="dropdown-menu ">
                     <li><a (click)="onAddToCart()" style="cursor: pointer;">Add To Cart</a></li>
-                    <li><a href="#">Edit Food Item</a></li>
-                    <li><a href="#">Delete Food Item</a></li>
+                    <li><a [routerLink]="['update',id]">Edit Food Item</a></li>
+                    <li><a (click)="onDeleteFoodItem()">Delete Food Item</a></li>
                 </ul>
             </div>
         </div>

@@ -49,7 +49,7 @@ const routes: Routes = [
   {path:'register', component:RegisterFormComponent},
   {path:'updateuser', component:UpdateProfileComponent},
   {path:'addfooditem', component:AddFoodItemComponent},
-  {path:'updatefooditem', component:UpdateFoodItemComponent},
+  {path:'updatefooditem/:id', component:UpdateFoodItemComponent},
   {path:'cart', component:CartComponent},
   {path:'orderdetail/:id', component:OrderDetailComponent},
   {path:'orderlist', component:OrderListComponent},
