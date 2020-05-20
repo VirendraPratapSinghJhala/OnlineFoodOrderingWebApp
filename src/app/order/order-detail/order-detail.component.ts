@@ -6,6 +6,10 @@
   ==========================================================================================================
 */
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../order.service';
+import { Order } from '../order.model';
+import { ActivatedRoute } from '@angular/router';
+import { OrderItem } from '../order-item.model';
 
 @Component({
   selector: 'app-order-detail',
@@ -14,9 +18,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderDetailComponent implements OnInit {
 
-  constructor() { }
+  orderDetail:Order=null;
+  orderItemsList:OrderItem[];
+  constructor(private orderService:OrderService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.orderDetail = this.orderService.sampleGetOrderDetail(this.route.snapshot.params['id']);
+    this.orderItemsList = this.orderDetail.orderItemList;
   }
 
 }

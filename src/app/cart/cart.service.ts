@@ -18,9 +18,9 @@ export class CartService implements OnInit{
 
     foodItemSelected=new Subject<Cart>();
 
-    private cartItem1:OrderItem = new OrderItem(2000,50,1);
-    private cartItem2:OrderItem = new OrderItem(2001,70,1);
-    private cartItem3:OrderItem = new OrderItem(2002,30,3);
+    private cartItem1:OrderItem = new OrderItem(2000,50,1,"Pizza");
+    private cartItem2:OrderItem = new OrderItem(2001,70,1,"Burger");
+    private cartItem3:OrderItem = new OrderItem(2002,30,3,"Ice Cream");
 
     private cart:Cart = new Cart(1,100,3,500,200,1000,[this.cartItem1, this.cartItem2, this.cartItem3]);
 
