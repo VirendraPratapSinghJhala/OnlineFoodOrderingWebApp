@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+       
+        <div class="col" >
+            <div *ngIf="currentRoute=='/searchbyfoodname'">
+                <app-search-food-name></app-search-food-name>
+            </div>
+            <div *ngIf="currentRoute=='/searchbyfoodtype'">
+                <app-search-food-type></app-search-food-type>
+            </div>
+            <div *ngIf="currentRoute=='/searchbyfoodpricerange'">
+                <app-search-food-price></app-search-food-price>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <app-foods></app-foods>
+        </div>
+    </div>
+   
+</div>

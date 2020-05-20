@@ -32,12 +32,19 @@
                         
                                 
                                 <span class="help-block" *ngIf="addForm.get('foodName').touched && 
-                                addForm.get('foodName').dirty && addForm.get('foodName').invalid">
-                                Food name can not be left blank</span>
+                                addForm.get('foodName').dirty && addForm.get('foodName').invalid
+                                  && addForm.get('foodName').errors['required']">
+                                Food name is required</span>
 
                                 <span class="help-block" *ngIf="addForm.get('foodName').touched && 
-                                addForm.get('foodName').pristine && addForm.get('foodName').errors['required']">
+                                addForm.get('foodName').pristine && addForm.get('foodName').invalid
+                                 && addForm.get('foodName').errors['required']">
                                 Food name is required</span>
+
+                                <span class="help-block" *ngIf="addForm.get('foodName').touched && 
+                                addForm.get('foodName').pristine && addForm.get('foodName').invalid 
+                                && addForm.get('foodName').errors['maxLength']">
+                                Food name is can not exceed 255 characters</span>
                             </div>
                         </li>
                         <span ></span>

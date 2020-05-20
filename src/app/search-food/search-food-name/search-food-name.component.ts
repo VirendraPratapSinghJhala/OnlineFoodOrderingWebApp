@@ -1,52 +1,71 @@
 
+
+
+/*  
+  =======================================================================================================
+    Developer: Virendra Pratap Singh Jhala
+    Creation Date: 17th May,2020
+    Description: This is a reactive form to take user input as food name for searching for food items having 
+                  entered name 
+  ==========================================================================================================
+*/
+
+
+//import all the required entities from their respective packages
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from 'src/app/foods/food-item.model';
 import { FoodsService } from 'src/app/foods/foods.service';
 
+
+//decorator used for storing Component's metadata
 @Component({
   selector: 'app-search-food-name',
   templateUrl: './search-food-name.component.html',
   styleUrls: ['./search-food-name.component.css']
 })
+
+//Component that handles all the handling of the reactive form in correspondance to the html template
 export class SearchFoodNameComponent implements OnInit {
 
+   //declare reactive form of type FormGroup
   searchByNameForm:FormGroup;
-  foodItems:Food_Item[]=null;
+
+//declare isSubmitted bit to perform operations after the form isSubmitted
   isFormSubmitted=false;
 
+  //declare foodname to store string type name of food
   foodName:string=null;
 
+  //constructor used for injecting dependency
   constructor(private foodsService:FoodsService) { }
 
+  //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+     //initialise searchByNameForm
     this.searchByNameForm=new FormGroup({
 
+      //apply all the required validations on all the input controls
       'foodName':new FormControl('',[Validators.required,Validators.maxLength(255)])
     }
     );
   }
 
+    //action to be performed on submitting the form
   onSubmit(){
-
+   
+//make isSubmitted bit true
    this.isFormSubmitted=true;
 
+   //assign the input food name to the declared property 
    this.foodName=this.searchByNameForm.value.foodName;
 
+    //indicate FoodListComponent to load data according to foodname
+    this.foodsService.serviceMethodToBeCalled.next({methodName:'getFoodItemsByName',parameter:this.foodName,
+    parameter1:0,parameter2:0}); 
 
-   //call service 
-   this.foodsService.getFoodItemByName(this.foodName).subscribe(
-     (response:Food_Item[])=>{if(response!=null)
-                                 {this.foodItems=response;
-                                  console.log(this.foodItems);}
-                              else
-                              {alert('There are no food Items available at the moment with name '+this.foodName);}
-    },
-    (error)=>{console.log(error);
-     alert(error);}
-   );
-
+    //reset the form
    this.searchByNameForm.reset();
 
   }

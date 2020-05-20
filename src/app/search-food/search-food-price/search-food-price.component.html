@@ -37,7 +37,8 @@
                                    Food Price is required</span>
 
                                    <span class="help-block" *ngIf="searchByPriceRangeForm.get('minPrice').touched && 
-                                   searchByPriceRangeForm.get('minPrice').pristine &&  searchByPriceRangeForm.get('minPrice').invalid ">
+                                   searchByPriceRangeForm.get('minPrice').pristine &&  searchByPriceRangeForm.get('minPrice').invalid &&
+                                   searchByPriceRangeForm.get('minPrice').errors['required']">
                                    Food Price is required</span>
 
                                    <span class="help-block" *ngIf="searchByPriceRangeForm.get('minPrice').touched && 
@@ -58,7 +59,8 @@
                                     Price is required</span>
 
                                    <span class="help-block" *ngIf="searchByPriceRangeForm.get('maxPrice').touched && 
-                                   searchByPriceRangeForm.get('maxPrice').pristine &&  searchByPriceRangeForm.get('maxPrice').invalid ">
+                                   searchByPriceRangeForm.get('maxPrice').pristine &&  searchByPriceRangeForm.get('maxPrice').invalid  &&
+                                   searchByPriceRangeForm.get('maxPrice').errors['required']">
                                     Price is required</span>
 
                                    <span class="help-block" *ngIf="searchByPriceRangeForm.get('maxPrice').touched && 

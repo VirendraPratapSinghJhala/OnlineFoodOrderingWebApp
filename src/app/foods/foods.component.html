@@ -1,32 +1,23 @@
 
 
 
+
+
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <app-search-food-name></app-search-food-name>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <app-search-food-type></app-search-food-type>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col">
-      <app-search-food-price></app-search-food-price>
+  <div class="row" *ngIf="false">
+    <div class="col-xs-12">
+        <button class="btn btn-outline-success">Add New Food Item </button>
     </div>
-  </div>
 </div>
-
-
-<div class="row">
+<hr>
+  <div class="row">
     <div class="col-md-5 col-sm-5 col-xs-5">
       <app-food-list></app-food-list>
     </div>
 
     <div class="col-md-7 col-sm-7 col-xs-7">
-       <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
+  </div>
 </div>

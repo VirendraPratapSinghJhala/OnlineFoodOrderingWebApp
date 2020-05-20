@@ -1,3 +1,15 @@
+
+
+/*  
+  =======================================================================================================
+    Developer: Virendra Pratap Singh Jhala,Prateek Joshi,Kritika Arora,Mehul Jain,Subin Sunu Jacob
+    Creation Date: 18th May- 20th May,2020
+    Description: This is the routiing module that takes care of all the routing related functionality
+  ==========================================================================================================
+*/
+
+
+//import all the required entities from their respective packages
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -20,13 +32,17 @@ import { CartComponent } from './cart/cart.component';
 import { OrderDetailComponent } from './order/order-detail/order-detail.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchFoodComponent } from './search-food/search-food.component';
+import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
+import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
+import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 
-
+//defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
   
   {path:'admin-home',component:AdminHomeComponent},
   {path:'foodsmenu',component:FoodsComponent,
-  children:[{path:'',component:FoodsStartComponent},
+  children:[{path:'',component:FoodsStartComponent,pathMatch:'full'},
   {path:':id',component:FoodDetailComponent}]},
   {path:'about',component:AboutComponent},
   {path:'login', component:LoginFormComponent},
@@ -40,6 +56,9 @@ const routes: Routes = [
   {path:'foodstore', component:FoodStoreComponent,
       children:[{path: 'add', component:AddFoodStoreComponent},
        {path: 'update', component:UpdateFoodStoreComponent}]},
+  {path:'searchbyfoodname',component:SearchFoodComponent},
+  {path:'searchbyfoodtype',component:SearchFoodComponent},
+   {path:'searchbyfoodpricerange',component:SearchFoodComponent},
   {path:'employee', component:EmployeeComponent,
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]},
@@ -50,8 +69,15 @@ const routes: Routes = [
 
 ];
 
+//decorator that holds the metadata of the whole module
 @NgModule({
+
+   //includes all the other necessary modules required for the smooth execution of the application
   imports: [RouterModule.forRoot(routes,{useHash:true})],
+
+  //includes the parts of this module that should be available to those modules which import the AppRoutingModule
   exports: [RouterModule]
 })
+
+//typescript class to be used outside whereever needed 
 export class AppRoutingModule { }

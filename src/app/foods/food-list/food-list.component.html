@@ -2,16 +2,16 @@
 
 
 <div class="container my-4">
+   
     <div class="row">
-        <div class="col-xs-12">
-            <button class="btn btn-outline-success">Add New Food Item </button>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12" *ngIf="foodItems!=null">
     
-            <app-food-item [item]="foodItem" [index]="i" *ngFor="let foodItem of foodItems;let i = index"></app-food-item>
+            <app-food-item [item]="foodItem" *ngFor="let foodItem of foodItems"></app-food-item>
+        
+        </div>
+        <div class="col-xs-12" *ngIf="foodItems==null">
+    
+            <h1>There are no Food items available related to your search</h1>
         
         </div>
     </div>

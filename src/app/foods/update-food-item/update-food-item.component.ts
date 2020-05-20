@@ -1,56 +1,89 @@
+
+
+/*  
+  =======================================================================================================
+    Developer: Virendra Pratap Singh Jhala
+    Creation Date: 17th May,2020
+    Description: This is a reactive form to take user's all inputs for a food item with all expected validations 
+                 and sends the input data in form of Food_Item type object to the FoodsService
+  ==========================================================================================================
+*/
+
+
+//import all the required entities from their respective packages
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
 
+//decorator used for storing Component's metadata
 @Component({
   selector: 'app-update-food-item',
   templateUrl: './update-food-item.component.html',
   styleUrls: ['./update-food-item.component.css']
 })
+
+//Component that handles all the handling of the reactive form in correspondance to the html template
 export class UpdateFoodItemComponent implements OnInit {
 
-  updateForm:FormGroup;
+  //declare reactive form of type FormGroup
+  updateForm: FormGroup;
 
-  isFoodItemUpdated:boolean=false;
-  isFormSubmitted=false;
+  //to receive the status whether form is submitted or not
+  isFoodItemUpdated: boolean = false;
 
-  foodItem:Food_Item=null;
+  //declare isSubmitted bit to perform operations after the form isSubmitted
+  isFormSubmitted = false;
 
-  constructor(private foodsService:FoodsService) { }
+  //to store Food_Item type object
+  foodItem: Food_Item = null;
 
+  //constructor used for injecting dependency
+  constructor(private foodsService: FoodsService) { }
+
+  //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
-    this.updateForm=new FormGroup({
+    //initialise updateForm
+    this.updateForm = new FormGroup({
 
-      'foodName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
-      'foodPrice': new FormControl(null,[Validators.required,Validators.min(1)]),
-      'imagePath': new FormControl(null,[Validators.required,Validators.maxLength(2000)])
+      //apply all the required validations on all the input controls
+      'foodName': new FormControl(null, [Validators.required, Validators.maxLength(255)]),
+      'foodType': new FormControl(null, [Validators.required, Validators.maxLength(255)]),
+      'foodPrice': new FormControl(null, [Validators.required, Validators.min(1)]),
+      'imagePath': new FormControl(null, [Validators.required, Validators.maxLength(2000)])
     }
     );
   }
 
-  onSubmit(){
+  //action to be performed on submitting the form
+  onSubmit() {
 
-   this.isFormSubmitted=true;
+        //make isSubmitted bit to true
+    this.isFormSubmitted = true;
 
-   this.foodItem=this.updateForm.value;
+//make an object of type Food_Item by passing all input values toits constructor
+    this.foodItem = new Food_Item(this.updateForm.value.foodName, this.updateForm.value.foodType, this.updateForm.value.foodPrice, this.updateForm.value.imagePath);
 
-   this.foodItem=new Food_Item(this.updateForm.value.foodName,this.updateForm.value.foodType,this.updateForm.value.foodPrice,this.updateForm.value.imagePath);
+   //call the FoodsService's postFoodItem method to put/update the received object to the web api and subscribe to it
+    this.foodsService.putFoodItem(this.foodItem).subscribe(
 
-  this.foodsService.putFoodItem(this.foodItem).subscribe(
-    (response:boolean)=>{this.isFoodItemUpdated=response;
-    if(this.isFoodItemUpdated)
-    {alert('Food Item Updated')}
-    else{alert('Food Item Not Updated') };
-  },
+       //handle the respoonse
+      (response: boolean) => {
+        this.isFoodItemUpdated = response;
+        if (this.isFoodItemUpdated) { alert('Food Item Updated') }
+        else { alert('Food Item Not Updated') };
+      },
 
-  (error)=>{alert(error);
-  console.log(error);}
-  );
+      //handle the error
+      (error) => {
+        alert(error);
+        console.log(error);
+      }
+    );
 
-   this.updateForm.reset();
+    //reset the form
+    this.updateForm.reset();
 
   }
 
