@@ -60,6 +60,7 @@ import { CustomerService } from './customer/customer.service';
 import { CustomerComponent } from './customer/customer.component';
 import { AfterCheckoutComponent } from './after-checkout/after-checkout.component';
 import { GlobalService } from './shared/global.service';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 
 
 
@@ -103,7 +104,8 @@ import { GlobalService } from './shared/global.service';
     FoodMenuItemComponent,
     UserHomeComponent,
     CustomerComponent,
-    AfterCheckoutComponent
+    AfterCheckoutComponent,
+    EmployeeLoginComponent
   ],
 
   //includes all the other necessary modules required for the smooth execution of the application
