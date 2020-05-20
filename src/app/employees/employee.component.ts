@@ -12,6 +12,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Employee } from './employee.model';
+import { EmployeesService } from './employees.service';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -22,15 +24,17 @@ import { Router } from '@angular/router';
 
 //Component that handles all the tasks in correspondance to the html template
 export class EmployeeComponent implements OnInit {
+  employees:Employee[]=null;
 
   currentPath:string=null;
 
     //constructor used for injecting dependency
-  constructor(private router: Router) { }
+  constructor(private router: Router, private employeeService:EmployeesService) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
+    this.employees = this.employeeService.getSampleAllEmployees();
     this.currentPath= this.router.url;
   }
 

@@ -30,6 +30,15 @@ export class EmployeesService implements OnInit{
             "something",
             "9999999",
             "ad@rerg.com",
+            "City"),
+        new Employee(
+            22,
+            "Subin",
+            22,
+            1212,
+            "something",
+            "9999999",
+            "ad@rerg.com",
             "City")
     ];
 
@@ -47,6 +56,9 @@ export class EmployeesService implements OnInit{
     }
 
 
+    getSampleAllEmployees(){
+        return(this.employee);
+    }
     getSampleEmployee(){
         return(this.employee[0]);
     }
