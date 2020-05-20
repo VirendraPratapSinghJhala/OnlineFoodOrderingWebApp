@@ -42,9 +42,16 @@
                                 Food name is required</span>
 
                                 <span class="help-block" *ngIf="addForm.get('foodName').touched && 
-                                addForm.get('foodName').pristine && addForm.get('foodName').invalid 
+                                addForm.get('foodName').dirty && addForm.get('foodName').invalid 
                                 && addForm.get('foodName').errors['maxLength']">
                                 Food name is can not exceed 255 characters</span>
+
+                                <span class="help-block" *ngIf="addForm.get('foodName').touched && 
+                                addForm.get('foodName').dirty && addForm.get('foodName').invalid 
+                                 && addForm.get('foodName').errors['pattern']">
+                                Food name must start with alphabet letter and can only consist of alphabetic letters and digits</span>
+
+
                             </div>
                         </li>
                         <span ></span>
@@ -56,12 +63,24 @@
                                 <span><input type="text" name="type" class="form-control" formControlName="foodType"
                                     /></span>
                                     <span class="help-block" *ngIf="addForm.get('foodType').touched && 
-                                    addForm.get('foodType').dirty && addForm.get('foodType').invalid">
+                                    addForm.get('foodType').dirty && addForm.get('foodType').invalid 
+                                    && addForm.get('foodType').errors['required']">
                                     Food Type is required</span>
 
                                     <span class="help-block" *ngIf="addForm.get('foodType').touched && 
-                                    addForm.get('foodType').pristine && addForm.get('foodType').invalid">
+                                    addForm.get('foodType').pristine && addForm.get('foodType').invalid
+                                    && addForm.get('foodType').errors['required']">
                                     Food Type is required</span>
+
+                                    <span class="help-block" *ngIf="addForm.get('foodType').touched && 
+                                addForm.get('foodType').dirty && addForm.get('foodType').invalid 
+                                && addForm.get('foodType').errors['maxLength']">
+                                Food name can not exceed 255 characters</span>
+
+                                <span class="help-block" *ngIf="addForm.get('foodtype').touched && 
+                                addForm.get('foodtype').dirty && addForm.get('foodtype').invalid 
+                                 && addForm.get('foodtype').errors['pattern']">
+                                Food type must start with alphabet letter and can only consist of alphabetic letters and digits</span>
                          
                             </div>
                         </li>
@@ -74,17 +93,24 @@
                                    /></span>
 
                                    <span class="help-block" *ngIf="addForm.get('foodPrice').touched && 
-                                   addForm.get('foodPrice').dirty &&  addForm.get('foodPrice').invalid" >
+                                   addForm.get('foodPrice').dirty &&  addForm.get('foodPrice').invalid &&
+                                   addForm.get('foodPrice').errors['required']" >
                                    Food Price is required</span>
 
                                    <span class="help-block" *ngIf="addForm.get('foodPrice').touched && 
-                                   addForm.get('foodPrice').pristine &&  addForm.get('foodPrice').invalid ">
+                                   addForm.get('foodPrice').pristine &&  addForm.get('foodPrice').invalid &&
+                                   addForm.get('foodPrice').errors['required'] ">
                                    Food Price is required</span>
 
                                    <span class="help-block" *ngIf="addForm.get('foodPrice').touched && 
                                    addForm.get('foodPrice').dirty && addForm.get('foodPrice').invalid && 
                                    addForm.get('foodPrice').errors['min']">
                                    Food Price can not be negative or zero</span>
+
+                                   <span class="help-block" *ngIf="searchByPriceRangeForm.get('foodPrice').touched && 
+                                   searchByPriceRangeForm.get('foodPrice').dirty && searchByPriceRangeForm.get('foodPrice').invalid && 
+                                   searchByPriceRangeForm.get('foodPrice').errors['pattern']">
+                                    Food Price can only be numeric</span>
                             </div>
                         </li>
 
@@ -94,15 +120,18 @@
                                 <span> <input type="text" name="image" class="form-control" formControlName="imagePath"  
                                   /></span>
                                   <span class="help-block" *ngIf="addForm.get('imagePath').touched && 
-                                  addForm.get('imagePath').dirty && addForm.get('imagePath').invalid">
+                                  addForm.get('imagePath').dirty && addForm.get('imagePath').invalid &&
+                                   addForm.get('imagePath').errors['required']">
                                   Image Path is required</span>
 
                                   <span class="help-block" *ngIf="addForm.get('imagePath').touched && 
-                                  addForm.get('imagePath').pristine && addForm.get('imagePath').invalid">
+                                  addForm.get('imagePath').pristine && addForm.get('imagePath').invalid &&
+                                  addForm.get('imagePath').errors['required']">
                                   Image Path is required</span>
 
                                   <span class="help-block" *ngIf="addForm.get('imagePath').touched && 
-                                  addForm.get('imagePath').dirty && addForm.get('imagePath').invalid" >
+                                  addForm.get('imagePath').dirty && addForm.get('imagePath').invalid &&
+                                  addForm.get('imagePath').errors['maxLength']" >
                                   Image Path can be of maximum 2000 characters</span>
                                 
                             </div>
