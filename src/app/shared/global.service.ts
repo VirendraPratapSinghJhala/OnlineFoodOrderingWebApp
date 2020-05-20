@@ -1,8 +1,6 @@
 
 export class GlobalService{
 
-    private static loggedInRole:string="none";
-
     constructor(){
         if(localStorage.getItem('loggedInRole') == "" || localStorage.getItem('loggedInRole') == null){
             this.setLoginRole("none");
@@ -10,7 +8,6 @@ export class GlobalService{
     }
 
     setLoginRole(role:string){
-        GlobalService.loggedInRole = role;
         localStorage.setItem('loggedInRole', role);
     }
 
