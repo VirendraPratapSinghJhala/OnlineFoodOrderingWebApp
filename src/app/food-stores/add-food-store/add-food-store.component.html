@@ -30,15 +30,20 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="name" class="form-control" formControlName="foodStoreName" 
                                       /></span> 
-                        
-                                
-                                <span class="help-block" *ngIf="addForm.get('foodStoreName').touched && 
-                                addForm.get('foodStoreName').dirty && addForm.get('foodStoreName').invalid">
-                                Food Store name can not be left blank</span>
 
-                                <span class="help-block" *ngIf="addForm.get('foodStoreName').touched && 
-                                addForm.get('foodStoreName').pristine && addForm.get('foodStoreName').errors['required']">
-                                Food Store name is required</span>
+                                      <div *ngIf="addForm.get('foodStoreName').touched && addForm.get('foodStoreName').invalid &&
+                                      addForm.get('foodStoreName').hasError('required')">
+                                   <span style="color: red;">Food Store Name is required.</span>
+                                   </div>
+            
+                                      <div *ngIf="addForm.get('foodStoreName').touched && addForm.get('foodStoreName').invalid &&
+                                      addForm.get('foodStoreName').hasError('maxlength')">
+                                   <span style="color: red;">Food Store Name cannot be  more than 40 characters long.</span>
+                                   </div>
+                                   <div *ngIf="addForm.get('FoodStoreName').touched && addForm.get('FoodStoreName').invalid &&
+                                   addForm.get('FoodStoreName').hasError('pattern')">
+                                  <span style="color: red;">Only alphabets allowed.</span>
+                                  </div>
                             </div>
                         </li>
                         <span ></span>
@@ -49,13 +54,19 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="location" class="form-control" formControlName="location"
                                     /></span>
-                                    <span class="help-block" *ngIf="addForm.get('location').touched && 
-                                    addForm.get('location').dirty && addForm.get('location').invalid">
-                                    Location is required</span>
+                                    <div *ngIf="addForm.get('location').touched && addForm.get('location').invalid &&
+                               addForm.get('location').hasError('required')">
+                            <span style="color: red;">Location is required.</span>
+                            </div>
 
-                                    <span class="help-block" *ngIf="addForm.get('location').touched && 
-                                    addForm.get('location').pristine && addForm.get('location').invalid">
-                                    Location is required</span>
+                            <div *ngIf="addForm.get('location').touched && addForm.get('location').invalid &&
+                            addForm.get('location').hasError('maxlength')">
+                         <span style="color: red;">Maximum 40 characters allowed.</span>
+                         </div>
+                         <div *ngIf="addForm.get('location').touched && addForm.get('location').invalid &&
+                         addForm.get('location').hasError('pattern')">
+                      <span style="color: red;">Special characters not allowed.</span>
+                      </div>
                          
                             </div>
                         </li>
@@ -68,19 +79,16 @@
                                 <span> <input type="text" name="mobileno" class="form-control" formControlName="mobileno" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileno').touched && 
-                                   addForm.get('mobileno').dirty &&  addForm.get('mobileno').invalid" >
-                                   Mobile Number is required</span>
+                                   <div *ngIf="addForm.get('mobileno').touched && addForm.get('mobileno').invalid &&
+                                   addForm.get('mobileno').hasError('required')">
+                                <span style="color: red;">Please Enter Mobile Number.</span>
+                                </div>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileno').touched && 
-                                   addForm.get('mobileno').pristine &&  addForm.get('mobileno').invalid ">
-                                   
-                                    Mobile Number is required</span>
+                                <div *ngIf="addForm.get('mobileno').touched && addForm.get('mobileno').invalid &&
+                                addForm.get('mobileno').hasError('pattern')">
+                             <span style="color: red;">Please Enter valid 10 digit numeric Mobile Number.</span>
+                             </div>
 
-                                   <span class="help-block" *ngIf="addForm.get('mobileno').touched && 
-                                   addForm.get('mobileno').dirty && addForm.get('mobileno').invalid && 
-                                   addForm.get('mobileno').errors['min']">
-                                   Rating can not be negative or zero</span>
                             </div>
                         </li>
 
@@ -93,13 +101,25 @@
                                       /></span> 
                         
                                 
-                                <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                addForm.get('email').dirty && addForm.get('email').invalid">
-                                Email ID is required</span>
-
-                                <span class="help-block" *ngIf="addForm.get('email').touched && 
-                                addForm.get('email').pristine && addForm.get('email').errors['required']">
-                                Email ID is required</span>
+                                      <div *ngIf="addForm.get('email').touched && addForm.get('email').invalid &&
+                                      addForm.get('email').hasError('required')">
+                                   <span style="color: red;">Email is required.</span>
+                                   </div>
+       
+                                   <div *ngIf="addForm.get('email').touched && addForm.get('email').invalid &&
+                                   addForm.get('email').hasError('minlength')">
+                                <span style="color: red;">Minimum 5 characters required.</span>
+                                </div>
+       
+                                <div *ngIf="addForm.get('email').touched && addForm.get('email').invalid &&
+                                addForm.get('email').hasError('maxlength')">
+                             <span style="color: red;">Maximum 40 characters required.</span>
+                             </div>
+       
+                             <div *ngIf="addForm.get('email').touched && addForm.get('email').invalid &&
+                             addForm.get('email').hasError('pattern')">
+                          <span style="color: red;">Please enter a valid email address.</span>
+                          </div>
                             </div>
                         </li>
                         <span ></span>
@@ -111,19 +131,15 @@
                                 <span> <input type="text" name="rating" class="form-control" formControlName="rating" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="addForm.get('rating').touched && 
-                                   addForm.get('rating').dirty &&  addForm.get('rating').invalid" >
-                                   Rating is required</span>
-
-                                   <span class="help-block" *ngIf="addForm.get('rating').touched && 
-                                   addForm.get('rating').pristine &&  addForm.get('rating').invalid ">
-                                   
-                                    Rating is required</span>
-
-                                   <span class="help-block" *ngIf="addForm.get('rating').touched && 
-                                   addForm.get('rating').dirty && addForm.get('rating').invalid && 
-                                   addForm.get('rating').errors['min']">
-                                   Rating can not be negative or zero</span>
+                                   <div *ngIf="addForm.get('rating').touched && addForm.get('rating').invalid &&
+                                   addForm.get('rating').hasError('required')">
+                                <span style="color: red;">Rating is required.</span>
+                                </div>
+    
+                        <div *ngIf="addForm.get('rating').touched && addForm.get('rating').invalid &&
+                          addForm.get('rating').hasError('pattern')">
+                       <span style="color: red;">Please enter a valid numeric Rating(between 1 to 5).</span>
+                       </div>
                             </div>
                         </li>
 
