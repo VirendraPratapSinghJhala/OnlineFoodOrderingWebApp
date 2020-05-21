@@ -34,6 +34,7 @@ export class FoodMenuComponent implements OnInit {
 
        //handle response
       (response:Food_Item[])=>{this.foodItems=response;
+        console.log('hello');
                                 console.log(response);}
 
 

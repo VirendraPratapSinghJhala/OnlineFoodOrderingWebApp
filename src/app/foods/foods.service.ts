@@ -31,9 +31,9 @@ export class FoodsService {
 
     }
 
-addToCart(foodItemId:number,foodQuantity:number){
+addToCart(foodItemId:number,foodItemQuantity:number){
     let customerId=this.globalService.getLoginObject().id;
-return this.httpClient.get<boolean>('https://localhost:44317/api/order/updatecart?customerId='+customerId+'&foodItemId='+foodItemId+'&foodItemQuantity='+foodQuantity);
+return this.httpClient.put<boolean>('https://localhost:44317/api/order/updatecart?customerId='+customerId+'&foodItemId='+foodItemId+'&foodItemQuantity='+foodItemQuantity, {customerId, foodItemId, foodItemQuantity});
 }
 
 getData(){
@@ -59,7 +59,7 @@ getData(){
 //it returns zero or one food item corresponding to the passed id
     getFoodItemById(foodId:number):Observable<Food_Item>
     {
-        return this.httpClient.get<Food_Item>(this.apiPrefix +"/api/food/getfooditembyid?foodItemId="+foodId);
+        return this.httpClient.get<Food_Item>("https://localhost:44317/api/food/getfooditembyid?foodItemId="+foodId);
     }
 
 //returns the boolean value indicating whether passed foodItem updated or not

@@ -22,4 +22,8 @@ export class SearchResultComponent{
     ngOnInit(){
       
     }
+
+    onAddToCart(){
+        this.foodsService.addToCart(this.foodItem.Food_Item_Id,1).subscribe((response:boolean)=>{console.log(response)});
+          }
 }

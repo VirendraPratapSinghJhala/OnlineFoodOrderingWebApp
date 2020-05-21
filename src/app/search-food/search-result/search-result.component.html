@@ -6,14 +6,14 @@
         <div  
             class="list-group-item clearfix">
             <div class="pull-left">
-                <h4 class="list-group-item-heading">{{foodItem.name}}</h4>
-                <p class="list-group-item-text">Rs. {{foodItem.price}}</p>
-                <p class="list-group-item-text">Rs. {{foodItem.type}}</p>
-                <a style="cursor: pointer;" [routerLink]="['#']" class="btn btn-outline-success" role="button">Add To Cart</a> 
+                <h4 class="list-group-item-heading">{{foodItem.Food_Name}}</h4>
+                <p class="list-group-item-text">Rs. {{foodItem.Price}}</p>
+                <p class="list-group-item-text">Rs. {{foodItem.Food_Type}}</p>
+                <a style="cursor: pointer;" (click)="onAddToCart()" class="btn btn-outline-success" role="button">Add To Cart</a> 
 
             </div>
             <span class="pull-right">
-                <img [src]="foodItem.imagePath" alt="{{foodItem.name}}" class="img-responsive" style="max-height: 200px;">
+                <img [src]="foodItem.ImagePath" alt="{{foodItem.Food_Name}}" class="img-responsive" style="max-height: 200px;">
             </span>
         </div>
     </div>

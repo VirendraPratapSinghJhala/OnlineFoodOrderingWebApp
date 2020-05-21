@@ -2,13 +2,13 @@
 
 <div class="row">
     <div class="col">
-        <a style="cursor: pointer;" routerLinkActive="active" [routerLink]="[item.foodId]" role="button" class="list-group-item clearfix" >
+        <a style="cursor: pointer;" routerLinkActive="active" [routerLink]="[item.Food_Item_Id]" role="button" class="list-group-item clearfix" >
             <div class="pull-left">
-                <h4 class="list-group-item-heading">{{item.name}}</h4>
-                <p class="list-group-item-text">Rs. {{item.price}}</p>
+                <h4 class="list-group-item-heading">{{item.Food_Name}}</h4>
+                <p class="list-group-item-text">Rs. {{item.Price}}</p>
             </div>
             <span class="pull-right">
-                <img [src]="item.imagePath" alt="{{item.name}}" class="img-responsive" style="max-height: 100px;">
+                <img [src]="item.ImagePath" alt="{{item.Food_Name}}" class="img-responsive" style="max-height: 100px;">
             </span>
         </a>
     </div>

@@ -9,7 +9,7 @@
                 <h4 class="list-group-item-heading">{{foodItem.Food_Name}}</h4>
                 <p class="list-group-item-text">Rs. {{foodItem.Price}}</p>
                 <p class="list-group-item-text">Rs. {{foodItem.Food_Type}}</p>
-                <a style="cursor: pointer;" [routerLink]="['/api/updatecart']" class="btn btn-outline-success" role="button">Add To Cart</a> 
+                <a style="cursor: pointer;" (Click)="onAddToCart()" class="btn btn-outline-success" role="button">Add To Cart</a> 
 
             </div>
             <span class="pull-right">
