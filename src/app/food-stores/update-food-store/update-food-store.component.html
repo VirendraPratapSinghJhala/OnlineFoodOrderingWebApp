@@ -19,31 +19,7 @@
                         <div class="zf-clearBoth"></div>
                     </li>
                 </ul>
-      
-                              <li class="zf-tempFrmWrapper zf-large">
-                            <label class="zf-labelName">Food Store ID</label>
-                            <div class="zf-tempContDiv">
-                                <span> <input type="text" name="foodStoreId" class="form-control" formControlName="foodStoreId" 
-                                   /></span>
-
-                                   <span class="help-block" *ngIf="updateForm.get('foodStoreId').touched && 
-                                   updateForm.get('foodStoreId').dirty &&  updateForm.get('foodStoreId').invalid" >
-                                   Food Store Id is required</span>
-
-                                   <span class="help-block" *ngIf="updateForm.get('foodStoreId').touched && 
-                                   updateForm.get('foodStoreId').pristine &&  updateForm.get('foodStoreId').invalid ">
-                                   
-                                    Food Store Id is required</span>
-
-                                   <span class="help-block" *ngIf="updateForm.get('foodStoreId').touched && 
-                                   updateForm.get('foodStoreId').dirty && updateForm.get('foodStoreId').invalid && 
-                                   updateForm.get('foodStoreId').errors['min']">
-                                   Food Store Id can not be null</span>
-                            </div>
-                        </li>
-
-
-
+                                  
                 <!---------template Container Starts Here---------->
                 <div class="zf-subContWrap zf-topAlign">
                     <ul>
@@ -55,13 +31,18 @@
                                       /></span> 
                         
                                 
-                                <span class="help-block" *ngIf="updateForm.get('foodStoreName').touched && 
-                                updateForm.get('foodStoreName').dirty && updateForm.get('foodStoreName').invalid">
-                                Food Store name can not be left blank</span>
-
-                                <span class="help-block" *ngIf="updateForm.get('foodStoreName').touched && 
-                                updateForm.get('foodStoreName').pristine && updateForm.get('foodStoreName').errors['required']">
-                                Food Store name is required</span>
+                                      <div *ngIf="updateForm.get('foodStoreName').touched && updateForm.get('foodStoreName').invalid &&
+                                      updateForm.get('foodStoreName').hasError('required')">
+                                   <span style="color: red;">Food Store Name is required.</span>
+                                   </div>
+                                      <div *ngIf="updateForm.get('foodStoreName').touched && updateForm.get('foodStoreName').invalid &&
+                                      updateForm.get('foodStoreName').hasError('maxlength')">
+                                   <span style="color: red;">Food Store Name cannot be  more than 40 characters long.</span>
+                                   </div>
+                                   <div *ngIf="updateForm.get('FoodStoreName').touched && updateForm.get('FoodStoreName').invalid && 
+                                      updateForm.get('FoodStoreName').hasError('pattern')">
+                                  <span style="color: red;">Only alphabets allowed.</span>
+                                  </div>
                             </div>
                         </li>
                         <span ></span>
@@ -72,13 +53,19 @@
                             <div class="zf-tempContDiv">
                                 <span><input type="text" name="location" class="form-control" formControlName="location"
                                     /></span>
-                                    <span class="help-block" *ngIf="updateForm.get('location').touched && 
-                                    updateForm.get('location').dirty && updateForm.get('location').invalid">
-                                    Location is required</span>
+                                    <div *ngIf="updateForm.get('location').touched && updateForm.get('location').invalid &&
+                            updateForm.get('location').hasError('required')">
+                        <span style="color: red;">Location is required.</span>
+                        </div>
 
-                                    <span class="help-block" *ngIf="updateForm.get('location').touched && 
-                                    updateForm.get('location').pristine && updateForm.get('location').invalid">
-                                    Location is required</span>
+                        <div *ngIf="updateForm.get('location').touched && updateForm.get('location').invalid &&
+                        updateForm.get('location').hasError('maxlength')">
+                     <span style="color: red;">Maximum 40 characters allowed.</span>
+                     </div>
+                     <div *ngIf="updateForm.get('location').touched && updateForm.get('location').invalid &&
+                     updateForm.get('location').hasError('pattern')">
+                  <span style="color: red;">Special characters not allowed.</span>
+                  </div>
                          
                             </div>
                         </li>
@@ -91,19 +78,15 @@
                                 <span> <input type="text" name="mobileno" class="form-control" formControlName="mobileno" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('mobileno').touched && 
-                                   updateForm.get('mobileno').dirty &&  updateForm.get('mobileno').invalid" >
-                                   Mobile Number is required</span>
+                                   <div *ngIf="updateForm.get('mobileno').touched && updateForm.get('mobileno').invalid &&
+                               updateForm.get('mobileno').hasError('required')">
+                            <span style="color: red;">Please Enter Mobile Number.</span>
+                            </div>
 
-                                   <span class="help-block" *ngIf="updateForm.get('mobileno').touched && 
-                                   updateForm.get('mobileno').pristine &&  updateForm.get('mobileno').invalid ">
-                                   
-                                    Mobile Number is required</span>
-
-                                   <span class="help-block" *ngIf="updateForm.get('mobileno').touched && 
-                                   updateForm.get('mobileno').dirty && updateForm.get('mobileno').invalid && 
-                                   updateForm.get('mobileno').errors['min']">
-                                   Rating can not be negative or zero</span>
+                            <div *ngIf="updateForm.get('mobileno').touched && updateForm.get('mobileno').invalid &&
+                            updateForm.get('mobileno').hasError('pattern')">
+                         <span style="color: red;">Please Enter valid 10 digit numeric Mobile Number.</span>
+                         </div>
                             </div>
                         </li>
 
@@ -116,13 +99,25 @@
                                       /></span> 
                         
                                 
-                                <span class="help-block" *ngIf="updateForm.get('email').touched && 
-                                updateForm.get('email').dirty && updateForm.get('email').invalid">
-                                Email ID is required</span>
-
-                                <span class="help-block" *ngIf="updateForm.get('email').touched && 
-                                updateForm.get('email').pristine && updateForm.get('email').errors['required']">
-                                Email ID is required</span>
+                                      <div *ngIf="updateForm.get('email').touched && updateForm.get('email').invalid &&
+                                      updateForm.get('email').hasError('required')">
+                                   <span style="color: red;">Email is required.</span>
+                                   </div>
+           
+                                   <div *ngIf="updateForm.get('email').touched && updateForm.get('email').invalid &&
+                                   updateForm.get('email').hasError('minlength')">
+                                <span style="color: red;">Minimum 5 characters required.</span>
+                                </div>
+           
+                                <div *ngIf="updateForm.get('email').touched && updateForm.get('email').invalid &&
+                                updateForm.get('email').hasError('maxlength')">
+                             <span style="color: red;">Maximum 40 characters required.</span>
+                             </div>
+           
+                             <div *ngIf="updateForm.get('email').touched && updateForm.get('email').invalid &&
+                             updateForm.get('email').hasError('pattern')">
+                          <span style="color: red;">Please enter a valid email address.</span>
+                          </div>
                             </div>
                         </li>
                         <span ></span>
@@ -134,32 +129,18 @@
                                 <span> <input type="text" name="rating" class="form-control" formControlName="rating" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('rating').touched && 
-                                   updateForm.get('rating').dirty &&  updateForm.get('rating').invalid" >
-                                   Rating is required</span>
+                                   <div *ngIf="updateForm.get('rating').touched && updateForm.get('rating').invalid &&
+                               updateForm.get('rating').hasError('required')">
+                            <span style="color: red;">Rating is required.</span>
+                            </div>
 
-                                   <span class="help-block" *ngIf="updateForm.get('rating').touched && 
-                                   updateForm.get('rating').pristine &&  updateForm.get('rating').invalid ">
-                                   
-                                    Rating is required</span>
-
-                                   <span class="help-block" *ngIf="updateForm.get('rating').touched && 
-                                   updateForm.get('rating').dirty && updateForm.get('rating').invalid && 
-                                   updateForm.get('rating').errors['min']">
-                                   Rating can not be negative or zero</span>
+                    <div *ngIf="updateForm.get('rating').touched && updateForm.get('rating').invalid &&
+                    updateForm.get('rating').hasError('pattern')">
+                   <span style="color: red;">Please enter a valid numeric Rating(between 1 to 5).</span>
+                   </div>
                             </div>
                         </li>
 
-                     
-
-
-
-
-
-
-
-
- 
                     </ul>
                 </div>
                 <!---------template Container Starts Here---------->
