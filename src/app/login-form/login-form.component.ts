@@ -29,12 +29,12 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(){
-    let loggedIn = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
+    let loggedInObject:{status:boolean, id:number} = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
 
-    if(loggedIn){
+    if(loggedInObject.status){
       //set loggedIn globally user
-      this.globalService.setLoginRole("user");
-      this.router.navigate(['/']);
+      this.globalService.setLoginObject("user",loggedInObject.id);
+      this.router.navigate(['/home']);
     }else{
       alert('Email ID or Password not correct. Please register if you are a new user.');
     }

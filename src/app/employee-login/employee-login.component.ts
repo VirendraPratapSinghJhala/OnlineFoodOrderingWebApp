@@ -29,12 +29,12 @@ export class EmployeeLoginComponent implements OnInit {
 
   onSubmit(){
     //"something","ad@rerg.com",
-    let loggedIn = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
+    let loggedInObject = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
 
-    if(loggedIn){
+    if(loggedInObject.status){
       //set loggedIn globally user
-      this.globalService.setLoginRole("admin");
-      this.router.navigate(['/']);
+      this.globalService.setLoginObject("admin",loggedInObject.id);
+      this.router.navigate(['/home']);
     }else{
       alert('Email ID or Password not correct. Please try again.');
     }

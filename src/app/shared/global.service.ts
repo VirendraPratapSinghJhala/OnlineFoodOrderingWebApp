@@ -3,15 +3,16 @@ export class GlobalService{
 
     constructor(){
         if(localStorage.getItem('loggedInRole') == "" || localStorage.getItem('loggedInRole') == null){
-            this.setLoginRole("none");
+            this.setLoginObject("none", null);
         }
     }
 
-    setLoginRole(role:string){
+    setLoginObject(role:string, id:number){
         localStorage.setItem('loggedInRole', role);
+        localStorage.setItem('id', id.toString());
     }
 
-    getLoginRole(){
-        return localStorage.loggedInRole.toString();
+    getLoginObject(){
+        return { role:localStorage.getItem('loggedInRole').toString(), id:localStorage.getItem('id').toString() }
     }
 }

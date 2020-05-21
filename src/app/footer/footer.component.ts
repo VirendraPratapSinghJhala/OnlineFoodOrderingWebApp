@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
 
   isLoggedIn:boolean = false;
   ngOnInit(): void {
-    this.isLoggedIn = this.globalService.getLoginRole() == 'none' ? false : true
-    this.router.events.subscribe(val=>{this.isLoggedIn = this.globalService.getLoginRole() == 'none' ? false : true});
+    this.isLoggedIn = this.globalService.getLoginObject().role == 'none' ? false : true
+    this.router.events.subscribe(val=>{this.isLoggedIn = this.globalService.getLoginObject().role == 'none' ? false : true});
   }
 }

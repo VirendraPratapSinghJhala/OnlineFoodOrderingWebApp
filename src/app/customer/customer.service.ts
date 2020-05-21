@@ -69,10 +69,10 @@ export class CustomerService implements OnInit{
         for(let i = 0; i < this.customer.length; i ++){
             console.log(email + this.customer[i].email + "  " + password);
             if(this.customer[i].email == email && this.customer[i].password == password){
-                return true;
+                return {status: true, id: this.customer[i].id};
             }
         }
-        return false;
+        return { status: false, id: null};
     }
 
     // get all the customers by calling GetAllCustomers() in web api controller
