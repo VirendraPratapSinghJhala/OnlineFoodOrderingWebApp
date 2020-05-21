@@ -11,7 +11,7 @@ export class UserHomeComponent implements OnInit {
   constructor(private globalService:GlobalService) { }
   shouldShowAdmin:boolean = false;
   ngOnInit(): void {
-    this.shouldShowAdmin = this.globalService.getLoginObject() == "admin" ? true : false;
+    this.shouldShowAdmin = this.globalService.getLoginObject().role == "admin" ? true : false;
   }
 
 }
