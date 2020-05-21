@@ -21,7 +21,7 @@ import { GlobalService } from '../shared/global.service';
 @Injectable()
 //This is a service class for Food related components helping those components to communicate with each other
 //and also allows those components to send and recieve requests through HttpClient. 
-export class FoodsService implements OnInit{
+export class FoodsService {
 
 //property will hold prefix of the url present in request to web api
     apiPrefix:string="";
