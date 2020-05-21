@@ -28,7 +28,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class UpdateFoodItemComponent implements OnInit {
 
   //declare reactive form of type FormGroup
-  updateForm: FormGroup;
+  updateForm: FormGroup=null;
 
   //to receive the status whether form is submitted or not
   isFoodItemUpdated: boolean = false;
@@ -42,7 +42,8 @@ export class UpdateFoodItemComponent implements OnInit {
   foodId:number=null;
 
   //constructor used for injecting dependency
-  constructor(private foodsService: FoodsService,private route:ActivatedRoute) { }
+  constructor(private foodsService: FoodsService,private route:ActivatedRoute) { 
+  }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
@@ -58,8 +59,8 @@ export class UpdateFoodItemComponent implements OnInit {
      this.updateForm = new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName': new FormControl(this.foodItem?.Food_Name , [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
-      'foodType': new FormControl(this.foodItem?.Food_Type, [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
+      'foodName': new FormControl(this.foodItem?.Food_Name , [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
+      'foodType': new FormControl(this.foodItem?.Food_Type, [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
       'foodPrice': new FormControl(this.foodItem?.Price , [Validators.required, Validators.min(1),Validators.pattern("^[-0-9]*$")]),
       'imagePath': new FormControl(this.foodItem?.ImagePath, [Validators.required, Validators.maxLength(2000)])
 

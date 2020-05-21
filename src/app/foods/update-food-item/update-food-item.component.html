@@ -6,7 +6,16 @@
 </head>
 
 <body class="zf-backgroundBg">
-    <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+    <div *ngIf="updateForm==null">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="updateForm!=null">
+            <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
     <div class="zf-templateWidth">
         <form [formGroup]="updateForm" (ngSubmit)="onSubmit()" accept-charset='UTF-8' enctype='multipart/form-data' id='form'>
 
@@ -89,24 +98,24 @@
                                 <span> <input type="text" name="price" class="form-control" formControlName="foodPrice" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
-                                   updateForm.get('foodPrice')?.dirty &&  updateForm.get('foodPrice')?.invalid &&
-                                   updateForm.get('foodPrice')?.errors['required']" >
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
+                                   updateForm.get('foodPrice').dirty &&  updateForm.get('foodPrice').invalid &&
+                                   updateForm.get('foodPrice').errors['required']" >
                                    Food Price is required</span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
-                                   updateForm.get('foodPrice')?.pristine &&  updateForm.get('foodPrice')?.invalid &&
-                                   updateForm.get('foodPrice')?.errors['required'] ">
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
+                                   updateForm.get('foodPrice').pristine &&  updateForm.get('foodPrice').invalid &&
+                                   updateForm.get('foodPrice').errors['required'] ">
                                    Food Price is required</span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
-                                   updateForm.get('foodPrice')?.dirty && updateForm.get('foodPrice')?.invalid && 
-                                   updateForm.get('foodPrice')?.errors['min']">
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
+                                   updateForm.get('foodPrice').dirty && updateForm.get('foodPrice').invalid && 
+                                   updateForm.get('foodPrice').errors['min']">
                                    Food Price can not be negative or zero</span><br>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
-                                   updateForm.get('foodPrice')?.dirty && updateForm.get('foodPrice')?.invalid && 
-                                   updateForm.get('foodPrice')?.errors['pattern']">
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
+                                   updateForm.get('foodPrice').dirty && updateForm.get('foodPrice').invalid && 
+                                   updateForm.get('foodPrice').errors['pattern']">
                                     Food Price can only be numeric</span>
                             </div>
                         </li>
@@ -116,19 +125,19 @@
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="image" class="form-control" formControlName="imagePath"  
                                   /></span>
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
-                                  updateForm.get('imagePath')?.dirty && updateForm.get('imagePath')?.invalid &&
-                                   updateForm.get('imagePath')?.errors['required']">
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
+                                  updateForm.get('imagePath').dirty && updateForm.get('imagePath').invalid &&
+                                   updateForm.get('imagePath').errors['required']">
                                   Image Path is required</span>
 
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
-                                  updateForm.get('imagePath')?.pristine && updateForm.get('imagePath')?.invalid &&
-                                  updateForm.get('imagePath')?.errors['required']">
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
+                                  updateForm.get('imagePath').pristine && updateForm.get('imagePath').invalid &&
+                                  updateForm.get('imagePath').errors['required']">
                                   Image Path is required</span>
 
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
-                                  updateForm.get('imagePath')?.dirty && updateForm.get('imagePath')?.invalid &&
-                                  updateForm.get('imagePath')?.errors['maxLength']" >
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
+                                  updateForm.get('imagePath').dirty && updateForm.get('imagePath').invalid &&
+                                  updateForm.get('imagePath').errors['maxLength']" >
                                   Image Path can be of maximum 2000 characters</span>
                                 
                             </div>
@@ -144,6 +153,8 @@
         </form>
     </div><!-- 'zf-templateWidth' ends -->
     
+
+        </div>
 </body>
 
 </html>

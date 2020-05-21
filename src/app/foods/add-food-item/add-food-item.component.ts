@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
+import { Router } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -35,10 +36,12 @@ export class AddFoodItemComponent implements OnInit {
     isFormSubmitted=false;
 
   //to store Food_Item type object
-  foodItem:Food_Item=null;
+  foodItem:Food_Item;
 
   //constructor used for injecting dependency
-  constructor(private foodsService:FoodsService) { }
+  constructor(private foodsService:FoodsService,private router:Router) {
+    this.foodItem=new Food_Item();
+   }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
@@ -47,8 +50,8 @@ export class AddFoodItemComponent implements OnInit {
     this.addForm=new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName':new FormControl('',[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
-      'foodType':new FormControl('',[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
+      'foodName':new FormControl('',[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
+      'foodType':new FormControl('',[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
       'foodPrice': new FormControl('',[Validators.required,Validators.min(1),Validators.pattern("^[-0-9]*$")]),
       'imagePath': new FormControl('',[Validators.required,Validators.maxLength(2000)])
     }
@@ -86,6 +89,7 @@ export class AddFoodItemComponent implements OnInit {
 
    //reset the form
    this.addForm.reset();
+
 
   }
 

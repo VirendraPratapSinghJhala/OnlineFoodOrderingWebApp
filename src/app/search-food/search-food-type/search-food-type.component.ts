@@ -50,7 +50,7 @@ export class SearchFoodTypeComponent implements OnInit {
     this.searchByTypeForm=new FormGroup({
 
             //apply all the required validations on all the input controls
-       'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")])
+       'foodType':new FormControl(null,[Validators.required,Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")])
     }
     );
   }

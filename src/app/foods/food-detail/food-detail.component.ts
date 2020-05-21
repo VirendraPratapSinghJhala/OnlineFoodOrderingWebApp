@@ -14,7 +14,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -34,7 +34,7 @@ export class FoodDetailComponent implements OnInit {
     //constructor used for injecting dependency
 
 
-  constructor(private foodsService:FoodsService,private route:ActivatedRoute) { }
+  constructor(private foodsService:FoodsService,private route:ActivatedRoute,private router:Router) { }
 
 
 //ngOnInit used for initialising properties of the class
@@ -55,29 +55,27 @@ export class FoodDetailComponent implements OnInit {
    
   }
 
-  //action to be performed on click of add to cart link in dropdown
- onAddToCart(){
-     
- }
+ onDeleteFoodItem(){
 
-
-
-onDeleteFoodItem(){
-
-  this.foodsService.deleteFoodItemById(this.id).subscribe(
+   if(window.confirm('Are you sure you want to delete this item ?'))
+   {
+    this.foodsService.deleteFoodItemById(this.id).subscribe(
     
-    //handle response
-    (response:boolean)=>{if(response==true)
-    {console.log('Food item deleted successfully');
-     alert('Food item deleted successfully');}
-     else{
-        console.log('food item not deleted successfully');
-        alert('food item not deleted successfully');
-     }},
+      //handle response
+      (response:boolean)=>{if(response==true)
+      {console.log('Food item deleted successfully');
+       alert('Food item deleted successfully');}
+       else{
+          console.log('food item not deleted successfully');
+          alert('food item not deleted successfully');
+       }},
+  
+      //handle errors
+      (error)=>{console.log(error);}
+    );
+   }
 
-    //handle errors
-    (error)=>{console.log(error);}
-  );
+  
 }
 
 }
