@@ -12,7 +12,6 @@
 //import all the required entities from their respective packages
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AboutComponent } from './about/about.component';
 import { FoodsComponent } from './foods/foods.component';
 import { FoodDetailComponent } from './foods/food-detail/food-detail.component';
@@ -33,14 +32,12 @@ import { OrderDetailComponent } from './order/order-detail/order-detail.componen
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchFoodComponent } from './search-food/search-food.component';
-import { SearchFoodNameComponent } from './search-food/search-food-name/search-food-name.component';
-import { SearchFoodTypeComponent } from './search-food/search-food-type/search-food-type.component';
-import { SearchFoodPriceComponent } from './search-food/search-food-price/search-food-price.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CustomerComponent } from './customer/customer.component';
 import { FoodMenuComponent } from './foods/food-menu/food-menu.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AfterCheckoutComponent } from './after-checkout/after-checkout.component';
+import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 
 //defines the routes and their corresponding components and their child components/child routes
 const routes: Routes = [
@@ -71,6 +68,7 @@ const routes: Routes = [
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]
   },
+  {path: 'employeelogin', component: EmployeeLoginComponent},
   {path:'contactus', component:ContactusComponent},
   {path:'home',redirectTo:''},
   {path:'', component:UserHomeComponent, pathMatch:'full'},

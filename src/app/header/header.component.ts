@@ -14,7 +14,6 @@
 import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../shared/global.service';
-import { Location } from '@angular/common';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -34,12 +33,13 @@ export class HeaderComponent implements OnInit{
     constructor(private router:Router, public globalService:GlobalService){}
 
     ngOnInit(){
-      this.authRole = this.globalService.getLoginRole();
-      this.router.events.subscribe(val => {this.authRole = this.globalService.getLoginRole();});
+      this.authRole = this.globalService.getLoginObject().role;
+      this.router.events.subscribe(val => {this.authRole = this.globalService.getLoginObject().role;});
     }
   
     onLogoutClick(){
-      this.globalService.setLoginRole("none");
-      this.authRole = this.globalService.getLoginRole();
+      this.globalService.setLoginObject("none", null);
+      this.authRole = this.globalService.getLoginObject().role;
+      this.router.navigate(['/home']);
     }
 }

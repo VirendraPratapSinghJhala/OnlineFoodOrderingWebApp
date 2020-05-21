@@ -45,13 +45,18 @@ export class UpdateProfileComponent implements OnInit {
 
     //apply all the required validations on all the input controls
     this.updateForm=new FormGroup({
-      'customerId': new FormControl(this.customer.id),
-      'customerName':new FormControl(this.customer.customerName,[Validators.required,Validators.maxLength(255)]),
-      'email':new FormControl(this.customer.email,[Validators.required,Validators.maxLength(255)]),
-      'city':new FormControl(this.customer.city,[Validators.required,Validators.maxLength(255)]),
-      'age': new FormControl(this.customer.age,[Validators.required,Validators.min(1)]),
-      'password':new FormControl(this.customer.password,[Validators.required,Validators.maxLength(255)]),
-      'mobileNo': new FormControl(this.customer.mobileNo,[Validators.required,Validators.maxLength(2000)])
+      'customerId': new FormControl(this.customer.id,[Validators.required,Validators.min(1),
+                                    Validators.pattern('^[0-9]*$')]),
+      'customerName':new FormControl(this.customer.customerName,[Validators.required,Validators.maxLength(50),Validators.pattern('^[a-zA-Z]*$')]),
+      'email':new FormControl(this.customer.email,[Validators.required,Validators.minLength(5),Validators.maxLength(50),
+                                    Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'city':new FormControl(this.customer.city,[Validators.required,Validators.maxLength(50),
+                                    Validators.pattern("^[a-zA-Z0-9]*$")]),
+      'age': new FormControl(this.customer.age,[Validators.required,Validators.min(15),Validators.max(65),
+                                    Validators.pattern('^[0-9]*$')]),
+      'password':new FormControl(this.customer.password,[Validators.required,
+                                    Validators.pattern('((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6-15})')]),
+      'mobileNo': new FormControl(this.customer.mobileNo,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
     }
     );
   }

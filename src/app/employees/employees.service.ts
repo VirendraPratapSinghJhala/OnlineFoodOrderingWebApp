@@ -27,9 +27,9 @@ export class EmployeesService implements OnInit{
             "Prateek",
             22,
             1212,
-            "something",
+            "p",
             "9999999",
-            "ad@rerg.com",
+            "p@mail.com",
             "City"),
         new Employee(
             22,
@@ -55,6 +55,15 @@ export class EmployeesService implements OnInit{
         this.apiPrefix=this.webapiService.urlPrefix;
     }
 
+    sampleLogin(email:string, password:string){
+        for(let i = 0; i < this.employee.length; i ++){
+            console.log(email + this.employee[i].email + "  " + password);
+            if(this.employee[i].email == email && this.employee[i].password == password){
+                return { status: true, id:this.employee[i].id };
+            }
+        }
+        return { status: false, id:null };
+    }
 
     getSampleAllEmployees(){
         return(this.employee);

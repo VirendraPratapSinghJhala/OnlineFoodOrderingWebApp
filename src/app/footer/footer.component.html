@@ -1,10 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/about">About</a>
-              <a class="nav-link" routerLink="/contactus">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contactus">Contact Us</a>
+      </li>
+      <li *ngIf="!isLoggedIn" class="nav-item">
+        <a class="nav-link" routerLink="/employeelogin">EmployeeLogin</a>
+      </li>
+    </ul>
+  </div>
+</nav>

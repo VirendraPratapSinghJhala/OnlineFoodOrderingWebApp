@@ -20,19 +20,21 @@ export class LoginFormComponent implements OnInit {
     
     //initialise loginForm
     this.loginForm=new FormGroup({
-      'email':new FormControl("",[Validators.required,Validators.maxLength(255)]),
-      'password':new FormControl("",[Validators.required,Validators.maxLength(255)])
+      'email':new FormControl("",[Validators.required,Validators.minLength(5),Validators.maxLength(50),
+        Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'password':new FormControl("",[Validators.required,
+        Validators.pattern('((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6-15})')])
     }
     );
   }
 
   onSubmit(){
-    let loggedIn = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
+    let loggedInObject:{status:boolean, id:number} = this.loginService.sampleLogin(this.loginForm.value.email.toString(), this.loginForm.value.password.toString());
 
-    if(loggedIn){
+    if(loggedInObject.status){
       //set loggedIn globally user
-      this.globalService.setLoginRole("user");
-      this.router.navigate(['/']);
+      this.globalService.setLoginObject("user",loggedInObject.id);
+      this.router.navigate(['/home']);
     }else{
       alert('Email ID or Password not correct. Please register if you are a new user.');
     }
