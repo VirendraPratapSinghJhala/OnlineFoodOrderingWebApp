@@ -39,12 +39,12 @@ export class UpdateFoodStoreComponent implements OnInit {
     this.updateForm=new FormGroup({
         
          //apply all the required validations on all the input controls
-         'foodStoreId':new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern('^[0-9]*$')]),
-         'foodStoreName':new FormControl(null,[Validators.required,Validators.maxLength(40),Validators.pattern('^[a-zA-Z]*$')]),
-         'location':new FormControl(null,[Validators.required,Validators.maxLength(40),Validators.pattern('^[a-zA-Z0-9]*$')]),
-         'mobileno':new FormControl(null,[Validators.required,Validators.maxLength(13),Validators.pattern('^[7-9][0-9]{9}$')]),
-         'email':new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(40),Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-         'rating': new FormControl(null,[Validators.required,Validators.pattern('[1-5]{1}$')]),
+       'foodStoreId': new FormControl(this.foodStore.foodStoreId,[Validators.required]),
+      'foodStoreName':new FormControl(this.foodStore.foodStoreName,[Validators.required,Validators.maxLength(255)]),
+      'email':new FormControl(this.foodStore.email,[Validators.required,Validators.maxLength(255)]),
+      'location':new FormControl(this.foodStore.location,[Validators.required,Validators.maxLength(255)]),
+      'rating': new FormControl(this.foodStore.rating,[Validators.required,Validators.min(1)]),
+      'mobileno': new FormControl(this.foodStore.mobileno,[Validators.required,Validators.maxLength(2000)])
     }
     );
   }

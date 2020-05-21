@@ -38,12 +38,11 @@ export class AddFoodStoreComponent implements OnInit {
    //initialise addForm
     this.addForm=new FormGroup({
  //apply all the required validations on all the input controls  
-      'foodStoreId':new FormControl(null,[Validators.required,Validators.min(1),Validators.pattern('^[0-9]*$')]),
-      'foodStoreName':new FormControl(null,[Validators.required,Validators.maxLength(40),Validators.pattern('^[a-zA-Z]*$')]),
-      'location':new FormControl(null,[Validators.required,Validators.maxLength(40),Validators.pattern('^[a-zA-Z0-9]*$')]),
-      'mobileno':new FormControl(null,[Validators.required,Validators.maxLength(13),Validators.pattern('^[7-9][0-9]{9}$')]),
-      'email':new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(40),Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-      'rating': new FormControl(null,[Validators.required,Validators.pattern('[1-5]{1}$')]),
+      'foodStoreName':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'location':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'mobileno':new FormControl(null,[Validators.required,Validators.maxLength(13)]),
+      'email':new FormControl(null,[Validators.required,Validators.maxLength(255)]),
+      'rating': new FormControl(null,[Validators.required,Validators.maxLength(5)]),
      
     }
     );
