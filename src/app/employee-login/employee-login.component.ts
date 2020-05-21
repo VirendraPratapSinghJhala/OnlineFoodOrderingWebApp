@@ -21,8 +21,9 @@ export class EmployeeLoginComponent implements OnInit {
     
     //initialise loginForm
     this.loginForm=new FormGroup({
-      'email':new FormControl("",[Validators.required,Validators.maxLength(255)]),
-      'password':new FormControl("",[Validators.required,Validators.maxLength(255)])
+      'email':new FormControl("",[Validators.required,Validators.minLength(5),Validators.maxLength(40),  
+                            Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+      'password':new FormControl("",[Validators.required,Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,15})')])
     }
     );
   }
