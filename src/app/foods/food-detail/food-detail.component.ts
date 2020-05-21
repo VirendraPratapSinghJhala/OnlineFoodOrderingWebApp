@@ -55,6 +55,10 @@ export class FoodDetailComponent implements OnInit {
    
   }
 
+  onUpdateFoodItem(){
+    this.router.navigate(['updatefooditem',this.id]);
+  }
+
  onDeleteFoodItem(){
 
    if(window.confirm('Are you sure you want to delete this item ?'))
@@ -68,7 +72,10 @@ export class FoodDetailComponent implements OnInit {
        else{
           console.log('food item not deleted successfully');
           alert('food item not deleted successfully');
-       }},
+       }
+      
+       this.router.navigate(['foodsmenu']);
+      },
   
       //handle errors
       (error)=>{console.log(error);}

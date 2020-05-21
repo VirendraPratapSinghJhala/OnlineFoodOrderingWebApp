@@ -31,24 +31,24 @@
                                       /></span> 
                         
                                 
-                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodtype').touched && 
-                                      searchByTypeForm.get('foodtype').dirty && searchByTypeForm.get('foodtype').invalid && 
-                                      searchByTypeForm.get('foodtype').errors['required']">
-                                      Food type is required</span>
-      
-                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodtype').touched && 
-                                      searchByTypeForm.get('foodtype').pristine && searchByTypeForm.get('foodtype').invalid 
-                                       && searchByTypeForm.get('foodtype').errors['required']">
-                                      Food type is required</span>
-      
-                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodtype').touched && 
-                                      searchByTypeForm.get('foodtype').dirty && searchByTypeForm.get('foodtype').invalid 
-                                       && searchByTypeForm.get('foodtype').errors['maxLength']">
+                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodType')?.touched && 
+                                      searchByTypeForm.get('foodType')?.dirty && searchByTypeForm.get('foodType')?.invalid 
+                                      && searchByTypeForm.get('foodType')?.errors['required']">
+                                      Food Type is required</span>
+  
+                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodType')?.touched && 
+                                      searchByTypeForm.get('foodType')?.pristine && searchByTypeForm.get('foodType')?.invalid
+                                      && searchByTypeForm.get('foodType')?.errors['required']">
+                                      Food Type is required</span>
+                                      
+                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodtype')?.touched && 
+                                      searchByTypeForm.get('foodtype')?.dirty && searchByTypeForm.get('foodtype')?.invalid 
+                                       && searchByTypeForm.get('foodtype')?.errors['maxLength']">
                                       Food type can not exceed 255 characters</span>
       
-                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodtype').touched && 
-                                      searchByTypeForm.get('foodtype').dirty && searchByTypeForm.get('foodtype').invalid 
-                                       && searchByTypeForm.get('foodtype').errors['pattern']">
+                                      <span class="help-block" *ngIf="searchByTypeForm.get('foodType')?.touched && 
+                                      searchByTypeForm.get('foodType')?.dirty && searchByTypeForm.get('foodType')?.invalid 
+                                       && searchByTypeForm.get('foodType')?.errors['pattern']">
                                       Food type must start with alphabet letter and can only consist of alphabetic letters and digits</span>
                             </div>
                         </li>

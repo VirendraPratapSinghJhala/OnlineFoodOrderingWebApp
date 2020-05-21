@@ -16,7 +16,8 @@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Manage Food Item<span
                         class="caret"></span></button>
                 <ul class="dropdown-menu ">
-                    <li><a [routerLink]="['/updatefooditem',id]">Edit Food Item</a></li>
+                    <li><button class="btn btn-outline-warning" role="button" (click)="onUpdateFoodItem()" style="cursor:pointer;">Update Food Item</button></li>
+                    <li> <div class="dropdown-divider"></div></li>
                     <li><button class="btn btn-outline-danger" role="button" (click)="onDeleteFoodItem()" style="cursor:pointer;">Delete Food Item</button></li>
                 </ul>
             </div>

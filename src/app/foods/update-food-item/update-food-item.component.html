@@ -83,10 +83,10 @@
                                 && updateForm.get('foodType')?.errors['maxLength']">
                                 Food name can not exceed 255 characters</span>
 
-                                <span class="help-block" *ngIf="updateForm.get('foodtype')?.touched && 
-                                      updateForm.get('foodtype')?.dirty && updateForm.get('foodtype')?.invalid 
-                                       && updateForm.get('foodtype')?.errors['pattern']">
-                                      Food type must start with alphabet letter and can only consist of alphabetic letters and digits</span>
+                                <span class="help-block" *ngIf="updateForm.get('foodType')?.touched && 
+                                updateForm.get('foodType')?.dirty && updateForm.get('foodType')?.invalid 
+                                 && updateForm.get('foodType')?.errors['pattern']">
+                                Food type must start with alphabet letter and can only consist of alphabetic letters and digits</span>
                          
                             </div>
                         </li>
@@ -98,25 +98,25 @@
                                 <span> <input type="text" name="price" class="form-control" formControlName="foodPrice" 
                                    /></span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
-                                   updateForm.get('foodPrice').dirty &&  updateForm.get('foodPrice').invalid &&
-                                   updateForm.get('foodPrice').errors['required']" >
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
+                                   updateForm.get('foodPrice')?.dirty &&  updateForm.get('foodPrice')?.invalid &&
+                                   updateForm.get('foodPrice')?.errors['required']" >
                                    Food Price is required</span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
-                                   updateForm.get('foodPrice').pristine &&  updateForm.get('foodPrice').invalid &&
-                                   updateForm.get('foodPrice').errors['required'] ">
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
+                                   updateForm.get('foodPrice')?.pristine &&  updateForm.get('foodPrice')?.invalid &&
+                                   updateForm.get('foodPrice')?.errors['required'] ">
                                    Food Price is required</span>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
-                                   updateForm.get('foodPrice').dirty && updateForm.get('foodPrice').invalid && 
-                                   updateForm.get('foodPrice').errors['min']">
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
+                                   updateForm.get('foodPrice')?.dirty && updateForm.get('foodPrice')?.invalid && 
+                                   updateForm.get('foodPrice')?.errors['min']">
                                    Food Price can not be negative or zero</span><br>
 
-                                   <span class="help-block" *ngIf="updateForm.get('foodPrice').touched && 
-                                   updateForm.get('foodPrice').dirty && updateForm.get('foodPrice').invalid && 
-                                   updateForm.get('foodPrice').errors['pattern']">
-                                    Food Price can only be numeric</span>
+                                   <span class="help-block" *ngIf="updateForm.get('foodPrice')?.touched && 
+                                   updateForm.get('foodPrice')?.dirty && updateForm.get('foodPrice')?.invalid && 
+                                   updateForm.get('foodPrice')?.errors['pattern']">
+                                    Food Price can only be numeric(1.e. should be an exact number, not in decimal)?</span>
                             </div>
                         </li>
 
@@ -125,19 +125,19 @@
                             <div class="zf-tempContDiv">
                                 <span> <input type="text" name="image" class="form-control" formControlName="imagePath"  
                                   /></span>
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
-                                  updateForm.get('imagePath').dirty && updateForm.get('imagePath').invalid &&
-                                   updateForm.get('imagePath').errors['required']">
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
+                                  updateForm.get('imagePath')?.dirty && updateForm.get('imagePath')?.invalid &&
+                                   updateForm.get('imagePath')?.errors['required']">
                                   Image Path is required</span>
 
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
-                                  updateForm.get('imagePath').pristine && updateForm.get('imagePath').invalid &&
-                                  updateForm.get('imagePath').errors['required']">
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
+                                  updateForm.get('imagePath')?.pristine && updateForm.get('imagePath')?.invalid &&
+                                  updateForm.get('imagePath')?.errors['required']">
                                   Image Path is required</span>
 
-                                  <span class="help-block" *ngIf="updateForm.get('imagePath').touched && 
-                                  updateForm.get('imagePath').dirty && updateForm.get('imagePath').invalid &&
-                                  updateForm.get('imagePath').errors['maxLength']" >
+                                  <span class="help-block" *ngIf="updateForm.get('imagePath')?.touched && 
+                                  updateForm.get('imagePath')?.dirty && updateForm.get('imagePath')?.invalid &&
+                                  updateForm.get('imagePath')?.errors['maxLength']" >
                                   Image Path can be of maximum 2000 characters</span>
                                 
                             </div>

@@ -75,11 +75,11 @@
                                     <span class="help-block" *ngIf="addForm.get('foodType')?.touched && 
                                 addForm.get('foodType')?.dirty && addForm.get('foodType')?.invalid 
                                 && addForm.get('foodType')?.errors['maxLength']">
-                                Food name can not exceed 255 characters</span>
+                                Food type can not exceed 255 characters</span>
 
-                                <span class="help-block" *ngIf="addForm.get('foodtype')?.touched && 
-                                addForm.get('foodtype')?.dirty && addForm.get('foodtype')?.invalid 
-                                 && addForm.get('foodtype')?.errors['pattern']">
+                                <span class="help-block" *ngIf="addForm.get('foodType')?.touched && 
+                                addForm.get('foodType')?.dirty && addForm.get('foodType')?.invalid 
+                                 && addForm.get('foodType')?.errors['pattern']">
                                 Food type must start with alphabet letter and can only consist of alphabetic letters and digits</span>
                          
                             </div>

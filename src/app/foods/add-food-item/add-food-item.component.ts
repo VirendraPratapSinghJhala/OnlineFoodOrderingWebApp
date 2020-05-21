@@ -70,6 +70,10 @@ export class AddFoodItemComponent implements OnInit {
    this.foodItem.Price=this.addForm.value.foodPrice;
    this.foodItem.ImagePath= this.addForm.value.imagePath;
  
+
+   //reset the form
+   this.addForm.reset();
+   
    //call the FoodsService's postFoodItem method to post the received object to the web api and subscribe to it
    this.foodsService.postFoodItem(this.foodItem).subscribe(
 
@@ -79,6 +83,8 @@ export class AddFoodItemComponent implements OnInit {
     if(this.foodItemId!=null)
     {alert('Food Item successfully added, Added food Item id : '+this.foodItemId);}
     else{alert('Food Item Not added successfully');}
+
+    this.router.navigate(['foodsmenu']);
     },
     //handle the error
      (error)=>{
@@ -87,8 +93,7 @@ export class AddFoodItemComponent implements OnInit {
      }
    );
 
-   //reset the form
-   this.addForm.reset();
+   
 
 
   }

@@ -15,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Food_Item } from '../food-item.model';
 import { FoodsService } from '../foods.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -42,7 +42,7 @@ export class UpdateFoodItemComponent implements OnInit {
   foodId:number=null;
 
   //constructor used for injecting dependency
-  constructor(private foodsService: FoodsService,private route:ActivatedRoute) { 
+  constructor(private foodsService: FoodsService,private route:ActivatedRoute,private router:Router) { 
   }
 
   //ngOnInit used for initialising properties of the class
@@ -59,10 +59,10 @@ export class UpdateFoodItemComponent implements OnInit {
      this.updateForm = new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName': new FormControl(this.foodItem?.Food_Name , [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
-      'foodType': new FormControl(this.foodItem?.Food_Type, [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
-      'foodPrice': new FormControl(this.foodItem?.Price , [Validators.required, Validators.min(1),Validators.pattern("^[-0-9]*$")]),
-      'imagePath': new FormControl(this.foodItem?.ImagePath, [Validators.required, Validators.maxLength(2000)])
+      'foodName': new FormControl(this.foodItem.Food_Name , [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
+      'foodType': new FormControl(this.foodItem.Food_Type, [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z ]+[a-zA-Z0-9 ]*$")]),
+      'foodPrice': new FormControl(this.foodItem.Price , [Validators.required, Validators.min(1),Validators.pattern("^[-0-9]*$")]),
+      'imagePath': new FormControl(this.foodItem.ImagePath, [Validators.required, Validators.maxLength(2000)])
 
     }
     );}
@@ -83,6 +83,12 @@ export class UpdateFoodItemComponent implements OnInit {
     this.foodItem.Food_Type= this.updateForm.value.foodType;
     this.foodItem.Price=this.updateForm.value.foodPrice;
     this.foodItem.ImagePath= this.updateForm.value.imagePath;
+
+
+     //reset the form
+     this.updateForm.reset();
+
+
    //call the FoodsService's postFoodItem method to put/update the received object to the web api and subscribe to it
     this.foodsService.putFoodItem(this.foodItem).subscribe(
 
@@ -91,6 +97,9 @@ export class UpdateFoodItemComponent implements OnInit {
         this.isFoodItemUpdated = response;
         if (this.isFoodItemUpdated) { alert('Food Item Updated') }
         else { alert('Food Item Not Updated') };
+        
+        this.router.navigate(['foodsmenu']);
+
       },
 
       //handle the error
@@ -101,8 +110,7 @@ export class UpdateFoodItemComponent implements OnInit {
       }
     );
 
-    //reset the form
-    this.updateForm.reset();
+   
 
   }
 
