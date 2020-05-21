@@ -52,20 +52,22 @@ export class UpdateFoodItemComponent implements OnInit {
     );
 
     this.foodsService.getFoodItemById(this.foodId).subscribe(
-      (response:Food_Item)=>{this.foodItem=response;}
-    );
-
-     //initialise updateForm
+      (response:Food_Item)=>{this.foodItem=response;
+      
+      //initialise updateForm
      this.updateForm = new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName': new FormControl(this.foodItem.Food_Name , [Validators.required, Validators.maxLength(255)]),
-      'foodType': new FormControl(this.foodItem.Food_Type, [Validators.required, Validators.maxLength(255)]),
-      'foodPrice': new FormControl(this.foodItem.Price , [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]),
-      'imagePath': new FormControl(this.foodItem.ImagePath, [Validators.required, Validators.maxLength(2000)])
+      'foodName': new FormControl(this.foodItem?.Food_Name , [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
+      'foodType': new FormControl(this.foodItem?.Food_Type, [Validators.required, Validators.maxLength(255),Validators.pattern("^[a-zA-Z]+[a-zA-Z0-9]*$")]),
+      'foodPrice': new FormControl(this.foodItem?.Price , [Validators.required, Validators.min(1),Validators.pattern("^[-0-9]*$")]),
+      'imagePath': new FormControl(this.foodItem?.ImagePath, [Validators.required, Validators.maxLength(2000)])
 
     }
+    );}
     );
+
+     
   }
 
   //action to be performed on submitting the form
@@ -93,6 +95,7 @@ export class UpdateFoodItemComponent implements OnInit {
       //handle the error
       (error) => {
         alert(error);
+        console.log('there was an error');
         console.log(error);
       }
     );

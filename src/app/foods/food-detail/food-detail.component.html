@@ -2,29 +2,29 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <img [src]="foodItem.ImagePath" alt="{{foodItem.Food_Name}}" class="img-responsive " style="max-height: 200px;">
+            <img [src]="foodItem?.ImagePath" alt="{{foodItem?.Food_Name}}" class="img-responsive " style="max-height: 200px;">
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h1>{{foodItem.Food_Name}}</h1>
+            <h1>{{foodItem?.Food_Name}}</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="btn-group dropdown" >
-                <button type="button" class="btn btn-primary dropdown-toggle" >Manage Food Item<span
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Manage Food Item<span
                         class="caret"></span></button>
                 <ul class="dropdown-menu ">
                     <li><a [routerLink]="['/updatefooditem',id]">Edit Food Item</a></li>
-                    <li><a (click)="onDeleteFoodItem()">Delete Food Item</a></li>
+                    <li><button role="button" (click)="onDeleteFoodItem()" style="cursor:pointer;">Delete Food Item</button></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="row my-3">
         <div class="col-xs-12">
-            FOOD TYPE : {{foodItem.Food_Type}}
+            FOOD TYPE : {{foodItem?.Food_Type}}
         </div>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="col-xs-12">
             <ul class="list-group">
                 <li class="list-group-item">
-                    PRICE : {{foodItem.Price}}
+                    PRICE : {{foodItem?.Price}}
                 </li>
             </ul>
         </div>

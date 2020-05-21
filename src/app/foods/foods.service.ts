@@ -43,11 +43,11 @@ getData(){
    
 
 // get all the food items by calling GetAllFoodItems() in web api controller
-    getFoodItems():Observable<any>{
+    getFoodItems():Observable<Food_Item[]>{
 
-        let output=this.httpClient.get<any>("https://localhost:44317/api/food/getallfooditems");
+        return this.httpClient.get<Food_Item[]>("https://localhost:44317/api/food/getallfooditems");
         
-        return output;
+        
     }
 
 // add the food item by calling AddFoodItem() in web api controller and return integer value indicating id of added food item

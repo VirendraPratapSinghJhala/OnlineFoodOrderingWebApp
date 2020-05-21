@@ -14,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Food_Item } from './food-item.model';
 import { FoodsService } from './foods.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 //decorator used for storing Component's metadata
@@ -28,14 +29,16 @@ import { FoodsService } from './foods.service';
 export class FoodsComponent implements OnInit {
 
   //constructor used for injecting dependency
-  constructor(private foodsService:FoodsService) { }
+  constructor(private foodsService:FoodsService,private router:Router,private route:ActivatedRoute) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
   
   }
-
+  onAddFoodItem(){
+    this.router.navigate(['addfooditem',{relativeTo:this.route}]);
+  }
   
 
 

@@ -27,7 +27,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class FoodDetailComponent implements OnInit {
 
   //stores Food_Item type object
-  foodItem:Food_Item;
+  foodItem:Food_Item=null;
 
   //stores id of food item in number format
   id:number;
@@ -42,16 +42,16 @@ export class FoodDetailComponent implements OnInit {
 
     //extracting/fetching the url parameter 'id' and storing it in property id
     this.route.params.subscribe(
-      (params:Params)=>{this.id= +params['id'];}
-      
-    );
-
-    //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
-    this.foodsService.getFoodItemById(this.id).subscribe(
+      (params:Params)=>{this.id= +params['id'];
+    
+     //call FoodsService class's getFoodItemById to get food_Item with id and assign it to property foodItem
+     this.foodsService.getFoodItemById(this.id).subscribe(
       (response:Food_Item)=>{this.foodItem=response;}
     );
-
-    //his.foodItem=this.foodsService.getById(this.id);
+    
+    }
+      
+    );
    
   }
 
