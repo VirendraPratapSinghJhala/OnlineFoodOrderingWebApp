@@ -33,11 +33,16 @@ export class FoodMenuComponent implements OnInit {
      this.foodsService.getFoodItems().subscribe(
 
        //handle response
-      (response:Food_Item[])=>{this.foodItems=response},
+      (response:Food_Item[])=>{this.foodItems=response;
+                                console.log(response);}
 
 
-      //handle errors
-      (error)=>{alert(error);} );
+     );
+
+    //  this.foodsService.getData().subscribe(
+    //    data=>{console.log(data);},
+    //    (error)=>{console.log( error );}
+    //  );
 
    // this.foodItems= this.foodsService.getFoods();
  

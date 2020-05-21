@@ -11,25 +11,31 @@
 //declare class Food_Item to be used by outside classes/components
 export class Food_Item{
     //stores id of food item
-    public foodId:number;
+    public Food_Item_Id:number;
 
     //stores name of food item
-    public name:string;
+    public Food_Name:string;
 
     //stores type of food item
-    public type:string;
+    public Food_Type:string;
 
     //store the path of image of food item
-    public imagePath:string;
+    public ImagePath:string;
 
     //stores the price of food item
-    public price:number;
+    public Price:number;
+
+    public IsActive:boolean;
+
+    public Creation_Date:Date;
     
 //initialise properties of the class through constructor
-    constructor(name:string,type:string,imagePath:string,price:number){
-          this.name=name;
-          this.type=type;
-          this.imagePath=imagePath;
-          this.price=price;
+    constructor(Food_Item_Id:number,Food_Name:string,Food_Type:string,ImagePath:string,Price:number,IsActive:boolean,Creation_Date:Date){
+          this.Food_Name=name;
+          this.Food_Type=Food_Type;
+          this.ImagePath=ImagePath;
+          this.Price=Price;
+          this.IsActive=IsActive;
+          this.Creation_Date=Creation_Date;
     }
 }

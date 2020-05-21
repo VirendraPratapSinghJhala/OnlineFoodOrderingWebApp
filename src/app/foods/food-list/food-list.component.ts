@@ -39,10 +39,12 @@ export class FoodListComponent implements OnInit {
     this.foodsService.getFoodItems().subscribe(
 
       //handle response
-      (response:Food_Item[])=>{this.foodItems=response;},
+      (response:any)=>{this.foodItems=response;
+                               console.log(response);},
 
      //handle error
-      (error)=>{console.log(error);
+      (error)=>{console.log('hello')
+        console.log(error);
                 alert(error);}
 
     );

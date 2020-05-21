@@ -14,6 +14,7 @@ import { Subject, Observable } from 'rxjs';
 import { Food_Item } from './food-item.model';
 import {HttpClient} from '@angular/common/http';
 import { WebApiService } from '../shared/webapi.service';
+import { GlobalService } from '../shared/global.service';
  
 
 //make the class injectable so that it can be injected by HttpClient service's object
@@ -23,69 +24,73 @@ import { WebApiService } from '../shared/webapi.service';
 export class FoodsService implements OnInit{
 
 //property will hold prefix of the url present in request to web api
-    apiPrefix:string;
+    apiPrefix:string="";
 
     //constructor for injecting dependencies
-    constructor(private httpClient:HttpClient,private webapiService:WebApiService){
+    constructor(private httpClient:HttpClient,private webapiService:WebApiService,private globalService:GlobalService){
 
     }
 
+addToCart(foodItemId:number,foodQuantity:number){
+    let customerId=this.globalService.getLoginObject().id;
+return this.httpClient.get<boolean>('https://localhost:44317/api/order/updatecart?customerId='+customerId+'&foodItemId='+foodItemId+'&foodItemQuantity='+foodQuantity);
+}
 
-    //initialise properties of class in ngOnInit()
-    ngOnInit(){
-        this.apiPrefix=this.webapiService.urlPrefix;
-    }
+getData(){
 
-   
+   return this.httpClient.get<any>('https://localhost:44317/api/food/getallfooditems');
+}
    
 
 // get all the food items by calling GetAllFoodItems() in web api controller
-    getFoodItems():Observable<Food_Item[]>{
+    getFoodItems():Observable<any>{
 
-        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food/getallfooditems");
+        let output=this.httpClient.get<any>("https://localhost:44317/api/food/getallfooditems");
+        
+        return output;
     }
 
 // add the food item by calling AddFoodItem() in web api controller and return integer value indicating id of added food item
     postFoodItem(foodItem:Food_Item):Observable<number>{
 
-        return this.httpClient.post<number>(this.apiPrefix +"/api/food",foodItem);
+        return this.httpClient.post<number>(this.apiPrefix +"/api/food/addfooditem",foodItem);
     }
 
 //it returns zero or one food item corresponding to the passed id
     getFoodItemById(foodId:number):Observable<Food_Item>
     {
-        return this.httpClient.get<Food_Item>(this.apiPrefix +"/api/food?foodItemId="+foodId);
+        return this.httpClient.get<Food_Item>(this.apiPrefix +"/api/food/getfooditembyid?foodItemId="+foodId);
     }
 
 //returns the boolean value indicating whether passed foodItem updated or not
     putFoodItem(foodItem:Food_Item):Observable<boolean>{
 
-        return this.httpClient.put<boolean>(this.apiPrefix +"/api/food",foodItem);
+        return this.httpClient.put<boolean>(this.apiPrefix +"/api/food/updatefooditem",foodItem);
 
     }
 
 //returns an array of food items corresponding to the passed food item name
     getFoodItemsByName(foodName:string):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food?foodItemName="+foodName);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food/getfooditembyfoodname?foodItemName="+foodName);
     }
 
 //returns an array of food items corresponding to the passed food item type
 getFoodItemsByType(foodType:string):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food?foodItemType="+foodType);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food/getfooditembyfoodtype?foodItemType="+foodType);
     }
 
 //returns an array of food items corresponding to the passed food item price range
     getFoodItemsByPriceRange(min:number,max:number):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food?min="+min+"&&max="+max);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix +"/api/food/getfooditembypricerange?min="+min+"&&max="+max);
     }
 
 //returns boolean value indicating whether food item with passed food id is deleted or not
     deleteFoodItemById(foodId:number):Observable<boolean>
     {
-        return this.httpClient.delete<boolean>(this.apiPrefix +"/api/food?foodItemId="+foodId);
+        return this.httpClient.delete<boolean>(this.apiPrefix +"/api/food/deletefooditem?foodItemId="+foodId);
 
     }
 

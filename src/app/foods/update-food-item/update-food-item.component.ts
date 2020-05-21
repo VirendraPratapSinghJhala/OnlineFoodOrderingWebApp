@@ -59,10 +59,10 @@ export class UpdateFoodItemComponent implements OnInit {
      this.updateForm = new FormGroup({
 
       //apply all the required validations on all the input controls
-      'foodName': new FormControl(this.foodItem.name , [Validators.required, Validators.maxLength(255)]),
-      'foodType': new FormControl(this.foodItem.type, [Validators.required, Validators.maxLength(255)]),
-      'foodPrice': new FormControl(this.foodItem.price , [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]),
-      'imagePath': new FormControl(this.foodItem.imagePath, [Validators.required, Validators.maxLength(2000)])
+      'foodName': new FormControl(this.foodItem.Food_Name , [Validators.required, Validators.maxLength(255)]),
+      'foodType': new FormControl(this.foodItem.Food_Type, [Validators.required, Validators.maxLength(255)]),
+      'foodPrice': new FormControl(this.foodItem.Price , [Validators.required, Validators.min(1),Validators.pattern("^[0-9]*$")]),
+      'imagePath': new FormControl(this.foodItem.ImagePath, [Validators.required, Validators.maxLength(2000)])
 
     }
     );
@@ -75,8 +75,11 @@ export class UpdateFoodItemComponent implements OnInit {
     this.isFormSubmitted = true;
 
 //make an object of type Food_Item by passing all input values toits constructor
-    this.foodItem = new Food_Item(this.updateForm.value.foodName, this.updateForm.value.foodType, this.updateForm.value.foodPrice, this.updateForm.value.imagePath);
-
+    //this.foodItem = new Food_Item(this.updateForm.value.foodName, this.updateForm.value.foodType, this.updateForm.value.foodPrice, this.updateForm.value.imagePath);
+    this.foodItem.Food_Name=this.updateForm.value.foodName;
+    this.foodItem.Food_Type= this.updateForm.value.foodType;
+    this.foodItem.Price=this.updateForm.value.foodPrice;
+    this.foodItem.ImagePath= this.updateForm.value.imagePath;
    //call the FoodsService's postFoodItem method to put/update the received object to the web api and subscribe to it
     this.foodsService.putFoodItem(this.foodItem).subscribe(
 

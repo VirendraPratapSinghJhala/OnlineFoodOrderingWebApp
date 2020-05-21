@@ -2,12 +2,12 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <img [src]="foodItem.imagePath" alt="{{foodItem.name}}" class="img-responsive " style="max-height: 200px;">
+            <img [src]="foodItem.ImagePath" alt="{{foodItem.Food_Name}}" class="img-responsive " style="max-height: 200px;">
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <h1>{{foodItem.name}}</h1>
+            <h1>{{foodItem.Food_Name}}</h1>
         </div>
     </div>
     <div class="row">
@@ -24,7 +24,7 @@
     </div>
     <div class="row my-3">
         <div class="col-xs-12">
-            FOOD TYPE : {{foodItem.type}}
+            FOOD TYPE : {{foodItem.Food_Type}}
         </div>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="col-xs-12">
             <ul class="list-group">
                 <li class="list-group-item">
-                    PRICE : {{foodItem.price}}
+                    PRICE : {{foodItem.Price}}
                 </li>
             </ul>
         </div>

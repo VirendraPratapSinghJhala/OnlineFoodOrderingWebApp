@@ -62,7 +62,10 @@ export class AddFoodItemComponent implements OnInit {
    this.isFormSubmitted=true;
 
 //make an object of type Food_Item by passing all input values toits constructor
-   this.foodItem=new Food_Item(this.addForm.value.foodName,this.addForm.value.foodType,this.addForm.value.foodPrice,this.addForm.value.imagePath);
+   this.foodItem.Food_Name=this.addForm.value.foodName;
+   this.foodItem.Food_Type= this.addForm.value.foodType;
+   this.foodItem.Price=this.addForm.value.foodPrice;
+   this.foodItem.ImagePath= this.addForm.value.imagePath;
  
    //call the FoodsService's postFoodItem method to post the received object to the web api and subscribe to it
    this.foodsService.postFoodItem(this.foodItem).subscribe(

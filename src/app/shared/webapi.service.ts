@@ -2,7 +2,7 @@
 
 export class WebApiService{
 
-    urlPrefix:string;
+   public urlPrefix:string='http://localhost:44317';
 
     constructor(){
 

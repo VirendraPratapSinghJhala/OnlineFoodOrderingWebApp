@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Food_Item } from '../../food-item.model';
+import { GlobalService } from 'src/app/shared/global.service';
 
 @Component({
   selector: 'app-food-menu-item',
@@ -12,9 +13,11 @@ export class FoodMenuItemComponent implements OnInit {
   @Input()
   foodItem:Food_Item=null;
   
-  constructor() { }
+  constructor(private globalService:GlobalService) { }
 
   ngOnInit(): void {
+
+  
   }
 
 }
