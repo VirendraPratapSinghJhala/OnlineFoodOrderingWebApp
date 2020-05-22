@@ -5,9 +5,6 @@ export class GlobalService{
         if(localStorage.getItem('loggedInRole') == "" || localStorage.getItem('loggedInRole') == null){
             this.setLoginObject("none", null);
         }
-        //testing purposes start
-        this.setLoginObject("user", 400001);
-        //testing purposes end
     }
 
     setLoginObject(role:string, id:number){

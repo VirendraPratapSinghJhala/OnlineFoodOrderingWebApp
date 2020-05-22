@@ -39,6 +39,15 @@ export class CustomerService implements OnInit{
             "prateek@gmail.com",
             "8696038381",
             "p@123"
+        ),
+        new Customer(
+            400001,
+            "Prateek",
+            "Jaipur",
+            22,
+            "customer@gmail.com",
+            "8696038381",
+            "Customer123"
         )
     ];
 
