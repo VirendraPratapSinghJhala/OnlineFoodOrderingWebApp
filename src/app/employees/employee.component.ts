@@ -11,7 +11,7 @@
 //import all the required entities from their respective packages
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Employee } from './employee.model';
 import { EmployeesService } from './employees.service';
 
@@ -28,13 +28,29 @@ export class EmployeeComponent implements OnInit {
   shoudDisplayList:Boolean=true;
 
     //constructor used for injecting dependency
-  constructor(private router: Router, private employeeService:EmployeesService) { }
+  constructor(private router: Router, private employeeService:EmployeesService, private route: ActivatedRoute) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
-    this.router.events.subscribe(val=>{this.shoudDisplayList = this.router.url == '/employees' ? true : false});
+    //this.router.events.subscribe(val=>alert(JSON.stringify(val)));  //{this.shoudDisplayList = this.router.url == '/employees' ? true : false}
     this.shoudDisplayList = this.router.url == '/employees' ? true : false;
-    this.employees = this.employeeService.getSampleAllEmployees();
+    //this.employees = 
+    this.employeeService.getEmployees().subscribe((val)=>{this.employees=val
+      //alert(JSON.stringify(val));
+      //console.log(val);
+      },(err)=> {console.log(err)
+      }
+      );
+    
+  }
+
+  addEmployee(){
+    this.router.navigate(['addemployee',{relativeTo:this.route}]);
+  }
+
+  gotoupdate(value1){
+    this.employeeService.saveId = value1
+    this.router.navigate(['updateemployee'])
   }
 
 }

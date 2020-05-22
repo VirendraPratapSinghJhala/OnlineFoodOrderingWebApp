@@ -21,6 +21,7 @@ import { WebApiService } from '../shared/webapi.service';
 //and also allows those components to send and recieve requests through HttpClient. 
 export class EmployeesService implements OnInit{
 
+    saveId: number = null
     employee:Employee[] = [
         new Employee(
             22,
@@ -30,7 +31,9 @@ export class EmployeesService implements OnInit{
             "p",
             "9999999",
             "p@mail.com",
-            "City"),
+            "City",
+            true,
+            null),
         new Employee(
             22,
             "Subin",
@@ -39,7 +42,9 @@ export class EmployeesService implements OnInit{
             "something",
             "9999999",
             "ad@rerg.com",
-            "City")
+            "City",
+            true,
+            null)
     ];
 
     //property will hold prefix of the url present in request to web api
@@ -55,11 +60,12 @@ export class EmployeesService implements OnInit{
         this.apiPrefix=this.webapiService.urlPrefix;
     }
 
+    
     sampleLogin(email:string, password:string){
         for(let i = 0; i < this.employee.length; i ++){
-            console.log(email + this.employee[i].email + "  " + password);
-            if(this.employee[i].email == email && this.employee[i].password == password){
-                return { status: true, id:this.employee[i].id };
+            console.log(email + this.employee[i].Email + "  " + password);
+            if(this.employee[i].Email == email && this.employee[i].Password == password){
+                return { status: true, id:this.employee[i].Employee_Id };
             }
         }
         return { status: false, id:null };
@@ -75,25 +81,26 @@ export class EmployeesService implements OnInit{
     // get all the employees by calling GetAllEmployees() in web api controller
     getEmployees():Observable<Employee[]>{
 
-        return this.httpClient.get<Employee[]>(this.apiPrefix +"/api/employee");
+        return this.httpClient.get<Employee[]>("https://localhost:44317/api/employee");
     }
 
     // add the employee by calling AddEmployee() in web api controller and return boolean value indicating whether passed employee is added or not
     postEmployee(employee:Employee):Observable<boolean>{
 
-        return this.httpClient.post<boolean>(this.apiPrefix +"/api/employee",employee);
+        return this.httpClient.post<boolean>("https://localhost:44317/api/employee",employee);
     }
 
     //it returns zero or one employee corresponding to the passed id
     getEmployeeById(employeeId:number):Observable<Employee>
     {
-        return this.httpClient.get<Employee>(this.apiPrefix +"/api/employee?Employee_Id="+employeeId);
+        alert(employeeId+'text')
+        return this.httpClient.get<Employee>("https://localhost:44317/api/employee?Employee_Id="+employeeId);
     }
 
     //returns the boolean value indicating whether passed employee updated or not
     putEmployee(employee:Employee):Observable<boolean>{
 
-        return this.httpClient.put<boolean>(this.apiPrefix +"/api/employee",employee);
+        return this.httpClient.put<boolean>("https://localhost:44317/api/employee",employee);
 
     }
 
