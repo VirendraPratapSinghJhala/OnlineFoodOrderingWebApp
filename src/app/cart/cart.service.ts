@@ -46,7 +46,7 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":1}]
         };
-        return this.httpClient.put<Cart>("https://localhost:44317/api/order/updatecart",Cart);
+        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart",Cart);
     }
 
     deleteFromCart(customerId:number, foodItemId:number){

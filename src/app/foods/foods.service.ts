@@ -49,44 +49,44 @@ return this.httpClient.put<boolean>('https://localhost:44317/api/order/updatecar
 // add the food item by calling AddFoodItem() in web api controller and return integer value indicating id of added food item
     postFoodItem(foodItem:Food_Item):Observable<number>{
 
-        return this.httpClient.post<number>("https://localhost:44317/api/food/addfooditem",foodItem);
+        return this.httpClient.post<number>(this.apiPrefix+"/api/food/addfooditem",foodItem);
     }
 
 //it returns zero or one food item corresponding to the passed id
     getFoodItemById(foodId:number):Observable<Food_Item>
     {
-        return this.httpClient.get<Food_Item>("https://localhost:44317/api/food/getfooditembyid?foodItemId="+foodId);
+        return this.httpClient.get<Food_Item>(this.apiPrefix+"/api/food/getfooditembyid?foodItemId="+foodId);
     }
 
 //returns the boolean value indicating whether passed foodItem updated or not
     putFoodItem(foodItem:Food_Item):Observable<boolean>{
 
-        return this.httpClient.put<boolean>("https://localhost:44317/api/food/updatefooditem",foodItem);
+        return this.httpClient.put<boolean>(this.apiPrefix+"/api/food/updatefooditem",foodItem);
 
     }
 
 //returns an array of food items corresponding to the passed food item name
     getFoodItemsByName(foodName:string):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>("https://localhost:44317/api/food/getfooditembyfoodname?foodItemName="+foodName);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix+"/api/food/getfooditembyfoodname?foodItemName="+foodName);
     }
 
 //returns an array of food items corresponding to the passed food item type
 getFoodItemsByType(foodType:string):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>("https://localhost:44317/api/food/getfooditembyfoodtype?foodItemType="+foodType);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix+"/api/food/getfooditembyfoodtype?foodItemType="+foodType);
     }
 
 //returns an array of food items corresponding to the passed food item price range
     getFoodItemsByPriceRange(min:number,max:number):Observable<Food_Item[]>
     {
-        return this.httpClient.get<Food_Item[]>("https://localhost:44317/api/food/getfooditembypricerange?min="+min+"&&max="+max);
+        return this.httpClient.get<Food_Item[]>(this.apiPrefix+"/api/food/getfooditembypricerange?min="+min+"&&max="+max);
     }
 
 //returns boolean value indicating whether food item with passed food id is deleted or not
     deleteFoodItemById(foodId:number):Observable<boolean>
     {
-        return this.httpClient.delete<boolean>("https://localhost:44317/api/food/deletefooditem?foodItemId="+foodId);
+        return this.httpClient.delete<boolean>(this.apiPrefix+"/api/food/deletefooditem?foodItemId="+foodId);
 
     }
 
