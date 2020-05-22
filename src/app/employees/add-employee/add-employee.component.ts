@@ -13,6 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../employee.model';
 import { EmployeesService } from '../employees.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -30,10 +31,11 @@ export class AddEmployeeComponent implements OnInit {
   isFormSubmitted=false;
 
   //to store Employee type object
-  employee:Employee=null;
+  employee:Employee = {Employee_Id:null, Employee_Name:null, Age:null, Store_Id:null, Password:null,
+    Mobile_No:null, Email:null, City:null, IsActive:null, Creation_Date:null};
 
   //constructor used for injecting dependency
-  constructor(private employeesService:EmployeesService) { }
+  constructor(private router: Router,private employeesService:EmployeesService) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class AddEmployeeComponent implements OnInit {
                                   Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
       'city':new FormControl(null,[Validators.required,Validators.maxLength(40),  
                                   Validators.pattern('^[a-zA-Z0-9]*$')]),
+      'storeId': new FormControl(null,[Validators.required,Validators.pattern('^[0-9]{6}$')]),
       'employeeAge': new FormControl(null,[Validators.required,Validators.min(18),
                                   Validators.max(60),Validators.pattern('^[0-9]*$')]),
       'password':new FormControl(null,[Validators.required,
@@ -57,21 +60,33 @@ export class AddEmployeeComponent implements OnInit {
   }
 
    //action to be performed on submitting the form
-  onSubmit(){
+   onSubmit(){
 
     //make isSubmitted bit to true
    this.isFormSubmitted=true;
    
    //make an object of type Food_Item by passing all input values to its constructor
-   this.employee=new Employee(null, this.addForm.value.employeeName,this.addForm.value.employeeAge,null,this.addForm.value.password,this.addForm.value.mobileNumber,this.addForm.value.email,this.addForm.value.city);
-  
+   //this.employee=new Employee(null, this.addForm.value.employeeName,this.addForm.value.employeeAge,null,this.addForm.value.password,this.addForm.value.mobileNumber,this.addForm.value.email,this.addForm.value.city);
+   this.employee.Employee_Name=this.addForm.value.employeeName;
+   this.employee.Age=this.addForm.value.employeeAge;
+   this.employee.Password=this.addForm.value.password;
+   this.employee.Mobile_No=this.addForm.value.mobileNumber;
+   this.employee.Email=this.addForm.value.email;
+   this.employee.City=this.addForm.value.city;
+   this.employee.Store_Id=this.addForm.value.storeId;
+
+
+   //alert("hello")
+   //alert(this.employee)
    //call the employeesService's postEmployee method to post the received object to the web api and subscribe to it
    this.employeesService.postEmployee(this.employee).subscribe(
     
     //handle the respoonse
     (response:boolean)=>{
-   if(response = true)
-   {alert('Employee successfully added');}
+      if(response == true)
+      {alert('Employee successfully added');
+         this.router.navigate(['employees'])
+     }
    else{alert('Employee Not added successfully');}
    },
    //handle the error

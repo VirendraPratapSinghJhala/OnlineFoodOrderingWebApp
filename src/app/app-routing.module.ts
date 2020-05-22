@@ -1,5 +1,3 @@
-
-
 /*  
   =======================================================================================================
     Developer: Virendra Pratap Singh Jhala,Prateek Joshi,Kritika Arora,Mehul Jain,Subin Sunu Jacob
@@ -68,6 +66,8 @@ const routes: Routes = [
       children:[{path:'add', component:AddEmployeeComponent}, 
       {path:'update', component:UpdateEmployeeComponent}]
   },
+  {path:'addemployee', component:AddEmployeeComponent},
+  {path:'updateemployee', component:UpdateEmployeeComponent},
   {path: 'employeelogin', component: EmployeeLoginComponent},
   {path:'contactus', component:ContactusComponent},
   {path:'home',redirectTo:''},

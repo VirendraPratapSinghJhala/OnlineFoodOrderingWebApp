@@ -1,22 +1,21 @@
-<div *ngIf="shoudDisplayList">
+<div>
     <h1>Employee Management</h1>
-    <a routerLink="add" class="btn btn-primary mx-5">Add</a>
+    <a (click)="addEmployee()" class="btn btn-primary mx-5">Add</a>
 
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="card " *ngFor="let employee of employees">
                     <div class="card-body">
-                        <h5 class="card-title">{{employee.name}}</h5>
-                        <p class="card-text">Id : {{employee.id}}</p>
-                        <p class="card-text">Mobile Number : {{employee.mobileNumber}}</p>
-                        <p class="card-text">Email : {{employee.email}}</p>
-                        <a routerLink="update" class="btn btn-primary">Edit</a>
+                        <h5 class="card-title">{{employee.Employee_Name}}</h5>
+                        <p class="card-text">Id : {{employee.Employee_Id}}</p>
+                        <p class="card-text">Mobile Number : {{employee.Mobile_No}}</p>
+                        <p class="card-text">Email : {{employee.Email}}</p>
+                        <a (click)="gotoupdate(employee.Employee_Id)" class="btn btn-primary">Edit</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<router-outlet></router-outlet>
+<div><router-outlet></router-outlet></div>

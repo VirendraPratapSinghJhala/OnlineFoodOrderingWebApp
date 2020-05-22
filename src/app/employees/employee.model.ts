@@ -10,34 +10,38 @@
 export class Employee{
 
     //stores id of the employee
-    public id?:number;
+    public Employee_Id :number;
     //stores name of the employee
-    public name:string;
+    public Employee_Name :string;
     //stores age of the employee
-    public age:number;
+    public Age :number;
     //stores storeId of the employee
-    public storeId:number;
+    public Store_Id :number;
     //stores password of the employee
-    public password:string;
+    public Password :string;
     //stores mobileNumber of the employee
-    public mobileNumber:string;
+    public Mobile_No :string;
     //stores email of the employee
-    public email:string;
+    public Email :string;
     //stores city of the employee
-    public city:string;
-    
+    public City :string;
+
+    public IsActive:boolean;
+
+    public Creation_Date:Date;
 
     //initialise properties of the class through constructor
-    constructor(id:number, name:string, age:number, storeId:number, password:string,
-                 mobileNumber:string, email:string, city:string)
+    constructor(Employee_Id:number, Employee_Name:string, Age:number, Store_Id:number, Password:string,
+      Mobile_No:string, Email:string, City:string, IsActive:boolean, Creation_Date:Date)
     {
-            this.id = id;
-            this.name = name;
-            this.city = city;
-            this.age = age;
-            this.mobileNumber = mobileNumber;
-            this.storeId = storeId;
-            this.password = password;
-            this.email = email;
+            this.Employee_Name = Employee_Name;
+            this.City = City;
+            this.Age = Age;
+            this.Mobile_No = Mobile_No;
+            this.Store_Id = Store_Id;
+            this.Password = Password;
+            this.Email = Email;
+            this.IsActive=IsActive;
+            this.Creation_Date=Creation_Date;
     }
 }
