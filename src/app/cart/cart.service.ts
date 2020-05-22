@@ -16,7 +16,7 @@ import { OrderItem } from '../order/order-item.model';
 @Injectable()
 export class CartService implements OnInit{
 
-    foodItemSelected=new Subject<Cart>();
+    foodItemSelected=new Subject<any>();
 
     private cartItem1:OrderItem = new OrderItem(2000,50,1,"Pizza");
     private cartItem2:OrderItem = new OrderItem(2001,70,1,"Burger");
@@ -33,12 +33,14 @@ export class CartService implements OnInit{
     }
 
     apiPrefix:string;
-
+    
     get(){
         return this.cart;
     }
-    getCart(customerId: number):Observable<any>{
-        return this.httpClient.get<Cart[]>("https://localhost:44317/api/order/getcustomercart?customerId=" + customerId);
+
+    getCartByCustomerId(customerId:number):Observable<any>
+    {
+        return this.httpClient.get<any>("https://localhost:44317/api/order/getcustomercart?customerId=" + customerId);
     }
 
     addToCart(customerId:number, foodItemId:number){
@@ -54,6 +56,7 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":0}]
         };
+        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart",Cart);
     }
     // sample request for /order/updatecart
     // {
@@ -74,12 +77,7 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":orderItemsList
         };
-        return this.httpClient.put<Cart>("https://localhost:44317/api/order/updatecart", requestObject);
-    }
-
-    getCartByCustomerId(customerId:number):Observable<Cart>
-    {
-        return this.httpClient.get<Cart>("https://localhost:44317/api/order/getcustomercart?customerId=" + customerId);
+        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart", requestObject);
     }
 
 
