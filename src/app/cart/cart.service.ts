@@ -37,19 +37,49 @@ export class CartService implements OnInit{
     get(){
         return this.cart;
     }
-    getCarts():Observable<Cart[]>{
-
-        return this.httpClient.get<Cart[]>(this.apiPrefix +"/api/Cart");
+    getCart(customerId: number):Observable<any>{
+        return this.httpClient.get<Cart[]>("https://localhost:44317/api/order/getcustomercart?customerId=" + customerId);
     }
 
+    addToCart(customerId:number, foodItemId:number){
+        let requestObject = {
+            "Customer_Id":customerId,
+            "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":1}]
+        };
+        return this.httpClient.put<Cart>("https://localhost:44317/api/order/updatecart",Cart);
+    }
 
-    postCart(Cart:Cart){
-        return this.httpClient.post<Cart>(this.apiPrefix +"/api/Cart",Cart);
+    deleteFromCart(customerId:number, foodItemId:number){
+        let requestObject = {
+            "Customer_Id":customerId,
+            "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":0}]
+        };
+    }
+    // sample request for /order/updatecart
+    // {
+    //     "Customer_Id":400001,
+    //     "Order_Items":[{"Food_Item_Id":100001, "Quantity":0}, {"Food_Item_Id": 100002, "Quantity":0}]
+    // }
+    //
+    // to add new item to cart simply updateCart with 
+    // {
+    //     "Customer_Id":400001,
+    //     "Order_Items":[{"Food_Item_Id":100001, "Quantity":1}]
+    // }
+    //
+    // Use Quantity: 0 or Quantity -1 to DELETE from Cart
+
+    updateCart(customerId:number, orderItemsList:OrderItem[]){
+        let requestObject = {
+            "Customer_Id":customerId,
+            "Order_Items":orderItemsList
+        };
+        return this.httpClient.put<Cart>("https://localhost:44317/api/order/updatecart", requestObject);
     }
 
     getCartByCustomerId(customerId:number):Observable<Cart>
     {
-        return this.httpClient.get<Cart>(this.apiPrefix +"/api/getCartbycustomerid/"+customerId);
+        return this.httpClient.get<Cart>("https://localhost:44317/api/order/getcustomercart?customerId=" + customerId);
     }
 
 
