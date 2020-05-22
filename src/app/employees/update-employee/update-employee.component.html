@@ -23,33 +23,7 @@
                 <!---------template Container Starts Here---------->
                 <div class="zf-subContWrap zf-topAlign">
                     <ul>
-			            <!---------Number Starts Here---------->
-                        <li class="zf-tempFrmWrapper zf-large">
-                            <label class="zf-labelName">Employee Id</label>
-                            <div class="zf-tempContDiv">
-                                <span> <input type="text" name="employee_id" class="form-control" formControlName="employeeId" 
-                                   /></span>
-
-                                   <div *ngIf="updateForm.get('employeeId').touched && 
-                                   updateForm.get('employeeId').invalid &&
-                                   updateForm.get('employeeId').hasError('required')">  
-                                   <span style="color: red;">Employee Id is required.</span>  
-                                   </div> 
-
-                                   <div *ngIf="updateForm.get('employeeId').touched && 
-                                   updateForm.get('employeeId').invalid &&
-                                   updateForm.get('employeeId').hasError('min')">  
-                                   <span style="color: red;">Employee Id cannot be negative or zero.</span>  
-                                   </div>
-
-                                   <div *ngIf="updateForm.get('employeeId').touched && 
-                                   updateForm.get('employeeId').invalid &&
-                                   updateForm.get('employeeId').hasError('pattern')">  
-                                   <span style="color: red;">Only Numeric Values allowed.</span>  
-                                   </div>
-                            </div>
-                        </li>
-			            <!---------Number Ends Here---------->
+			            
                         <!---------Single Line Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Employee Name</label>

@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../employee.model';
 import { EmployeesService } from '../employees.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 //decorator used for storing Component's metadata
 @Component({
@@ -32,31 +33,44 @@ export class UpdateEmployeeComponent implements OnInit {
   isFormSubmitted=false;
 
   //to store Employee type object
-  employee:Employee=null;
+  employee:Employee = {Employee_Id:null, Employee_Name:null, Age:null, Store_Id:null, Password:null,
+    Mobile_No:null, Email:null, City:null, IsActive:null, Creation_Date:null};
+
+  employeeId:number=null;
 
   //constructor used for injecting dependency
-  constructor(private employeesService:EmployeesService) { }
+  constructor(private employeesService:EmployeesService,private route:ActivatedRoute) { }
 
   //ngOnInit used for initialising properties of the class
   ngOnInit(): void {
 
-    this.employee = this.employeesService.getSampleEmployee();
+    /*this.route.params.subscribe(
+      (param:Params)=>{this.employeeId=+param['id']}
+    );*/
+    this.employeesService.getEmployeeById(this.employeesService.saveId).subscribe(
+      (response:Employee)=>{this.employee=response;}
+    );
+
+    this.employeesService.getEmployeeById(this.employeeId).subscribe(
+      (response:Employee)=>{this.employee=response;}
+    );
+
+
+    //this.employee = this.employeesService.getSampleEmployee();
     //initialise updateForm
     this.updateForm=new FormGroup({
       //apply all the required validations on all the input controls
-      'employeeId': new FormControl(this.employee.id,[Validators.required,Validators.min(1),
-                                    Validators.pattern('^[0-9]*$')]),
-      'employeeName':new FormControl(this.employee.name,[Validators.required,Validators.maxLength(40), 
+      'employeeName':new FormControl(this.employee.Employee_Name,[Validators.required,Validators.maxLength(40), 
                                     Validators.pattern('^[a-zA-Z ]*$')]),
-      'email':new FormControl(this.employee.email,[Validators.required,Validators.minLength(5),Validators.maxLength(40),  
+      'email':new FormControl(this.employee.Email,[Validators.required,Validators.minLength(5),Validators.maxLength(40),  
                                     Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
-      'city':new FormControl(this.employee.city,[Validators.required,Validators.maxLength(40),  
+      'city':new FormControl(this.employee.City,[Validators.required,Validators.maxLength(40),  
                                   Validators.pattern('^[a-zA-Z0-9]*$')]),
-      'employeeAge': new FormControl(this.employee.age,[Validators.required,Validators.min(18),
+      'employeeAge': new FormControl(this.employee.Age,[Validators.required,Validators.min(18),
                                   Validators.max(60),Validators.pattern('^[0-9]*$')]),
-      'password':new FormControl(this.employee.password,[Validators.required,
+      'password':new FormControl(this.employee.Password,[Validators.required,
                                   Validators.pattern('((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,15})')]),
-      'mobileNumber': new FormControl(this.employee.mobileNumber,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
+      'mobileNumber': new FormControl(this.employee.Mobile_No,[Validators.required,Validators.pattern('^[6-9][0-9]{9}$')])
     }
     );
   }
@@ -68,7 +82,14 @@ export class UpdateEmployeeComponent implements OnInit {
    this.isFormSubmitted=true;
 
    //make an object of type Employee by passing all input values to its constructor
-   this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.employeeName,this.updateForm.value.employeeAge,null,this.updateForm.value.password,this.updateForm.value.mobileNumber,this.updateForm.value.email,this.updateForm.value.city);
+   //this.employee=new Employee(this.updateForm.value.employeeId, this.updateForm.value.employeeName,this.updateForm.value.employeeAge,null,this.updateForm.value.password,this.updateForm.value.mobileNumber,this.updateForm.value.email,this.updateForm.value.city);
+   this.employee.Employee_Name=this.updateForm.value.employeeName;
+   this.employee.Age= this.updateForm.value.employeeAge;
+   this.employee.Employee_Name=this.updateForm.value.employeeName;
+   this.employee.Password=this.updateForm.value.password;
+   this.employee.Mobile_No=this.updateForm.value.mobileNumber;
+   this.employee.Email=this.updateForm.value.email;
+   this.employee.City=this.updateForm.value.city;
 
    //call the employeesService's putEmployee method to put/update the received object to the web api and subscribe to it
    this.employeesService.putEmployee(this.employee).subscribe(

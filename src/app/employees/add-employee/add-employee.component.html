@@ -85,7 +85,29 @@
 
                             </div>
                         </li>
-			            <!---------Number Ends Here---------->
+                        <!---------Number Ends Here---------->
+                        			            <!---------Number Starts Here---------->
+                                                <li class="zf-tempFrmWrapper zf-large">
+                                                    <label class="zf-labelName">Store Id</label>
+                                                    <div class="zf-tempContDiv">
+                                                        <span> <input type="text" name="store_Id" class="form-control" formControlName="storeId" 
+                                                           /></span>
+                        
+                                                        <div *ngIf="addForm.get('storeId').touched && 
+                                                           addForm.get('storeId').invalid &&
+                                                         addForm.get('storeId').hasError('required')">  
+                                                          <span style="color: red;">Please Enter Store Id.</span>  
+                                                        </div> 
+                        
+                                                         <div *ngIf="addForm.get('storeId').touched && 
+                                                         addForm.get('storeId').invalid &&
+                                                         addForm.get('storeId').hasError('pattern')">  
+                                                          <span style="color: red;">Please enter a 6 digit numeric value.</span>  
+                                                        </div> 
+                        
+                                                    </div>
+                                                </li>
+                                                <!---------Number Ends Here---------->
                         <!---------Single Line Starts Here---------->
                         <li class="zf-tempFrmWrapper zf-large">
                             <label class="zf-labelName">Password</label>
