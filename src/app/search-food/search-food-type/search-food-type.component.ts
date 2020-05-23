@@ -82,4 +82,86 @@ export class SearchFoodTypeComponent implements OnInit {
 
   }
 
+  onSelectContinental(){
+    this.foodsService.getFoodItemsByType('continental').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+
+     
+  }
+
+  onSelectChinese(){
+    this.foodsService.getFoodItemsByType('chinese').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+
+  }
+
+  onSelectFastFood(){
+    this.foodsService.getFoodItemsByType('fast food').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+
+  }
+
+  onSelectItalian(){
+    this.foodsService.getFoodItemsByType('italian').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+  }
+
+  onSelectMexican(){
+    this.foodsService.getFoodItemsByType('mexican').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+  }
+
+  onSelectIndian(){
+    this.foodsService.getFoodItemsByType('indian').subscribe(
+
+      //handle response
+       (response:Food_Item[])=>{this.foodItems=response;
+        this.foodArray.emit(this.foodItems);},
+  
+       //handle errors
+       (error)=>{console.log(error);
+           alert(error);}
+     ); 
+  }
+
 }

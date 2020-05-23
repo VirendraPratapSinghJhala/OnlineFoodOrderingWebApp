@@ -14,31 +14,30 @@ export class FoodMenuItemComponent implements OnInit {
 
 
   @Input()
-  foodItem:Food_Item=null;
-  
-  constructor(private globalService:GlobalService,private foodssService:FoodsService, private cartService: CartService, private router: Router) { }
+  foodItem: Food_Item = null;
+
+  constructor(private globalService: GlobalService, private foodssService: FoodsService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
 
-  
+
   }
 
-  onAddToCart(){
+  onAddToCart() {
     let loggedInUserId = parseInt(this.globalService.getLoginObject().id.toString());
-    if(loggedInUserId){
+    if (loggedInUserId) {
       this.cartService.addToCart(loggedInUserId, this.foodItem.Food_Item_Id).subscribe(
-        (response)=>{
-          if(response){
+        (response) => {
+          if (response) {
             alert("Item successfully added to the cart");
           }
         },
-        (error)=>{
+        (error) => {
           alert("Could not add this item to cart for the moment");
         }
       );
-    }else{
+    } else {
       this.router.navigate(['/login']);
     }
   }
-
 }
