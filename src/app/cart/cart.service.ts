@@ -10,7 +10,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import { WebApiService } from '../shared/webapi.service';
-import { Cart } from './Cart.model';
+import { Cart } from './cart.model';
 import { OrderItem } from '../order/order-item.model';
 import { HttpHeaders } from '@angular/common/http';
 
@@ -21,7 +21,7 @@ const httpOptions = {
   })
 };
 @Injectable()
-export class CartService implements OnInit{
+export class CartService{
 
     // foodItemSelected=new Subject<any>();
 
@@ -35,19 +35,13 @@ export class CartService implements OnInit{
         //     return this.cart;
         // }
         
+    httpOptions: {headers: Object};
     apiPrefix:string;
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
         this.apiPrefix=this.webapiService.urlPrefix;
         httpOptions.headers = httpOptions.headers.set('Content-Type', 'application/json');
     }
-    ngOnInit(){
-    }
-    
-    
-    
-
-    
-    httpOptions: {headers: Object};
+      
 
     getCartByCustomerId(customerId:number):Observable<any>
     {
@@ -59,7 +53,7 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":1}]
         };
-        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
+        return this.httpClient.put<boolean>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
     }
 
     deleteFromCart(customerId:number, foodItemId:number){
@@ -67,7 +61,7 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":[{"Food_Item_Id":foodItemId, "Quantity":0}]
         };
-        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
+        return this.httpClient.put<boolean>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
     }
     // sample request for /order/updatecart
     // {
@@ -88,13 +82,36 @@ export class CartService implements OnInit{
             "Customer_Id":customerId,
             "Order_Items":orderItemsList
         };
-        return this.httpClient.put<any>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
+        return this.httpClient.put<boolean>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
     }
 
     checkout(customerId){
-        return this.httpClient.get("https://localhost:44317/api/order/submitorder?customerid=" + customerId);
+        return this.httpClient.get<boolean>("https://localhost:44317/api/order/submitorder?customerid=" + customerId);
+    }
+    
+
+    cartValueMapper({ Order_Id, Customer_Id, Total_Quantity, Total_Price, Food_Store_Id, Employee_Id, Order_Items }){
+        let cart: Cart = new Cart(null,null,null,null,null,null,null);
+        cart.cartId = Order_Id,
+        cart.customerId = Customer_Id,
+        cart.totalQuantity = Total_Quantity,
+        cart.totalPrice = Total_Price,
+        cart.foodStoreId = Food_Store_Id,
+        cart.employeeId = Employee_Id,
+        cart.cartItemList = this.cartItemValueMapper(Order_Items);
+        return cart;
     }
 
-
-
+    private cartItemValueMapper(orderItemsList){
+        let cartItemList: OrderItem[] = [];
+        orderItemsList.forEach(element => {
+            let singleItem = new OrderItem(null, null, null, null);
+            singleItem.foodItemId = element['Food_Item_Id'];
+            singleItem.foodItemName = element['Food_Items']['Food_Name'];
+            singleItem.quantity = element['Quantity'];
+            singleItem.price = element['Price'];
+            cartItemList.push(singleItem);
+        });
+        return cartItemList;
+    }
 }

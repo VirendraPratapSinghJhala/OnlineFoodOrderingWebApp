@@ -6,7 +6,6 @@
   ==========================================================================================================
 */
 import { OrderItem } from '../order/order-item.model';
-
 export class Cart{
     cartId?: number;
     customerId:number;
@@ -25,4 +24,5 @@ export class Cart{
         this.employeeId = employeeId;
         this.cartItemList = cartItemList;
     }
+
 }

@@ -18,34 +18,40 @@ import { GlobalService } from '../shared/global.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, AfterViewInit {
+export class CartComponent implements OnInit {
   @ViewChild('saveCartButton') saveCartButton: ElementRef;
-  @ViewChild('f', {static: false}) userForm: NgForm;
+  @ViewChild('f', { static: false }) userForm: NgForm;
   updateCartForm: NgForm;
-  showCart = 0;
-  customerId = parseInt(this.globalService.getLoginObject().id.toString(), 10);
-  cart:any;
+  showCart: number;
+  customerId: number;
+  cart: Cart;
 
-  constructor(private cartService: CartService, private router: Router, private globalService: GlobalService) { }
+  constructor(private cartService: CartService, private router: Router, private globalService: GlobalService) {
+    // this.cart = new Cart();
+    this.cart = new Cart(null, null, null, null, null, null, []);
+    this.showCart = 0;
+    this.customerId = parseInt(this.globalService.getLoginObject().id.toString(), 10);
+  }
 
   ngOnInit(): void {
     this.getLatestCart();
+    console.log(this.updateCartForm);
   }
 
-  ngAfterViewInit(): void{
-    this.updateCartForm = this.userForm;
-    // this.updateCartForm.valueChanges.subscribe((val)=>{
-    //   this.saveCartButton.nativeElement.class = "btn btn-primary";
-    // });
-  }
+  // ngAfterViewInit(): void {
+  //   this.updateCartForm = this.userForm;
+  //   // this.updateCartForm.valueChanges.subscribe((val)=>{
+  //   //   this.saveCartButton.nativeElement.class = "btn btn-primary";
+  //   // });
+  // }
   onDeleteFromCart(productId: number) {
     this.cartService.deleteFromCart(this.customerId, productId).subscribe(
-      (response) => {
+      (deleteResponse) => {
         this.showCart = 0;
         this.getLatestCart();
       },
       (error) => {
-        console.log("1111111111111");
+        alert("Couldn't delete that item. Please try again.");
         console.log(error);
       }
     );
@@ -54,46 +60,37 @@ export class CartComponent implements OnInit, AfterViewInit {
     // this.
     // this.cartService.updateCart(this.customerId, ){
     // }
+    //TODO: Get form items from reactive forms
   }
-  
-    onSubmitOrder(): void {
-      console.log("Order Submit Req received");
-      this.cartService.checkout(this.customerId).subscribe(
-      (response)=>{
-        console.log(response);
-        if(response){
+
+  onSubmitOrder(): void {
+    this.cartService.checkout(this.customerId).subscribe(
+      (submitResponse) => {
+        console.log(submitResponse);
+        if (submitResponse) {
           this.router.navigate(['/thankyou']);
         }
       }),
-      (error)=>{
-
+      (error) => {
+        alert("Couldn't checkout. Please try again.");
+        console.log(error);
       }
-    }
-  
-  getLatestCart(){
+  }
+
+  getLatestCart() {
     this.cartService.getCartByCustomerId(this.customerId).subscribe(
-      //handle response
       (response) => {
-        // this.cart;
-        this.cart = {};
-          this.cart.cartId = response.Order_Id,
-          this.cart.customerId = response.Customer_Id,
-          this.cart.totalQuantity = response.Total_Quantity,
-          this.cart.totalPrice = response.Total_Price,
-          this.cart.foodStoreId = response.Food_Store_Id,
-          this.cart.employeeId = response.Employee_Id,
-          this.cart.cartItemList = response.Order_Items;
-        if (response.Order_Items && response.Order_Items.length == 0) {
+        this.cart = this.cartService.cartValueMapper(response);
+        if (
+          this.cart && this.cart.cartItemList && this.cart.cartItemList.length == 0) {
           this.showCart = 1;
         } else {
           this.showCart = 2
         }
       },
-      //handle error
       (error) => {
         console.log('hello')
         console.log(error);
-        alert(error);
       }
     );
 
