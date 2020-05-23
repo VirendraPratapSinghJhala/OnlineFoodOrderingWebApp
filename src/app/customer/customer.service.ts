@@ -14,12 +14,17 @@ import { Subject, Observable } from 'rxjs';
 import { Customer } from './customer.model';
 import {HttpClient} from '@angular/common/http';
 import { WebApiService } from '../shared/webapi.service';
+import { HttpHeaders } from '@angular/common/http';
  
-//make the class injectable so that it can be injected by HttpClient service's object
-@Injectable()
 //This is a service class for Customer related components helping those components to communicate with each other
 //and also allows those components to send and recieve requests through HttpClient.
-export class CustomerService implements OnInit{
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
+  @Injectable()
+export class CustomerService{
 
     customer:Customer[]=[
         new Customer(
@@ -56,13 +61,9 @@ export class CustomerService implements OnInit{
     
     customerSelected=new Subject<Customer>();
 
+    httpOptions: {headers: Object};
     //constructor for injecting dependencies
     constructor(private httpClient:HttpClient,private webapiService:WebApiService){
-
-    }
-
-    //initialise properties of class in ngOnInit()
-    ngOnInit(){
         this.apiPrefix=this.webapiService.urlPrefix;
     }
 
@@ -74,14 +75,19 @@ export class CustomerService implements OnInit{
         return(this.customer[0]);
     }
 
-    sampleLogin(email:string, password:string){
-        for(let i = 0; i < this.customer.length; i ++){
-            console.log(email + this.customer[i].email + "  " + password);
-            if(this.customer[i].email == email && this.customer[i].password == password){
-                return {status: true, id: this.customer[i].id};
-            }
-        }
-        return { status: false, id: null};
+    // sampleLogin(email:string, password:string){
+    //     for(let i = 0; i < this.customer.length; i ++){
+    //         console.log(email + this.customer[i].email + "  " + password);
+    //         if(this.customer[i].email == email && this.customer[i].password == password){
+    //             return {status: true, id: this.customer[i].id};
+    //         }
+    //     }
+    //     return { status: false, id: null};
+    // }
+
+    customerLogin(email: string, password: string):Observable<any>{
+        let requestBody = { Email: email, Password: password }
+        return this.httpClient.post<any>("https://localhost:44317" + "/api/customer/customerlogin", requestBody, httpOptions);
     }
 
     // get all the customers by calling GetAllCustomers() in web api controller

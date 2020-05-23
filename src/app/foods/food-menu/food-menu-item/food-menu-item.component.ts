@@ -3,6 +3,7 @@ import { Food_Item } from '../../food-item.model';
 import { GlobalService } from 'src/app/shared/global.service';
 import { FoodsService } from '../../foods.service';
 import { CartService } from '../../../cart/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food-menu-item',
@@ -15,7 +16,7 @@ export class FoodMenuItemComponent implements OnInit {
   @Input()
   foodItem:Food_Item=null;
   
-  constructor(private globalService:GlobalService,private foodssService:FoodsService, private cartService: CartService) { }
+  constructor(private globalService:GlobalService,private foodssService:FoodsService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -23,16 +24,21 @@ export class FoodMenuItemComponent implements OnInit {
   }
 
   onAddToCart(){
-    this.cartService.addToCart(parseInt(this.globalService.getLoginObject().id.toString()), this.foodItem.Food_Item_Id).subscribe(
-      (response)=>{
-        if(response){
-          alert("Item successfully added to the cart");
+    let loggedInUserId = parseInt(this.globalService.getLoginObject().id.toString());
+    if(loggedInUserId){
+      this.cartService.addToCart(loggedInUserId, this.foodItem.Food_Item_Id).subscribe(
+        (response)=>{
+          if(response){
+            alert("Item successfully added to the cart");
+          }
+        },
+        (error)=>{
+          alert("Could not add this item to cart for the moment");
         }
-      },
-      (error)=>{
-        alert("Could not add this item to cart for the moment");
-      }
-    );
+      );
+    }else{
+      this.router.navigate(['/login']);
+    }
   }
 
 }
