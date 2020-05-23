@@ -10,36 +10,48 @@
   </div>
 </div>
 
-<div>
 
-  <form #f="ngForm">
-    <div *ngIf="showCart == 2" class="row">
-
-      <div class="col-25">
-        <h1>Cart</h1>
-        <div class="container">
-          <h4>Product
-            <b class="qty">Quantity</b>
-            <span class="price" style="color:black">
-              <i class="fa fa-shopping-cart"></i>
-              <b>Price</b>
-            </span>
-          </h4>
-
-          <div *ngFor="let food of (cart ? cart.cartItemList : [])">
-            <p>
-              <a>{{food ? food.foodItemName : null}}</a> <input name="food.foodItemName" class="qty" type="number"
-                id="" value="{{food ? food.quantity : null}}"> <span class="price">{{(food ? food.price :
-                0)* (food ? food.quantity : 0)}}</span>
-              <button class="btn-danger" (click)="onDeleteFromCart(food ? food.foodItemId : null)">Delete</button>
-            </p>
-          </div>
-          <hr>
-          <p>Total <span class="price" style="color:black"><b>{{ cart ? cart.totalPrice : 0 }}</b></span></p>
-          <button #saveCartButton class="bton btn-primary" (click)="onSaveCart()">Save Cart</button>
-          <button class="col-6" (click)="onSubmitOrder()" class="bton btn-success">Checkout</button>
+<form>
+  <div *ngIf="showCart == 2" class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-50">
+          <h4>Item</h4>
+        </div>
+        <div class="col-25">
+          <h4>Quantity</h4>
+        </div>
+        <div class="col-25">
+          <h4 class="price">Price(in Rupees)</h4>
         </div>
       </div>
+      <div *ngFor="let food of (cart ? cart.cartItemList : [])">
+        <div class="row">
+          <div class="col-50">
+            <img src="{{food.foodItemImagePath}}" height="50px" width="50px">
+            <a> {{food ? food.foodItemName : null}}</a>
+          </div>
+          <div class="col-25">
+            <input name="food.foodItemId" class="qty" type="number" id="" value="{{food ? food.quantity : null}}">
+            <button class="btn-danger" (click)="onDeleteFromCart(food ? food.foodItemId : null)">Delete</button>
+          </div>
+          <div class="col-25">
+            <span class="price">
+              {{(food ? food.price : 0)* (food ? food.quantity : 0)}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-25">
+          <h3>Total</h3>
+        </div>
+        <div class="col-25"><b>{{ cart ? cart.totalQuantity : 0 }}</b></div>
+        <div class="price" style="color:black"><b>{{ cart ? cart.totalPrice : 0 }}</b></div>
+      </div>
+      <button #saveCartButton class="bton btn-primary" (click)="onSaveCart()">Save Cart</button>
+      <button class="col-6" (click)="onSubmitOrder()" class="bton btn-success">Checkout</button>
     </div>
-  </form>
-</div>
+  </div>
+</form>

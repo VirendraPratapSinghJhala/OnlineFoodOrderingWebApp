@@ -25,6 +25,7 @@
   .col-50,
   .col-75 {
     padding: 0 16px;
+  text-align: left;
   }
   
   .container {
@@ -35,9 +36,7 @@
   }
   
   input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
+  width: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
   }
@@ -66,15 +65,9 @@
   
   
   .qty{
-      margin: 0 0 0 50%;
-      width: 40px;
+      width: 60px;
     }
     
-    span.price {
+.price {
       float: right;
-      color: grey;
-  }
-
-  .disabled{
-    background-color: lightgray;
   }

@@ -10,10 +10,12 @@ export class OrderItem {
     price: number;
     quantity: number;
     foodItemName: string;
-    constructor(foodItemId: number,price: number,quantity: number, foodItemName: string) {
+    foodItemImagePath: string;
+    constructor(foodItemId: number,price: number,quantity: number, foodItemName: string, foodItemImagePath: string) {
       this.foodItemId = foodItemId;
       this.price = price;
       this.quantity = quantity;
       this.foodItemName = foodItemName;
+      this.foodItemImagePath = foodItemImagePath;
     }
 }

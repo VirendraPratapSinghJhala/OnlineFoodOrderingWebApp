@@ -25,6 +25,7 @@
   .col-50,
   .col-75 {
     padding: 0 16px;
+    text-align: left;
   }
   
   .container {
@@ -69,12 +70,7 @@
     background-color: #45a049;
   }
   
-  .qty{
-      margin: 0 0 0 50%;
-      width: 40px;
-    }
     
-    span.price {
+  .price {
       float: right;
-      color: grey;
   }

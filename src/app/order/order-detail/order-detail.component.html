@@ -1,25 +1,31 @@
-<div class="row">
-
-    <div class="col-25">
+<div class="">
       <div class="container">
-        <h1>Order</h1>
-      </div>
-      <div class="container">
-        <h4>Product
-          <b class="qty">Quantity</b>
-          <span class="price" style="color:black">
-            <i class="fa fa-shopping-cart"></i>
-            <b>Price</b>
-          </span>
-        </h4>
+          <div class="row">
+            <div class="col-50">
+              <h4>Item</h4>
+            </div>
+            <div class="col-25">
+                <h4>Quantity</h4>
+            </div>
+            <div class="col-25">
+                <h4 class="price">Price(in Rupees)</h4>
+            </div>
+          </div>
         <div *ngFor="let item of orderItemsList">
-          <p>
-            <a>{{item.foodItemId}}</a> <span class="qty">{{item.quantity}}</span> <span class="price">{{item.price}}</span>
-          </p>
+            <div class="row">
+              <div class="col-50">
+                <img src="{{item.foodItemImagePath}}" height="50px" width="50px">
+                <a>{{item.foodItemName}}</a>
+              </div>
+              <div class="col-25">
+                <span class="qty">{{item.quantity}}</span>
+              </div>
+              <div class="col-25">
+                <span class="price">{{item.price}}</span>
+              </div>
+            </div>
         </div>
         <hr>
-        <p>Total <span class="price" style="color:black"><b>{{orderDetail.totalPrice}}</b></span></p>
+        <div class="row"><div class="col-25"><h3>Total</h3></div><div class="col-25"><b>{{orderDetail.totalQuantity}}</b></div> <div class="price" style="color:black"><b>{{orderDetail.totalPrice}}</b></div></div>
       </div>
-    </div>
-  <a routerLink="/orderlist" class="btn btn-success">Back to Order List</a>
   </div>

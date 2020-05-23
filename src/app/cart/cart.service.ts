@@ -105,9 +105,10 @@ export class CartService{
     private cartItemValueMapper(orderItemsList){
         let cartItemList: OrderItem[] = [];
         orderItemsList.forEach(element => {
-            let singleItem = new OrderItem(null, null, null, null);
+            let singleItem = new OrderItem(null, null, null, null, null);
             singleItem.foodItemId = element['Food_Item_Id'];
             singleItem.foodItemName = element['Food_Items']['Food_Name'];
+            singleItem.foodItemImagePath = element['Food_Items']['ImagePath'];
             singleItem.quantity = element['Quantity'];
             singleItem.price = element['Price'];
             cartItemList.push(singleItem);

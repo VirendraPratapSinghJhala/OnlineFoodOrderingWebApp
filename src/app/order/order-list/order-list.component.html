@@ -1,21 +1,25 @@
-
-    <h1>Orders</h1>
+<div class="col-25 container">
+    <h1>Your Past Orders</h1>
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card " *ngFor="let order of orderList">
-                    <div class="card-body">
-                        <h5 class="card-title">Order</h5>
-                        <p class="card-text">Id : {{order.orderId}}</p>
-                        <p class="card-text">Date : {{order.orderDate}}</p>
-                        <p class="card-text">Total Quantity : {{order.totalQuantity}}</p>
-                        <p class="card-text">Total Price : {{order.totalPrice}}</p>
-                        <p class="card-text">Food Store ID : {{order.foodStoreId}}</p>
-                        <p class="card-text">Employee ID : {{order.employeeId}}</p>
-                        <a class="btn btn-primary" routerLink="/orderdetail/{{order.orderId}}">Details</a>
+                <div class="card " *ngFor="let order of (orderList.length ? orderList : null); let RowIndex = index">
+                    <button class="btn btn-primary" data-toggle="collapse" attr.data-target="#{{RowIndex}}">
+                        <div class="card-header">
+                            <div class="row">
+
+                                <div class="col-3">Order number: {{order.orderId}}</div>
+                                <div class="col-3">Date: {{order.orderDate}}</div>
+                                <div class="col-3">Total Quantity: {{order.totalQuantity}}</div>
+                                <div class="col-3">Total Price: {{order.totalPrice}}</div>
+                            </div>
+                        </div>
+                    </button>
+                    <div id="{{RowIndex}}" class="collapse">
+                        <app-order-detail [orderDetail]="order"></app-order-detail>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
