@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 import { CartService } from './cart.service';
 import { Cart } from './cart.model';
 import { OrderItem } from '../order/order-item.model';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalService } from '../shared/global.service';
 
@@ -20,8 +20,7 @@ import { GlobalService } from '../shared/global.service';
 })
 export class CartComponent implements OnInit {
   @ViewChild('saveCartButton') saveCartButton: ElementRef;
-  @ViewChild('f', { static: false }) userForm: NgForm;
-  updateCartForm: NgForm;
+  updateCartForm: FormGroup;
   showCart: number;
   customerId: number;
   cart: Cart;
@@ -35,15 +34,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLatestCart();
-    console.log(this.updateCartForm);
   }
 
-  // ngAfterViewInit(): void {
-  //   this.updateCartForm = this.userForm;
-  //   // this.updateCartForm.valueChanges.subscribe((val)=>{
-  //   //   this.saveCartButton.nativeElement.class = "btn btn-primary";
-  //   // });
-  // }
+  
+
   onDeleteFromCart(productId: number) {
     this.cartService.deleteFromCart(this.customerId, productId).subscribe(
       (deleteResponse) => {
@@ -57,6 +51,26 @@ export class CartComponent implements OnInit {
     );
   }
   onSaveCart() {
+    this.showCart = 0;
+    for(let i = 0; i < this.cart.cartItemList.length; i ++){
+      this.cart.cartItemList[i].quantity = this.updateCartForm.get('itemsQuantities').value[i];
+    }
+    this.cartService.updateCart(this.customerId, this.cart.cartItemList).subscribe(
+      (updateCartResponse)=>{
+        if(updateCartResponse){
+          console.log(updateCartResponse);
+          this.getLatestCart();
+        }else{
+          alert("Couldn't update your cart. Please try again.");
+          this.getLatestCart();
+        }
+      },
+      (updateCartError)=>{
+        alert("There may be some connectivity issues");
+        console.log(updateCartError);
+        this.getLatestCart();
+      }
+    );
     // this.
     // this.cartService.updateCart(this.customerId, ){
     // }
@@ -78,21 +92,29 @@ export class CartComponent implements OnInit {
   }
 
   getLatestCart() {
+    this.updateCartForm = new FormGroup({
+      'itemsQuantities': new FormArray([])
+    });
+    this.showCart = 1;
     this.cartService.getCartByCustomerId(this.customerId).subscribe(
       (response) => {
         this.cart = this.cartService.cartValueMapper(response);
-        if (
-          this.cart && this.cart.cartItemList && this.cart.cartItemList.length == 0) {
+        if (this.cart && this.cart.cartItemList && this.cart.cartItemList.length == 0) {
           this.showCart = 1;
         } else {
-          this.showCart = 2
+          this.cart.cartItemList.forEach(itemInCart => {
+            // let inputField = {};
+            // inputField[itemInCart.foodItemId] =  new FormControl(itemInCart.quantity);
+            // console.log(inputField);
+            // let quantityInputControl: FormControl = new FormControl(inputField);
+            (<FormArray>this.updateCartForm.get('itemsQuantities')).push(new FormControl(itemInCart.quantity));
+          });
+          this.showCart = 2;
         }
       },
       (error) => {
-        console.log('hello')
         console.log(error);
       }
     );
-
   }
 }

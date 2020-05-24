@@ -16,8 +16,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    'Content-Type':  'application/json'
   })
 };
 @Injectable()
@@ -80,8 +79,9 @@ export class CartService{
     updateCart(customerId:number, orderItemsList:OrderItem[]){
         let requestObject = {
             "Customer_Id":customerId,
-            "Order_Items":orderItemsList
+            "Order_Items":this.orderItemValueMapperForRequest(orderItemsList)
         };
+        console.log(JSON.stringify(requestObject));
         return this.httpClient.put<boolean>("https://localhost:44317/api/order/updatecart", requestObject, httpOptions);
     }
 
@@ -114,5 +114,18 @@ export class CartService{
             cartItemList.push(singleItem);
         });
         return cartItemList;
+    }
+
+    private orderItemValueMapperForRequest(cartItemsList: OrderItem[]): any[]{
+        let Order_Items: { Food_Item_Id: number, Quantity: number }[] = [];
+        
+        cartItemsList.forEach((singleItem)=>{
+            let item: { Food_Item_Id: number, Quantity: number } = { Food_Item_Id: null, Quantity: null };
+            item.Food_Item_Id = singleItem.foodItemId;
+            item.Quantity = singleItem.quantity;
+            Order_Items.push(item);
+        });
+
+        return Order_Items;
     }
 }
